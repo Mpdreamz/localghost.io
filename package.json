@@ -2,6 +2,10 @@
 	"name": "mpdreamznl",
 	"preferGlobal": "false",
 	"version": "0.1.0",
+	"engines": {
+		"node": "0.8.x",
+		"npm":  "1.1.x"
+	}
 	"author": "Martijn Laarman <Mpdreamz@gmail.com>",
 	"description": "My personal website",
 	"dependencies": {
