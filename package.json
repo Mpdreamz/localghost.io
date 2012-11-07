@@ -1,4 +1,11 @@
-"dependencies": {
-	  "wintersmith": "1.0.x",
-	    "connect": "2.3.x"
+{
+	"name": "mpdreamz-nl website",
+	"preferGlobal": "false",
+	"version": "0.1.0",
+	"author": "Martijn Laarman <Mpdreamz@gmail.com>",
+	"description": "My personal website",
+	"dependencies": {
+		"wintersmith": "1.0.x",
+		"connect": "2.3.x"
+	}
 }
