@@ -15,8 +15,7 @@ block content
       header
         h2
           a(href=article.url)= article.title
-        p
-          mixin author(article.metadata.author)
+        em.article_date= article.date.toDateString()
       section.content!= article.intro
       if article.hasMore
         p.read-more

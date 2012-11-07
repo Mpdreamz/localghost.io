@@ -13,5 +13,9 @@ block header
     mixin author(page.metadata.author)
 
 block content
-  article.post
+ article.post
+   header
+     h2
+       a(href=)= page.title
+  
     section.content!= page.html

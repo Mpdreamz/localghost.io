@@ -1,0 +1,118 @@
+@import 'grid.less';
+
+
+//////////
+// GRID //
+//////////
+
+// Specify the number of columns and set column and gutter widths
+
+@columns: 12;
+@column-width: 60;
+@gutter-width: 20;
+
+// Remove the definition below for a pixel-based layout
+@total-width: 80%;
+
+.center() {
+	width:80%;
+	max-width:1010px;
+	min-width:880px;
+	margin-left:auto;
+	margin-right:auto;
+	display:block;
+}
+.roundedCorners (@radius: 5px) {
+	-moz-border-radius: @radius;
+	-webkit-border-radius: @radius;
+	border-radius: @radius;
+}
+
+body {
+	padding-top:0px;
+	
+	float:none;
+}
+div#site_header,
+div#site_content, 
+div#site_footer {
+	.center();
+}
+div#site_footer footer,
+div#site_header header  {
+	.column(12);
+}
+div#content {
+	.center();
+}
+aside {
+	.column(3);
+	h4 {
+		border-bottom: hsl(0, 0%, 45%) 2px solid;
+	}
+}
+article {
+	.column(9);
+}
+div#site_footer_container {
+	float:left;
+	width:100%;
+	margin-top:50px;
+}
+nav {
+	float:right;
+	ul {
+		margin-top:195px;
+	}
+	.sep {
+			padding-top:5px;
+			color: hsl(0, 0%, 75%);
+	}
+	li {
+		float:left;
+		font-size:32px;
+		a,
+		a:visited,
+		a:focus,
+		a:active {
+			.roundedCorners();
+			padding:5px;
+			display:inline-block;
+			color: hsl(0, 0%, 45%);
+			text-decoration:none;
+		}
+		a:hover
+		{
+			color:white;
+			background: hsl(347, 49%, 75%);
+
+		}
+		a.selected {
+			background: hsl(347, 49%, 45%);
+			color:white;
+		}
+		
+	}
+}
+
+h3 {
+	color: hsl(13, 49%, 45%)
+}
+h1 {
+	color: hsl(210, 49%, 45%)
+}
+h4 {
+	color: hsl(0, 0%, 45%);
+}
+header {
+	position: relative;
+	canvas#birds {
+		position:absolute;
+		top:0px;
+		right:0px;
+		background:transparent;
+		width:100%;
+		margin:0;
+		height:200px;
+	}
+}

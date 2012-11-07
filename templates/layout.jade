@@ -7,20 +7,29 @@ html(lang='en')
         block title
           = locals.name
       link(rel='alternate', href=locals.url+'/feed.xml', type='application/rss+xml', title=locals.description)
-      link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Fredericka+the+Great')
+      link(rel='stylesheet', href='/css/initializer.css')
       link(rel='stylesheet', href='/css/github.css')
-      link(rel='stylesheet', href='/css/main.css')
+      link(rel='stylesheet', href='/css/fluid.css')
+      link(rel='stylesheet', href='/css/theme.css')
+      link(rel='stylesheet', href='/css/finalizer.css')
+
+      script(src='/js/libs/modernizr-2.0.min.js')
+      script(src='/js/libs/polyfills.js') 
+      script(src='/js/libs/jquery-1.6.2.min.js')
+      script(src='/js/script.js')
   body
-    header
-      div.inner
-        block header
-          h1
-            img(src="/images/mpdreamz.png")
-            a(href=locals.url)= locals.name
-    div#content
-      block content
-        h2 Welcome to zombocom!
+    header.clearfix
+      img#logo(src='/images/backgrounds/logo-32.png')      
+      nav
+        ul
+          li
+            a(href='/') Blog
+          li.sep |
+          li
+            a(href='/projects') Projects
+          li.sep |
+          li
+            a.selected(href='about-me') About Me
+    block content
     footer
-      div.inner
-        block footer
-          p &copy; #{ new Date().getFullYear() } #{ locals.owner }
+      h4 What to do with this footer? 
