@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      <Hello World>-</Hello World>
+    </title>
+    <link rel="alternate" href="//feed.xml" type="application/rss+xml" title="-Love data, design and most of all, the web">
+    <link rel="stylesheet" href="/css/initializer.css">
+    <link rel="stylesheet" href="/css/github.css">
+    <link rel="stylesheet" href="/css/fluid.css">
+    <link rel="stylesheet" href="/css/theme.css">
+    <link rel="stylesheet" href="/css/finalizer.css">
+    <script src="/js/libs/modernizr-2.0.min.js"></script>
+    <script src="/js/libs/polyfills.js"> </script>
+    <script src="/js/libs/jquery-1.6.2.min.js"></script>
+    <script src="/js/script.js"></script>
+  </head>
+  <body>
+    <header class="clearfix"><img id="logo" src="/images/backgrounds/logo-32.png">
+      <nav>
+        <ul>
+          <li><a href="/">Blog</a></li>
+          <li class="sep">|</li>
+          <li><a href="/projects">Projects</a></li>
+          <li class="sep">|</li>
+          <li><a href="about-me" class="selected">About Me</a></li>
+        </ul>
+      </nav>
+    </header>
+    <article class="post">
+      <header>
+        <h2><a href>Hello World</a></h2>
+      </header>
+      <section class="content"><p>Welcome to your new wintersmith site mortal.
+
+</p>
+<p>This is an example of how you can set up a blog with RSS, and an archive using Wintersmith.
+If you want a bare bones example check out the site in <code>examples/basic/</code> in the repository root or
+use <code>wintersmith new &lt;path&gt; --template basic</code> when creating a new site.
+
+</p>
+<p>Site structure:
+
+</p>
+<pre><code>├── config.json                          site configuration <span class="keyword">and</span> metadata
+├── contents
+│   ├── archive.md
+│   ├── articles                         each article is a subfolder of articles
+│   │   ├── another-test
+│   │   │   └── index.md
+│   │   ├── bamboo-cutter
+│   │   │   ├── Taketori_Monogatari.jpg
+│   │   │   └── index.md
+│   │   ├── hello-world
+│   │   │   └── index.md
+│   │   └── red-herring
+│   │       ├── banana.jpg
+│   │       └── index.md
+│   ├── authors                          <span class="keyword">if</span> an author is set in an articles metadata it
+│   │   ├── baker.json                   will be read from here
+│   │   └── the-wintersmith.json
+│   ├── css
+│   │   ├── github.css
+│   │   └── main.css
+│   ├── feed.json                        json page that renders the rss feed to feed.xml
+│   ├── index.json
+└── templates
+    ├── archive.jade
+    ├── article.jade
+    ├── author.jade
+    ├── feed.jade
+    ├── index.jade
+    └── layout.jade</code></pre>
+<p>Articles are sorted by date and the 3 most recent are shown (configurable in <code>config.json</code>). All other articles
+are avalible via their permalink or the archive page.
+
+</p>
+<p>Example article/post:
+
+</p>
+<pre><code class="markdown">title: My new shiny blog
+author: johndoe
+date: 2012-12-12 12:12
+
+# Hello!
+
+I'm an article. Bla bla bla so interesting.</code></pre>
+</section>
+    </article>
+    <footer>
+      <h4>What to do with this footer? </h4>
+    </footer>
+  </body>
+</html>
