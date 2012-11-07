@@ -1,0 +1,4 @@
+"dependencies": {
+	  "wintersmith": "1.0.x",
+	    "connect": "2.3.x"
+}
