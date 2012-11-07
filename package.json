@@ -6,6 +6,6 @@
 	"description": "My personal website",
 	"dependencies": {
 		"wintersmith": "1.0.x",
-		"connect": "2.3.x"
+		"connect": "2.6.x"
 	}
 }
