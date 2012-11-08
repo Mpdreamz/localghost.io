@@ -13,7 +13,6 @@ nav ul
 }
 nav .sep
 {
-	padding-top:5px;
 	color:#bfbfbf
 }
 nav li
@@ -45,7 +44,6 @@ nav li a.selected
 
 h2 {
 	margin:0px;
-	size:32px;
 	color:#737373;
 }
 em.article_date {
