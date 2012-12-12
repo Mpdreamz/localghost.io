@@ -1,7 +1,7 @@
 * 
 {
 	font-family: 'Ubuntu', sans-serif;
-	font-size:24px;
+	font-size:14px;
 }
 html 
 {
@@ -13,6 +13,7 @@ html
 }
 header, article, footer {
  	min-width:600px;
+	max-width:760px;
 	width: 80%;
 	clear:both;
 	margin:0px auto;
