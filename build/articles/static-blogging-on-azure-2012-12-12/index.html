@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>
+      <static blogging on azure>-</static blogging on azure>Mpdreamz.nl
+    </title>
+    <link rel="alternate" href="//feed.xml" type="application/rss+xml" title="-Love data, design and most of all, the web">
+    <link rel="stylesheet" href="/css/initializer.css">
+    <link rel="stylesheet" href="/css/github.css">
+    <link rel="stylesheet" href="/css/fluid.css">
+    <link rel="stylesheet" href="/css/theme.css">
+    <link rel="stylesheet" href="/css/finalizer.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Ubuntu">
+    <script src="/js/libs/modernizr-2.0.min.js"></script>
+    <script src="/js/libs/polyfills.js"> </script>
+    <script src="/js/libs/jquery-1.6.2.min.js"></script>
+    <script src="/js/script.js"></script>
+  </head>
+  <body>
+    <header class="clearfix"><img id="logo" src="/images/backgrounds/logo-32.png">
+      <nav>
+        <ul>
+          <li><a href="/">Blog</a></li>
+          <li class="sep">|</li>
+          <li><a href="/projects">Projects</a></li>
+          <li class="sep">|</li>
+          <li><a href="about-me" class="selected">About Me</a></li>
+        </ul>
+      </nav>
+    </header>
+    <article class="post">
+      <header>
+        <h2><a href>static blogging on azure</a></h2>
+      </header>
+      <section class="content"><h1>Static blogging on Azure</h1>
+<p>I&apos;ve been playing with static blog sites way more then I ought to have especially considering this right here constitutes as my first blog post.
+
+</p>
+<p>I find blogging scary enough, I make a lot of grammar mistakes even in my own native tongue and always mix up sayings at the amusal of my colleagues, friends and relatives. 
+Mark Twain has been quoted as saying that he respected a person who could spell a word more than one way. Me thinks Mark Twain and I would have gotten along.
+
+</p>
+<p>So to get me started on blogging I need to be able to write and push from the command line where I feel comfortable and safe with little time to get cold feet thinking about all the horrible grammar mistakes I&apos;ve made. 
+
+</p>
+<p>So I&apos;ve settled on <a href="http://jnordberg.github.com/wintersmith/">wintersmith</a> mostly because it&apos;s nodejs based and nodejs is really easy to set up on any machine whether its windows, linux or mac. <a href="http://jnordberg.github.com/wintersmith/">wintersmith</a> stood out to me because it has just enough to please without feeling crippled. 
+
+</p>
+<pre><code>wintersmith preview</code></pre>
+<p>and
+
+
+</p>
+<pre><code>wintersmith build</code></pre>
+<p>bring home the cake. 
+
+</p>
+<p>I added a small <code>Makefile</code> to ease with adding new articles as I really want to have a date in my slug
+
+</p>
+<pre><code>NAME = <span class="string">"new-article"</span>
+FULLDATE=`date +<span class="string">'%y-%m-%d %H:%M'</span>`
+DATE=`date +<span class="string">'%Y-%m-%d'</span>`
+FOLDER = <span class="string">"./contents/articles/`echo $(NAME) | tr A-Z a-z | tr "</span> <span class="string">" -`-$(DATE)"</span>
+MSG = <span class="string">""</span>
+
+all:
+    wintersmith build 
+    git commit -am <span class="string">"releasing $(MSG)"</span>
+    git push origin master
+
+<span class="keyword">new</span>:
+    mkdir <span class="string">"$(FOLDER)"</span>
+    <span class="keyword">echo</span> <span class="string">"title: $(NAME)\nauthor: Mpdreamz\ndate: 20$(FULLDATE)\ntemplate: article.jade\n\n"</span> >> <span class="string">"$(FOLDER)/index.md"</span></code></pre>
+<p>now 
+
+</p>
+<pre><code>make <span class="keyword">new</span> NAME=<span class="string">"My New Article"</span></code></pre>
+<p>and 
+
+</p>
+<pre><code>make build </code></pre>
+<p>brings home the cake. <code>make new</code> takes care of figuring out what day it is and slugifying my desired blog title.
+
+
+</p>
+<p>For hosting I ended up with Azure git based hosting which has a little gem I could not get on Heroku
+the <code>.deployment</code> file where I can point to an alternative root. 
+
+</p>
+<pre><code>[config]
+project = build</code></pre>
+<p>This little feature is a huge advantage to the other platforms I looked at, Heroku needs a small server to serve from a subfolder and github pages need a separate branch.
+
+</p>
+<p>For now I&apos;m pleased with this setup
+
+</p>
+<p>Sidenote: I just ran a <code>:set spell</code> and I&apos;m certain I&apos;m a respectable person by Mark Twain standards. 
+</p>
+</section>
+    </article>
+    <footer>
+      <h4>What to do with this footer? </h4>
+    </footer>
+  </body>
+</html>
