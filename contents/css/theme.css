@@ -20,6 +20,7 @@ header, article, footer {
 }
 article header {
 	margin:0px 0px;
+	margin-top:40px;
 }
 header img#logo {
 	float:left;

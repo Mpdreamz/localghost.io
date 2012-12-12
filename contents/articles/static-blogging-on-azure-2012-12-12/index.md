@@ -1,9 +1,7 @@
-Title: static blogging on azure
+Title: Static blogging on Azure
 author: Mpdreamz
 date: 2012-12-12 19:54
 template: article.jade
-
-# Static blogging on Azure
 
 I've been playing with static blog sites way more then I ought to have especially considering this right here constitutes as my first blog post.
 
