@@ -18,10 +18,11 @@ nav .sep
 nav li
 {
 	float:left;
-	font-size:32px
+	font-size:32px;
 }
 nav li a,nav li a:visited,nav li a:focus,nav li a:active
 {
+	font-size:24px;
 	-moz-border-radius:5px;
 	-webkit-border-radius:5px;
 	border-radius:5px;

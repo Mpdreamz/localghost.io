@@ -23,11 +23,14 @@ html(lang='en')
       nav
         ul
           li
-            a(href='/') Blog
+            - var blogSelected = (page.url.substring(0, 4) === '/art' || page.url === '/' ? 'selected' : '')
+            a(href='/', class=blogSelected) Blog
           li.sep |
           li
-            a(href='archive.html')#archive Archives
+            - var blogSelected = (page.url.substring(0, 4) === '/arc'  ? 'selected' : '')
+            a(href='archive.html', class=blogSelected)#archive Archives
           li.sep |
           li
-            a.selected(href='about-me') About Me
+            - var blogSelected = (page.url.substring(0, 4) === '/abo'  ? 'selected' : '')
+            a(href='about-me.html', class=blogSelected) About Me
     block content

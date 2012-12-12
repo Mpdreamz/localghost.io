@@ -11,17 +11,21 @@ block content
   -   return item.date.getFullYear()
   - }).value()
   - var map = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+  article.post
+    header
+      h2
+        a(href="/archive.html") The Archive
 
-  section.archive
-    ul
-      each year in _.chain(archive).keys().reverse().value()
-        li.year= year
-        - var months = _.groupBy(archive[year], function(item) { return map[item.date.getMonth()] })
-        ul
-          each articles, month in months
-            li
-              strong= month
-              each article in articles
-                br
-                a(href=article.url)= article.title
+    section.content
+      ul
+        each year in _.chain(archive).keys().reverse().value()
+          li.year= year
+          - var months = _.groupBy(archive[year], function(item) { return map[item.date.getMonth()] })
+          ul
+            each articles, month in months
+              li
+                strong= month
+                each article in articles
+                  br
+                  a(href=article.url)= article.title
 
