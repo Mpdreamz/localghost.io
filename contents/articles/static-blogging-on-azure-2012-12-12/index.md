@@ -44,12 +44,13 @@ now
 
 and 
 
-	make build 
+	make MSG="Commit message" 
 
 brings home the cake. `make new` takes care of figuring out what day it is and slugifying my desired blog title.
+`MAKE MSG=""` will commit my changes and push it to github. Github then notifies Azure to deploy my latest changes. This all happens within a few seconds!
 
 
-For hosting I ended up with Azure git based hosting which has a little gem I could not get on Heroku
+For hosting I ended up with Azure git based hosting because it has a little gem I could not get on Heroku
 the `.deployment` file where I can point to an alternative root. 
 
 	[config]

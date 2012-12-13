@@ -18,9 +18,13 @@ header, article, footer {
 	clear:both;
 	margin:0px auto;
 }
+article.post {
+	margin-top:40px;
+	padding:10px;
+	margin-bottom:40px;
+}
 article header {
 	margin:0px 0px;
-	margin-top:40px;
 }
 header img#logo {
 	float:left;
@@ -29,4 +33,11 @@ header {
 	margin-top:-50px;
 	margin-bottom:20px;
 }
-
+img.avatar {
+	float:right;
+	border:3px solid #eee;
+	-moz-border-radius: 20px; 
+	-webkit-border-radius: 20px;
+	border-radius: 20px;
+	margin-left:20px;
+}
