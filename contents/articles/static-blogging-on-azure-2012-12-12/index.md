@@ -1,4 +1,4 @@
-Title: Static blogging on Azure
+title: Static blogging on Azure
 author: Mpdreamz
 date: 2012-12-12 19:54
 template: article.jade
