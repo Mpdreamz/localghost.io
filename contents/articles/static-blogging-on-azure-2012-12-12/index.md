@@ -12,14 +12,13 @@ So to get me started on blogging I need to be able to write and push from the co
 
 So I've settled on [wintersmith](http://jnordberg.github.com/wintersmith/) mostly because it's nodejs based and nodejs is really easy to set up on any machine whether its windows, linux or mac. [wintersmith](http://jnordberg.github.com/wintersmith/) stood out to me because it has just enough to please without feeling crippled. 
 
-	wintersmith preview
+	$ wintersmith preview
 
 and
 
-    
-	wintersmith build
+	$ wintersmith build
 
-bring home the cake. 
+bring home the cake.
 
 I added a small `Makefile` to ease with adding new articles as I really want to have a date in my slug
 
@@ -41,11 +40,11 @@ I added a small `Makefile` to ease with adding new articles as I really want to 
 
 now 
 
-	make new NAME="My New Article"
+	$ make new NAME="My New Article"
 
 and 
 
-	make MSG="Commit message" 
+	$ make MSG="Commit message" 
 
 brings home the cake. `make new` takes care of figuring out what day it is and slugifying my desired blog title.
 `MAKE MSG=""` will commit my changes and push it to github. Github then notifies Azure to deploy my latest changes. This all happens within a few seconds!
