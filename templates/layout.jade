@@ -7,30 +7,31 @@ html(lang='en')
         block title
           = locals.name
       link(rel='alternate', href=locals.url+'/feed.xml', type='application/rss+xml', title=locals.description)
-      link(rel='stylesheet', href='/css/initializer.css')
-      link(rel='stylesheet', href='/css/github.css')
-      link(rel='stylesheet', href='/css/fluid.css')
-      link(rel='stylesheet', href='/css/theme.css')
-      link(rel='stylesheet', href='/css/finalizer.css')
-      link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Ubuntu')
-      script(src='/js/libs/modernizr-2.0.min.js')
-      script(src='/js/libs/polyfills.js') 
-      script(src='/js/libs/jquery-1.6.2.min.js')
-      script(src='/js/script.js')
+      link(rel='stylesheet', href='/css/normalize.css')
+      link(rel='stylesheet', href='/css/layout.css')
+      link(rel='stylesheet', href='/css/styling.css')
+      link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Rokkitt|Roboto+Condensed|Share+Tech+Mono')
+      link(rel="stylesheet", href="/css/styles/ir_black.css")
+      script(src="/js/highlight.pack.js")
+      //script(src='/js/script.js')
   body
+    nav
+      ul
+        li
+          - var blogSelected = (page.url.substring(0, 4) === '/art' || page.url === '/' ? 'selected' : '')
+          a(href='/', class=blogSelected) Blog
+        li.sep |
+        li
+          - var blogSelected = (page.url.substring(0, 4) === '/arc'  ? 'selected' : '')
+          a(href='archive.html', class=blogSelected)#archive Archives
+        li.sep |
+        li
+          - var blogSelected = (page.url.substring(0, 4) === '/abo'  ? 'selected' : '')
+          a(href='about-me.html', class=blogSelected) About Me
+
     header.clearfix
-      img#logo(src='/images/backgrounds/logo-32.png')      
-      nav
-        ul
-          li
-            - var blogSelected = (page.url.substring(0, 4) === '/art' || page.url === '/' ? 'selected' : '')
-            a(href='/', class=blogSelected) Blog
-          li.sep |
-          li
-            - var blogSelected = (page.url.substring(0, 4) === '/arc'  ? 'selected' : '')
-            a(href='archive.html', class=blogSelected)#archive Archives
-          li.sep |
-          li
-            - var blogSelected = (page.url.substring(0, 4) === '/abo'  ? 'selected' : '')
-            a(href='about-me.html', class=blogSelected) About Me
+      //img#logo(src='/images/backgrounds/logo-32.png')      
+      h1 localghost.io
+        span.blink _
+    section.content
     block content

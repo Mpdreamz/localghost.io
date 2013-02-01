@@ -23,6 +23,7 @@ bring home the cake.
 
 I added a small `Makefile` to ease with adding new articles as I really want to have a date in my slug
 
+
 	NAME = "new-article"
 	FULLDATE=`date +'%y-%m-%d %H:%M'`
 	DATE=`date +'%Y-%m-%d'`
@@ -53,8 +54,10 @@ brings home the cake. `make new` takes care of figuring out what day it is and s
 For hosting I ended up with Azure git based hosting because it has a little gem I could not get on Heroku
 the `.deployment` file where I can point to an alternative root. 
 
-	[config]
-	project = build
+```ini
+[config]
+project=build
+```
 
 This little feature is a huge advantage to the other platforms I looked at, Heroku needs a small server to serve from a subfolder and github pages need a separate branch.
 

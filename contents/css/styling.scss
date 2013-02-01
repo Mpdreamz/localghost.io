@@ -1,0 +1,50 @@
+//@import '_animate.sass';
+.blink {
+//	@include animate(fadeIn, 3s, 2s)
+}
+h1,h2,h3,h4,h5,h6 {
+	font-family: 'Rokkitt', sans-serif;
+}
+a {
+	text-decoration:none;
+	color: #551A8B;
+}
+body {
+	font-family: 'Roboto Condensed', sans-serif;
+	font-size:2em;
+	-webkit-font-smoothing: subpixel-antialiased;
+}
+code {
+	background:#111111;
+	font-family:'Share Tech Mono', monospace;
+}
+pre,pre code {
+	background:#150326;
+	font-family:'Share Tech Mono', monospace;
+	font-size:0.9em;
+}
+
+nav li {
+	display:inline-block;
+	padding:5px;
+}
+nav li a {
+	padding:5px;
+}
+a:hover {
+	background:#150326;
+}
+nav li a.selected {
+	background:#551A8B;
+	color:white;
+}
+@-webkit-keyframes blinker {  
+	from { opacity: 1.0; }
+	to { opacity: 0.0; }
+}
+.blink {
+	-webkit-animation-name: blinker;  
+	-webkit-animation-iteration-count: infinite;  
+	-webkit-animation-timing-function: cubic-bezier(1.0,0,0,1.0);
+	-webkit-animation-duration: 1s; 
+}
