@@ -27,16 +27,16 @@ Mark Twain has been quoted as saying that he respected a person who could spell 
 &lt;p&gt;So I&apos;ve settled on &lt;a href=&quot;http://jnordberg.github.com/wintersmith/&quot;&gt;wintersmith&lt;/a&gt; mostly because it&apos;s nodejs based and nodejs is really easy to set up on any machine whether its windows, linux or mac. &lt;a href=&quot;http://jnordberg.github.com/wintersmith/&quot;&gt;wintersmith&lt;/a&gt; stood out to me because it has just enough to please without feeling crippled. 
 
 &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;wintersmith preview&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;$ wintersmith preview&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;and
 
-
 &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;wintersmith build&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;bring home the cake. 
+&lt;pre&gt;&lt;code&gt;$ wintersmith build&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;bring home the cake.
 
 &lt;/p&gt;
 &lt;p&gt;I added a small &lt;code&gt;Makefile&lt;/code&gt; to ease with adding new articles as I really want to have a date in my slug
+
 
 &lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;NAME = &lt;span class=&quot;string&quot;&gt;&quot;new-article&quot;&lt;/span&gt;
@@ -56,11 +56,11 @@ all:
 &lt;p&gt;now 
 
 &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;make &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; NAME=&lt;span class=&quot;string&quot;&gt;&quot;My New Article&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;$ make &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; NAME=&lt;span class=&quot;string&quot;&gt;&quot;My New Article&quot;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;and 
 
 &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;make MSG=&quot;Commit message&quot; &lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;$ make MSG=&quot;Commit message&quot; &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;brings home the cake. &lt;code&gt;make new&lt;/code&gt; takes care of figuring out what day it is and slugifying my desired blog title.
 &lt;code&gt;MAKE MSG=&quot;&quot;&lt;/code&gt; will commit my changes and push it to github. Github then notifies Azure to deploy my latest changes. This all happens within a few seconds!
 
@@ -70,8 +70,8 @@ all:
 the &lt;code&gt;.deployment&lt;/code&gt; file where I can point to an alternative root. 
 
 &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;[config]
-project = build&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&quot;ini&quot;&gt;[config]
+project=build&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;This little feature is a huge advantage to the other platforms I looked at, Heroku needs a small server to serve from a subfolder and github pages need a separate branch.
 
 &lt;/p&gt;

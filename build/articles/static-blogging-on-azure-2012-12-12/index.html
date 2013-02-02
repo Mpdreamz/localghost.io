@@ -2,29 +2,34 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>
-      <Static blogging on Azure>-</Static blogging on Azure>Mpdreamz.nl
-    </title>
+    <title>localghost.io</title>
     <link rel="alternate" href="//feed.xml" type="application/rss+xml" title="-Love data, design and most of all, the web">
     <link rel="stylesheet" href="/css/normalize.css">
-    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/styling.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Rokkitt|Roboto+Condensed|Share+Tech+Mono">
+    <link rel="stylesheet" href="/css/styles/ir_black.css">
+    <script src="/js/highlight.pack.js"></script>
     <!--script(src='/js/script.js')-->
   </head>
   <body>
-    <header class="clearfix"><img id="logo" src="/images/backgrounds/logo-32.png">
-      <nav>
-        <ul>
-          <li><a href="/" class="selected">Blog</a>
-          </li>
-          <li class="sep">|</li>
-          <li><a href="archive.html" id="archive" class="">Archives</a>
-          </li>
-          <li class="sep">|</li>
-          <li><a href="about-me.html" class="">About Me</a>
-          </li>
-        </ul>
-      </nav>
+    <nav>
+      <ul>
+        <li><a href="/" class="selected">Blog</a>
+        </li>
+        <li class="sep">|</li>
+        <li><a href="archive.html" id="archive" class="">Archives</a>
+        </li>
+        <li class="sep">|</li>
+        <li><a href="about-me.html" class="">About Me</a>
+        </li>
+      </ul>
+    </nav>
+    <header class="clearfix">
+      <!--img#logo(src='/images/backgrounds/logo-32.png')      -->
+      <h1>localghost.io<span class="blink">_</span></h1>
     </header>
+    <section class="content"></section>
     <article class="post">
       <header>
         <h2><a href>Static blogging on Azure</a></h2>
@@ -42,16 +47,16 @@ Mark Twain has been quoted as saying that he respected a person who could spell 
 <p>So I&apos;ve settled on <a href="http://jnordberg.github.com/wintersmith/">wintersmith</a> mostly because it&apos;s nodejs based and nodejs is really easy to set up on any machine whether its windows, linux or mac. <a href="http://jnordberg.github.com/wintersmith/">wintersmith</a> stood out to me because it has just enough to please without feeling crippled. 
 
 </p>
-<pre><code>wintersmith preview</code></pre>
+<pre><code>$ wintersmith preview</code></pre>
 <p>and
 
-
 </p>
-<pre><code>wintersmith build</code></pre>
-<p>bring home the cake. 
+<pre><code>$ wintersmith build</code></pre>
+<p>bring home the cake.
 
 </p>
 <p>I added a small <code>Makefile</code> to ease with adding new articles as I really want to have a date in my slug
+
 
 </p>
 <pre><code>NAME = <span class="string">"new-article"</span>
@@ -71,11 +76,11 @@ all:
 <p>now 
 
 </p>
-<pre><code>make <span class="keyword">new</span> NAME=<span class="string">"My New Article"</span></code></pre>
+<pre><code>$ make <span class="keyword">new</span> NAME=<span class="string">"My New Article"</span></code></pre>
 <p>and 
 
 </p>
-<pre><code>make MSG="Commit message" </code></pre>
+<pre><code>$ make MSG="Commit message" </code></pre>
 <p>brings home the cake. <code>make new</code> takes care of figuring out what day it is and slugifying my desired blog title.
 <code>MAKE MSG=&quot;&quot;</code> will commit my changes and push it to github. Github then notifies Azure to deploy my latest changes. This all happens within a few seconds!
 
@@ -85,8 +90,8 @@ all:
 the <code>.deployment</code> file where I can point to an alternative root. 
 
 </p>
-<pre><code>[config]
-project = build</code></pre>
+<pre><code class="ini">[config]
+project=build</code></pre>
 <p>This little feature is a huge advantage to the other platforms I looked at, Heroku needs a small server to serve from a subfolder and github pages need a separate branch.
 
 </p>
@@ -97,5 +102,6 @@ project = build</code></pre>
 </p>
 </section>
     </article>
+    <script>hljs.initHighlightingOnLoad(); </script>
   </body>
 </html>
