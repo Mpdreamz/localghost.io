@@ -67,6 +67,7 @@ MSG = <span class="string">""</span>
 
 all:
     wintersmith build 
+    git add .
     git commit -am <span class="string">"releasing $(MSG)"</span>
     git push origin master
 

@@ -31,6 +31,7 @@ I added a small `Makefile` to ease with adding new articles as I really want to 
 
 	all:
 		wintersmith build 
+        git add .
 		git commit -am "releasing $(MSG)"
 		git push origin master
 

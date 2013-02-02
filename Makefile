@@ -6,6 +6,7 @@ MSG = ""
 
 all:
 	wintersmith build 
+	git add .
 	git commit -am "releasing $(MSG)"
 	git push origin master
 

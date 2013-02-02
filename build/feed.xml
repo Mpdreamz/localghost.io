@@ -47,6 +47,7 @@ MSG = &lt;span class=&quot;string&quot;&gt;&quot;&quot;&lt;/span&gt;
 
 all:
     wintersmith build 
+    git add .
     git commit -am &lt;span class=&quot;string&quot;&gt;&quot;releasing $(MSG)&quot;&lt;/span&gt;
     git push origin master
 
