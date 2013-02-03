@@ -21,11 +21,11 @@ html(lang='en')
         li.sep |
         li
           - var blogSelected = (page.url.substring(0, 4) === '/arc'  ? 'selected' : '')
-          a(href='archive.html', class=blogSelected)#archive Archives
+          a(href='/archive.html', class=blogSelected)#archive Archives
         li.sep |
         li
           - var blogSelected = (page.url.substring(0, 4) === '/abo'  ? 'selected' : '')
-          a(href='about-me.html', class=blogSelected) About Me
+          a(href='/about-me.html', class=blogSelected) About Me
 
     header.clearfix
       //img#logo(src='/images/backgrounds/logo-32.png')      
