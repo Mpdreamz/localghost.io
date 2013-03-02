@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>localghost.io</title>
+    <link rel="alternate" href="//feed.xml" type="application/rss+xml" title="-Love data, design and most of all, the web">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/styling.css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Rokkitt|Roboto+Condensed|Share+Tech+Mono">
+    <link rel="stylesheet" href="/css/styles/ir_black.css">
+    <script src="/js/highlight.pack.js"></script>
+    <!--script(src='/js/script.js')-->
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="/articles/writing-a-simple-wintersmith-plugin-2013-02-03/" class="selected">Blog</a>
+        </li>
+        <li class="sep">|</li>
+        <li><a href="/archive.html" id="archive" class="">Archives</a>
+        </li>
+        <li class="sep">|</li>
+        <li><a href="/about-me.html" class="">About Me</a>
+        </li>
+      </ul>
+    </nav>
+    <header class="clearfix">
+      <!--img#logo(src='/images/backgrounds/logo-32.png')      -->
+      <h1> <a href="/">localghost.io</a><span class="blink">_</span></h1>
+    </header>
+    <section class="content"></section>
+    <article class="post">
+      <header>
+        <h2><a href>Writing a simple wintersmith plugin</a></h2>
+      </header>
+      <section class="content"><p>I wanted to hook in to how <code>&lt;img&gt;</code> are outputted by giving them a wrapper element. 
+The reason I want to do this is so that i can give the wrapper a full page width background while centering and constraining the img&apos;s <code>max-width</code> to different sizes on different screen sizes. 
+
+</p>
+<p>Enter <code>wintersmith-markdownhacks</code>:
+
+</p>
+<pre><code class="coffee">fs = <span class="keyword">require</span> <span class="string">'fs'</span>
+path = <span class="keyword">require</span> <span class="string">'path'</span>
+url = <span class="keyword">require</span> <span class="string">'url'</span>
+
+module.exports = (wintersmith, callback) ->
+
+<span class="keyword">class</span> LocalGhostPage <span class="keyword">extends</span> wintersmith.defaultPlugins.MarkdownPage
+
+    getHtml: (base) ->
+        super base
+        @_html = @_html.replace(/(&lt;img[^>]+>)/g, <span class="string">'&lt;div class="image-wrapper">$1&lt;/div>'</span>)
+        <span class="keyword">return</span> @_html
+
+
+    wintersmith.registerContentPlugin <span class="string">'pages'</span>, <span class="string">'**/*.*(markdown|mkd|md)'</span>, LocalGhostPage
+
+    callback()</code></pre>
+<p>Registered in wintersmith&apos;s <code>config.json</code>:
+
+</p>
+<pre><code>"plugins": [
+    "wintersmith-sass",
+    "./node_modules/wintersmith-markdownhacks/plugin.coffee"
+]</code></pre>
+<p>It&apos;s dirty but I love it&#153;. Here&apos;s an obligatory cat gif showing the end result.
+
+</p>
+<p><div class="image-wrapper"><div class="image-wrapper"><img src="https://lh3.googleusercontent.com/-LRMOoQYIynY/UNH4iMul_gI/AAAAAAAAGoY/eJHrtOsd2QI/s275/137.gif" alt="obligatory cat gif"></div></div>
+
+</p>
+</section>
+    </article>
+    <script>hljs.initHighlightingOnLoad(); </script>
+  </body>
+</html>

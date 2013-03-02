@@ -83,5 +83,50 @@ project=build&lt;/code&gt;&lt;/pre&gt;
 &lt;/p&gt;
 </description>
     </item>
+    <item>
+      <title>Writing a simple wintersmith plugin</title>
+      <link>//articles/writing-a-simple-wintersmith-plugin-2013-02-03/</link>
+      <pubDate>Sun, 03 Feb 2013 19:57:00 +0100</pubDate>
+      <guid isPermaLink="true">//articles/writing-a-simple-wintersmith-plugin-2013-02-03/</guid>
+      <author></author>
+      <description>&lt;p&gt;I wanted to hook in to how &lt;code&gt;&lt;img&gt;&lt;/code&gt; are outputted by giving them a wrapper element. 
+The reason I want to do this is so that i can give the wrapper a full page width background while centering and constraining the img&apos;s &lt;code&gt;max-width&lt;/code&gt; to different sizes on different screen sizes. 
+
+&lt;/p&gt;
+&lt;p&gt;Enter &lt;code&gt;wintersmith-markdownhacks&lt;/code&gt;:
+
+&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;coffee&quot;&gt;fs = &lt;span class=&quot;keyword&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;'fs'&lt;/span&gt;
+path = &lt;span class=&quot;keyword&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;'path'&lt;/span&gt;
+url = &lt;span class=&quot;keyword&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;'url'&lt;/span&gt;
+
+module.exports = (wintersmith, callback) -&gt;
+
+&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; LocalGhostPage &lt;span class=&quot;keyword&quot;&gt;extends&lt;/span&gt; wintersmith.defaultPlugins.MarkdownPage
+
+    getHtml: (base) -&gt;
+        super base
+        @_html = @_html.replace(/(&lt;img[^&gt;]+&gt;)/g, &lt;span class=&quot;string&quot;&gt;'&lt;div class=&quot;image-wrapper&quot;&gt;$1&lt;/div&gt;'&lt;/span&gt;)
+        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; @_html
+
+
+    wintersmith.registerContentPlugin &lt;span class=&quot;string&quot;&gt;'pages'&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;'**/*.*(markdown|mkd|md)'&lt;/span&gt;, LocalGhostPage
+
+    callback()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Registered in wintersmith&apos;s &lt;code&gt;config.json&lt;/code&gt;:
+
+&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&quot;plugins&quot;: [
+    &quot;wintersmith-sass&quot;,
+    &quot;./node_modules/wintersmith-markdownhacks/plugin.coffee&quot;
+]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;It&apos;s dirty but I love it&#153;. Here&apos;s an obligatory cat gif showing the end result.
+
+&lt;/p&gt;
+&lt;p&gt;&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;https://lh3.googleusercontent.com/-LRMOoQYIynY/UNH4iMul_gI/AAAAAAAAGoY/eJHrtOsd2QI/s275/137.gif&quot; alt=&quot;obligatory cat gif&quot;&gt;&lt;/div&gt;
+
+&lt;/p&gt;
+</description>
+    </item>
   </channel>
 </rss>

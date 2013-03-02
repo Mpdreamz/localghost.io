@@ -1,4 +1,6 @@
+---
 template: about-me.jade
+---
 
 Hi!, I'm a software developer working for [Q42](http://www.q42.nl) doing all sorts on the back and frontend. This is me working hard:
 
@@ -8,4 +10,4 @@ I'm also the author of the [ElasticSearch](http://www.elasticsearch.org) .NET cl
 
 Be sure to check out [my other projects too](http://www.github.com/Mpdreamz).
 
-Hit me on twitter [@Mpdreamz](https://twitter.com/mpdreamz)
+Shout at me on twitter [@Mpdreamz](https://twitter.com/mpdreamz)

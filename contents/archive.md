@@ -1,2 +1,4 @@
+---
 template: archive.jade
+---
 

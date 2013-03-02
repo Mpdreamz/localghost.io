@@ -1,10 +1,12 @@
+---
 title: Writing a simple wintersmith plugin
 author: Mpdreamz
 date: 2013-02-03 19:57
 template: article.jade
+---
 
 I wanted to hook in to how `<img>` are outputted by giving them a wrapper element. 
-The reason I want to do this is so that i can give the wrapper a full page width background while centering and constraining the img's. 
+The reason I want to do this is so that i can give the wrapper a full page width background while centering and constraining the img's `max-width` to different sizes on different screen sizes. 
 
 Enter `wintersmith-markdownhacks`:
 

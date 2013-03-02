@@ -15,9 +15,17 @@ html(lang='en')
   body
     nav
       ul
+        //- underscore helps us filter and sort our articles
+        - var article = _.chain(contents.articles._.directories).map(function(item) {
+        -   // map articles to index pages of subdirectories of 'articles'
+        -   return item.index
+        - }).compact().sortBy(function(item) { // compact removes any directories w/o an index
+        -   // sort them by date
+        -   return -item.date
+        - }).first(1).value()[0] // and finally take the first 5
         li
-          - var blogSelected = (page.url.substring(0, 4) === '/art' || page.url === '/' ? 'selected' : '')
-          a(href='/', class=blogSelected) Blog
+          - var blogSelected = (page.url.substring(0, 4) === '/art' ? 'selected' : '')
+          a(href=article.url, class=blogSelected) Blog
         li.sep |
         li
           - var blogSelected = (page.url.substring(0, 4) === '/arc'  ? 'selected' : '')
