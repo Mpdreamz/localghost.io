@@ -9,6 +9,13 @@ a {
 	text-decoration:none;
 	color: #551A8B;
 }
+h1 a, h1 a:visited, h1 a:hover, h1 a:active {
+	color:white;
+}
+h2 em {
+	font-size:0.6em;
+	
+}
 body {
 	font-family: 'Roboto Condensed', sans-serif;
 	font-size:2em;
@@ -47,4 +54,7 @@ nav li a.selected {
 	-webkit-animation-iteration-count: infinite;  
 	-webkit-animation-timing-function: cubic-bezier(1.0,0,0,1.0);
 	-webkit-animation-duration: 1s; 
+}
+.image-wrapper {
+	background:#111;
 }

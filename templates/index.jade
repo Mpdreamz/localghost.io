@@ -9,14 +9,10 @@ block content
   - }).compact().sortBy(function(item) { // compact removes any directories w/o an index
   -   // sort them by date
   -   return -item.date
-  - }).first(5).value() // and finally take the first 5
+  - }).first(10).value() // and finally take the first 5
   each article in articles
     article.post
       header
         h2
           a(href=article.url)= article.title
-        em.article_date= article.date.toDateString()
-      section.content!= article.intro
-      if article.hasMore
-        p.read-more
-          a(href=article.url) read more
+          em.article_date= ' ' + article.date.toDateString()

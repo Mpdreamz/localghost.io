@@ -7,6 +7,7 @@
 		"index_articles": 3
 	},
 	"plugins": [
-		"wintersmith-sass"
+		"wintersmith-sass",
+	    "./node_modules/wintersmith-markdownhacks/plugin.coffee"
 	]
 }
