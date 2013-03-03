@@ -21,9 +21,12 @@ $(function() {
 	var commentLink = $("a.commentLink").data("api");
 	if (!commentLink)
 	{
-		$("h2.commentCount").text("No comments yet");
+		$("a.commentCount").text("No comments yet");
 		return;
 	}
+	//cache bust
+	commentLink += "?t=" + new Date().getTime();
+
 	$.ajax(commentLink, {
     	headers: {Accept: "application/vnd.github.full+json"},
     	success: function(comments){
@@ -32,16 +35,19 @@ $(function() {
     			var profile = comment.user.html_url;
     			var username = comment.user.login;
     			var image = "<figure><img src='"+avatarUrl+"' width='80px' height='80px'></figure>";
-    			var pretty = prettyDate(comment.created_at);
+    			var timeZone = ((new Date().getTimezoneOffset()/60)*-1)
+    			if (timeZone >= 0)
+    				timeZone = "+" + timeZone;
+    			var pretty = prettyDate(comment.created_at + timeZone);
     			var userHtml = "<p class='comment-user'><a href='"+profile+"'>"+username+"</a><span>"+pretty+"</p>"
     			$("p.comments").before("<div class='comment'>" + image + "<div class='comment-body'>"+ userHtml + comment.body_html + "</div></div>")
     		})
     		if (!comments.length)
-    			$("h2.commentCount").text("No comments yet");
+    			$("a.commentCount").text("No comments yet");
     		else if (comments.length == 1)
-    			$("h2.commentCount").text("Just one lonesome comment");
+    			$("a.commentCount").text("One comment so far");
     		else
-    			$("h2.commentCount").text("Already " + comments.length + " comments");
+    			$("a.commentCount").text("Already " + comments.length + " comments");
    		}
   	});
 });
