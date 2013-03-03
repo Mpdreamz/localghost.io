@@ -3,6 +3,7 @@ title: Writing a simple wintersmith plugin
 author: Mpdreamz
 date: 2013-02-03 19:57
 template: article.jade
+commentId: 1
 ---
 
 I wanted to hook in to how `<img>` are outputted by giving them a wrapper element. 

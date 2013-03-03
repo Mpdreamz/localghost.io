@@ -13,8 +13,10 @@ body {
 
 nav,
 section p,
+section div.comment,
 section code,
 section ul,
+section h2,
 header {
   width: 70%;
   max-width: 800px;
@@ -24,8 +26,10 @@ header {
   @media screen and (max-width: 800px) {
     nav,
     section p,
+    section div.comment,
     section code,
     section ul,
+    section h2,
     header {
       width: 95%;
       max-width: 95%;
@@ -59,3 +63,68 @@ section img {
   background: #111111;
   margin-left: auto;
   margin-right: auto; }
+
+section div.comment figure {
+  display: inline-block;
+  float: left; }
+
+section div.comment figure img {
+  display: inline-block;
+  padding: 10px;
+  background: #111111;
+  margin-left: auto;
+  margin-right: auto; }
+
+div.comment div.comment-body {
+  background-image: linear-gradient(top, #111111 0px, black 60px);
+  background-image: -o-linear-gradient(top, #111111 0px, black 60px);
+  background-image: -moz-linear-gradient(top, #111111 0px, black 60px);
+  background-image: -webkit-linear-gradient(top, #111111 0px, black 60px);
+  background-image: -ms-linear-gradient(top, #111111 0px, black 60px);
+  min-height: 100px;
+  margin-left: 110px; }
+
+div.comment, p.comments {
+  clear: both; }
+
+div.comment p,
+div.comment ul,
+div.comment pre,
+div.comment pre code {
+  width: 100%;
+  padding: 0px;
+  font-size: 0.8em; }
+
+div.comment-body img {
+  margin-right: 0px;
+  margin-left: 0px; }
+
+div.comment pre code {
+  font-size: 14px; }
+
+div.comment pre {
+  margin-left: -10px;
+  padding: 10px; }
+
+div.comment p {
+  margin: 0;
+  margin-bottom: 10px; }
+
+div.comment-body {
+  padding: 10px; }
+
+p.comments {
+  margin-top: 20px;
+  margin-bottom: 20px; }
+
+p.comment-user span {
+  background: #382C00;
+  color: #9C8228;
+  padding: 2px;
+  display: inline-block;
+  float: right; }
+
+p.comment-user a {
+  background: #551A8B;
+  color: white;
+  padding: 2px; }
