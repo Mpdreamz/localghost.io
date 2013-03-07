@@ -3,6 +3,7 @@ title: "raygun.io first thoughts"
 author: Mpdreamz
 date: 2013-03-07 08:35
 template: article.jade
+commentId: 3
 ---
 
 [raygun.io](http://raygun.io) is a new application error monitoring service for many languages and platforms from the kiwi's over at [Mindscape](http://www.mindscapehq.com/).  
