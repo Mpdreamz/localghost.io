@@ -84,6 +84,85 @@ project=build&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     <item>
+      <title>raygun.io first thoughts</title>
+      <link>//articles/raygun.io-first-thoughts-2013-03-07/</link>
+      <pubDate>Thu, 07 Mar 2013 08:35:00 +0100</pubDate>
+      <guid isPermaLink="true">//articles/raygun.io-first-thoughts-2013-03-07/</guid>
+      <author></author>
+      <description>&lt;p&gt;&lt;a href=&quot;http://raygun.io&quot;&gt;raygun.io&lt;/a&gt; is a new application error monitoring service for many languages and platforms from the kiwi&apos;s over at &lt;a href=&quot;http://www.mindscapehq.com/&quot;&gt;Mindscape&lt;/a&gt;.  
+
+&lt;/p&gt;
+&lt;p&gt;&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;/articles/raygun.io-first-thoughts-2013-03-07/homeFeature.png&quot; alt=&quot;overview of raygun.io&quot;&gt;&lt;/div&gt;
+
+&lt;/p&gt;
+&lt;p&gt;Since this will mostly be a rant about the things I &lt;code&gt;don&apos;t&lt;/code&gt; like I&apos;d like to state first and foremost that I&apos;m &lt;code&gt;using and paying&lt;/code&gt; for this service and am &lt;code&gt;very content&lt;/code&gt; overall!.
+
+&lt;/p&gt;
+&lt;p&gt;Ok let&apos;s start 
+
+&lt;/p&gt;
+&lt;p&gt;&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;/articles/raygun.io-first-thoughts-2013-03-07/menu.png&quot; alt=&quot;menu hides information&quot;&gt;&lt;/div&gt;
+
+&lt;/p&gt;
+&lt;p&gt;The menu introduces a toggle between current app options and listing all the applications. I&apos;d much much rather see an accordion like design here:
+
+&lt;/p&gt;
+&lt;p&gt;&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;/articles/raygun.io-first-thoughts-2013-03-07/menu-new.png&quot; alt=&quot;new menu&quot;&gt;&lt;/div&gt;
+
+&lt;/p&gt;
+&lt;p&gt;This lets me group different applications, staging environments in this case, together and get an immediate glimpse of the state of all my applications/application groups. The ugly red balls in my mockup  are suppose to be error counts. I  can then use the abundance of space on the right to toggle application views. Which also brings me to my next point: the dashboard view.
+
+&lt;/p&gt;
+&lt;p&gt;&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;/articles/raygun.io-first-thoughts-2013-03-07/dashboard.png&quot; alt=&quot;dashboard&quot;&gt;&lt;/div&gt;
+
+&lt;/p&gt;
+&lt;p&gt;As you can see in the above image this is the only overview page you have for all the errors in your application. All the noise is great for a dashboard view but I really need a hardcore straight up list of data. Remember the image above is scaled down pretty much already.The fancy graph nearly pushes the errors off screen on my 22&quot; full hd monitors.
+
+&lt;/p&gt;
+&lt;p&gt;I&apos;d much rather see a data first view as the default, sort of like this:
+
+&lt;/p&gt;
+&lt;p&gt;&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;/articles/raygun.io-first-thoughts-2013-03-07/dataviewmock.png&quot; alt=&quot;mockup&quot;&gt;&lt;/div&gt;
+
+&lt;/p&gt;
+&lt;p&gt;Wow me here good folk over at Mindscape, let me choose the facets I want, let me select all the errors older then 2 days (even if there are over 9000 of them) and resolve them in 2 clicks. 
+
+&lt;/p&gt;
+&lt;p&gt;The last big area &lt;a href=&quot;http://raygun.io&quot;&gt;raygun.io&lt;/a&gt; needs to improve is mobile support. Today on the train ride back home I received emails from &lt;a href=&quot;http://raygun.io&quot;&gt;raygun.io&lt;/a&gt; of exceptions occurring on the testing environment. Followed pretty quickly by the client emailing he spotted a bug. &quot;Great!&quot;,I thought, &quot;let me look at the exceptions on my iPhone!&quot; so I can respond to the client with an informed answer. 
+
+&lt;/p&gt;
+&lt;p&gt;&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;/articles/raygun.io-first-thoughts-2013-03-07/mobile1.jpg&quot; alt=&quot;This doesn&apos;t look responsive&quot;&gt;&lt;/div&gt;
+
+&lt;/p&gt;
+&lt;p&gt;Oomph, this doesn&apos;t look responsive at all. I can&apos;t get to the top right login button I know is there.
+
+&lt;/p&gt;
+&lt;p&gt;&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;/articles/raygun.io-first-thoughts-2013-03-07/mobile2.jpg&quot; alt=&quot;Sign in at the bottom&quot;&gt;&lt;/div&gt;
+
+&lt;/p&gt;
+&lt;p&gt;Ohh I&apos;m in luck, there&apos;s a sign in link in the footer.
+
+&lt;/p&gt;
+&lt;p&gt;&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;/articles/raygun.io-first-thoughts-2013-03-07/mobile3.jpg&quot; alt=&quot;hello white blob&quot;&gt;&lt;/div&gt;
+
+&lt;/p&gt;
+&lt;p&gt;Hello whitespace!, luckily I know the login box is to the right
+
+&lt;/p&gt;
+&lt;p&gt;&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;/articles/raygun.io-first-thoughts-2013-03-07/mobile4.jpg&quot; alt=&quot;login at last&quot;&gt;&lt;/div&gt;
+
+&lt;/p&gt;
+&lt;p&gt;From here I enter my details and hit submit... nothing... no loading icon .... I give up.
+
+&lt;/p&gt;
+&lt;p&gt;As I don&apos;t like closing on a negative note let me repeat that I&apos;ve long been a fan of the guys and girls over at Mindscape. I&apos;m glad they got &lt;a href=&quot;http://raygun.io&quot;&gt;raygun.io&lt;/a&gt; out the door early to let early adopters like myself moan and groan, that&apos;s a good thing and a sign of a healthy project. Considering this service went from inception to being up and running in a couple of months and is already in the state it is now speaks parts on how things will shape up in the future.
+
+
+
+&lt;/p&gt;
+</description>
+    </item>
+    <item>
       <title>Writing a simple wintersmith plugin</title>
       <link>//articles/writing-a-simple-wintersmith-plugin-2013-02-03/</link>
       <pubDate>Sun, 03 Feb 2013 19:57:00 +0100</pubDate>
