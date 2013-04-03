@@ -3,7 +3,7 @@ title: 'OSS development, a continuous lesson in humility'
 author: Mpdreamz
 date: 2013-03-07 13:41
 template: article.jade
-commentId: 4
+commentid: 4
 ---
 
 Yesterday I recieved a bug report on [NEST](https://github.com/Mpdreamz/NEST), my .net client for elasticsearch. Now I've received many bug reports in the last 2 years and on several occasions these bug reports made me feel humiliated to the bone.
