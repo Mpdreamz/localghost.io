@@ -6,8 +6,9 @@
 		"description": "-Love data, design and most of all, the web",
 		"index_articles": 3
 	},
+	"require": {"_": "underscore"},
 	"plugins": [
 		"wintersmith-sass",
-	    "./node_modules/wintersmith-markdownhacks/plugin.coffee"
+		"./node_modules/wintersmith-markdownhacks/plugin.coffee"
 	]
 }
