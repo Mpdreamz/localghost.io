@@ -1,116 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>localghost.io</title>
-    <link rel="alternate" href="//feed.xml" type="application/rss+xml" title="-Love data, design and most of all, the web">
-    <link rel="stylesheet" href="/css/normalize.css">
-    <link rel="stylesheet" href="/css/layout.css">
-    <link rel="stylesheet" href="/css/styling.css">
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Rokkitt|Roboto+Condensed|Share+Tech+Mono">
-    <link rel="stylesheet" href="/css/styles/ir_black.css">
-    <script src="/js/highlight.pack.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <script src="/js/comments.js"></script>
-    <!--script(src='/js/script.js')-->
-  </head>
-  <body>
-    <nav>
-      <ul>
-        <li><a href="/articles/the-joys-of-.net-oss-development-2013-04-03/" class="selected">Blog</a>
-        </li>
-        <li class="sep">|</li>
-        <li><a href="/archive.html" id="archive" class="">Archives</a>
-        </li>
-        <li class="sep">|</li>
-        <li><a href="/about-me.html" class="">About Me</a>
-        </li>
-      </ul>
-    </nav>
-    <header class="clearfix">
-      <!--img#logo(src='/images/backgrounds/logo-32.png')      -->
-      <h1> <a href="/">localghost.io</a><span class="blink">_</span></h1>
-    </header>
-    <section class="content"></section>
-    <article class="post">
-      <header>
-        <h2><a href>&quot;raygun.io first thoughts&quot;</a></h2>
-      </header>
-      <section class="content"><p><a href="http://raygun.io">raygun.io</a> is a new application error monitoring service for many languages and platforms from the kiwi&apos;s over at <a href="http://www.mindscapehq.com/">Mindscape</a>.  
-
-</p>
-<p><div class="image-wrapper"><div class="image-wrapper"><img src="/articles/raygun.io-first-thoughts-2013-03-07/homeFeature.png" alt="overview of raygun.io"></div></div>
-
-</p>
-<p>Since this will mostly be a rant about the things I <code>don&apos;t</code> like I&apos;d like to state first and foremost that I&apos;m <code>using and paying</code> for this service and am <code>very content</code> overall!.
-
-</p>
-<p>Ok let&apos;s start 
-
-</p>
-<p><div class="image-wrapper"><div class="image-wrapper"><img src="/articles/raygun.io-first-thoughts-2013-03-07/menu.png" alt="menu hides information"></div></div>
-
-</p>
-<p>The menu introduces a toggle between current app options and listing all the applications. I&apos;d much much rather see an accordion like design here:
-
-</p>
-<p><div class="image-wrapper"><div class="image-wrapper"><img src="/articles/raygun.io-first-thoughts-2013-03-07/menu-new.png" alt="new menu"></div></div>
-
-</p>
-<p>This lets me group different applications, staging environments in this case, together and get an immediate glimpse of the state of all my applications/application groups. The ugly red balls in my mockup  are suppose to be error counts. I  can then use the abundance of space on the right to toggle application views. Which also brings me to my next point: the dashboard view.
-
-</p>
-<p><div class="image-wrapper"><div class="image-wrapper"><img src="/articles/raygun.io-first-thoughts-2013-03-07/dashboard.png" alt="dashboard"></div></div>
-
-</p>
-<p>As you can see in the above image this is the only overview page you have for all the errors in your application. All the noise is great for a dashboard view but I really need a hardcore straight up list of data. Remember the image above is scaled down pretty much already.The fancy graph nearly pushes the errors off screen on my 22&quot; full hd monitors.
-
-</p>
-<p>I&apos;d much rather see a data first view as the default, sort of like this:
-
-</p>
-<p><div class="image-wrapper"><div class="image-wrapper"><img src="/articles/raygun.io-first-thoughts-2013-03-07/dataviewmock.png" alt="mockup"></div></div>
-
-</p>
-<p>Wow me here good folk over at Mindscape, let me choose the facets I want, let me select all the errors older then 2 days (even if there are over 9000 of them) and resolve them in 2 clicks. 
-
-</p>
-<p>The last big area <a href="http://raygun.io">raygun.io</a> needs to improve is mobile support. Today on the train ride back home I received emails from <a href="http://raygun.io">raygun.io</a> of exceptions occurring on the testing environment. Followed pretty quickly by the client emailing he spotted a bug. &quot;Great!&quot;,I thought, &quot;let me look at the exceptions on my iPhone!&quot; so I can respond to the client with an informed answer. 
-
-</p>
-<p><div class="image-wrapper"><div class="image-wrapper"><img src="/articles/raygun.io-first-thoughts-2013-03-07/mobile1.jpg" alt="This doesn&apos;t look responsive"></div></div>
-
-</p>
-<p>Oomph, this doesn&apos;t look responsive at all. I can&apos;t get to the top right login button I know is there.
-
-</p>
-<p><div class="image-wrapper"><div class="image-wrapper"><img src="/articles/raygun.io-first-thoughts-2013-03-07/mobile2.jpg" alt="Sign in at the bottom"></div></div>
-
-</p>
-<p>Ohh I&apos;m in luck, there&apos;s a sign in link in the footer.
-
-</p>
-<p><div class="image-wrapper"><div class="image-wrapper"><img src="/articles/raygun.io-first-thoughts-2013-03-07/mobile3.jpg" alt="hello white blob"></div></div>
-
-</p>
-<p>Hello whitespace!, luckily I know the login box is to the right
-
-</p>
-<p><div class="image-wrapper"><div class="image-wrapper"><img src="/articles/raygun.io-first-thoughts-2013-03-07/mobile4.jpg" alt="login at last"></div></div>
-
-</p>
-<p>From here I enter my details and hit submit... nothing... no loading icon .... I give up.
-
-</p>
-<p>As I don&apos;t like closing on a negative note let me repeat that I&apos;ve long been a fan of the guys and girls over at Mindscape. I&apos;m glad they got <a href="http://raygun.io">raygun.io</a> out the door early to let early adopters like myself moan and groan, that&apos;s a good thing and a sign of a healthy project. Considering this service went from inception to being up and running in a couple of months and is already in the state it is now speaks parts on how things will shape up in the future.
-
-
-
-</p>
-
-        <h2><a href="https://github.com/Mpdreamz/localghost.io/issues/3" class="commentCount">Comments       </a></h2>
-        <p class="comments">Comments on this post are linked to <a href="https://github.com/Mpdreamz/localghost.io/issues/3" data-api="https://api.github.com/repos/Mpdreamz/localghost.io/issues/3/comments" class="commentLink">this post's issue page on GitHub</a></p></section>
-    </article>
-    <script>hljs.initHighlightingOnLoad(); </script>
-  </body>
-</html>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>localghost.io</title><link rel="alternate" href="//feed.xml" type="application/rss+xml" title="-Love data, design and most of all, the web"><link rel="stylesheet" href="/css/normalize.css"><link rel="stylesheet" href="/css/layout.css"><link rel="stylesheet" href="/css/styling.css"><link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Rokkitt|Roboto+Condensed|Share+Tech+Mono"><link rel="stylesheet" href="/css/styles/ir_black.css"><script src="/js/highlight.pack.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script><script src="/js/comments.js"></script><!--script(src='/js/script.js')--></head><body><nav><ul><li><a href="/articles/oss-development,-a-continuous-lesson-in-humility-2013-03-07/" class="selected">Blog</a></li><li class="sep">|</li><li><a href="/archive.html" id="archive" class="">Archives</a></li><li class="sep">|</li><li><a href="/about-me.html" class="">About Me</a></li></ul></nav><header class="clearfix"><!--img#logo(src='/images/backgrounds/logo-32.png')      --><h1> <a href="/">localghost.io</a><span class="blink">_</span></h1></header><section class="content"></section><article class="post"><header><h2><a href>raygun.io first thoughts</a></h2></header><section class="content"><p><a href="http://raygun.io/">raygun.io</a> is a new application error monitoring service for many languages and platforms from the kiwi&#39;s over at <a href="http://www.mindscapehq.com/">Mindscape</a>.  </p>
+<p><div class="image-wrapper"><img src="/articles/raygun.io-first-thoughts-2013-03-07/homeFeature.png" alt="overview of raygun.io"></div></p>
+<p>Since this will mostly be a rant about the things I <code>don&#39;t</code> like I&#39;d like to state first and foremost that I&#39;m <code>using and paying</code> for this service and am <code>very content</code> overall!.</p>
+<p>Ok let&#39;s start </p>
+<p><div class="image-wrapper"><img src="/articles/raygun.io-first-thoughts-2013-03-07/menu.png" alt="menu hides information"></div></p>
+<p>The menu introduces a toggle between current app options and listing all the applications. I&#39;d much much rather see an accordion like design here:</p>
+<p><div class="image-wrapper"><img src="/articles/raygun.io-first-thoughts-2013-03-07/menu-new.png" alt="new menu"></div></p>
+<p>This lets me group different applications, staging environments in this case, together and get an immediate glimpse of the state of all my applications/application groups. The ugly red balls in my mockup  are suppose to be error counts. I  can then use the abundance of space on the right to toggle application views. Which also brings me to my next point: the dashboard view.</p>
+<p><div class="image-wrapper"><img src="/articles/raygun.io-first-thoughts-2013-03-07/dashboard.png" alt="dashboard"></div></p>
+<p>As you can see in the above image this is the only overview page you have for all the errors in your application. All the noise is great for a dashboard view but I really need a hardcore straight up list of data. Remember the image above is scaled down pretty much already.The fancy graph nearly pushes the errors off screen on my 22&quot; full hd monitors.</p>
+<p>I&#39;d much rather see a data first view as the default, sort of like this:</p>
+<p><div class="image-wrapper"><img src="/articles/raygun.io-first-thoughts-2013-03-07/dataviewmock.png" alt="mockup"></div></p>
+<p>Wow me here good folk over at Mindscape, let me choose the facets I want, let me select all the errors older then 2 days (even if there are over 9000 of them) and resolve them in 2 clicks. </p>
+<p>The last big area <a href="http://raygun.io/">raygun.io</a> needs to improve is mobile support. Today on the train ride back home I received emails from <a href="http://raygun.io/">raygun.io</a> of exceptions occurring on the testing environment. Followed pretty quickly by the client emailing he spotted a bug. &quot;Great!&quot;,I thought, &quot;let me look at the exceptions on my iPhone!&quot; so I can respond to the client with an informed answer. </p>
+<p><div class="image-wrapper"><img src="/articles/raygun.io-first-thoughts-2013-03-07/mobile1.jpg" alt="This doesn&#39;t look responsive"></div></p>
+<p>Oomph, this doesn&#39;t look responsive at all. I can&#39;t get to the top right login button I know is there.</p>
+<p><div class="image-wrapper"><img src="/articles/raygun.io-first-thoughts-2013-03-07/mobile2.jpg" alt="Sign in at the bottom"></div></p>
+<p>Ohh I&#39;m in luck, there&#39;s a sign in link in the footer.</p>
+<p><div class="image-wrapper"><img src="/articles/raygun.io-first-thoughts-2013-03-07/mobile3.jpg" alt="hello white blob"></div></p>
+<p>Hello whitespace!, luckily I know the login box is to the right</p>
+<p><div class="image-wrapper"><img src="/articles/raygun.io-first-thoughts-2013-03-07/mobile4.jpg" alt="login at last"></div></p>
+<p>From here I enter my details and hit submit... nothing... no loading icon .... I give up.</p>
+<p>As I don&#39;t like closing on a negative note let me repeat that I&#39;ve long been a fan of the guys and girls over at Mindscape. I&#39;m glad they got <a href="http://raygun.io/">raygun.io</a> out the door early to let early adopters like myself moan and groan, that&#39;s a good thing and a sign of a healthy project. Considering this service went from inception to being up and running in a couple of months and is already in the state it is now speaks parts on how things will shape up in the future.</p>
+<h2><a href="https://github.com/Mpdreamz/localghost.io/issues/3" class="commentCount">Comments       </a></h2><p class="comments">Comments on this post are linked to <a href="https://github.com/Mpdreamz/localghost.io/issues/3" data-api="https://api.github.com/repos/Mpdreamz/localghost.io/issues/3/comments" class="commentLink">this post's issue page on GitHub</a></p></section></article><script>hljs.initHighlightingOnLoad(); </script></body></html>

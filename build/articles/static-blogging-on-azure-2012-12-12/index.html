@@ -1,112 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>localghost.io</title>
-    <link rel="alternate" href="//feed.xml" type="application/rss+xml" title="-Love data, design and most of all, the web">
-    <link rel="stylesheet" href="/css/normalize.css">
-    <link rel="stylesheet" href="/css/layout.css">
-    <link rel="stylesheet" href="/css/styling.css">
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Rokkitt|Roboto+Condensed|Share+Tech+Mono">
-    <link rel="stylesheet" href="/css/styles/ir_black.css">
-    <script src="/js/highlight.pack.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <script src="/js/comments.js"></script>
-    <!--script(src='/js/script.js')-->
-  </head>
-  <body>
-    <nav>
-      <ul>
-        <li><a href="/articles/the-joys-of-.net-oss-development-2013-04-03/" class="selected">Blog</a>
-        </li>
-        <li class="sep">|</li>
-        <li><a href="/archive.html" id="archive" class="">Archives</a>
-        </li>
-        <li class="sep">|</li>
-        <li><a href="/about-me.html" class="">About Me</a>
-        </li>
-      </ul>
-    </nav>
-    <header class="clearfix">
-      <!--img#logo(src='/images/backgrounds/logo-32.png')      -->
-      <h1> <a href="/">localghost.io</a><span class="blink">_</span></h1>
-    </header>
-    <section class="content"></section>
-    <article class="post">
-      <header>
-        <h2><a href>Static blogging on Azure</a></h2>
-      </header>
-      <section class="content"><p>I&apos;ve been playing with static blog sites way more then I ought to have especially considering this right here constitutes as my first blog post.
-
-</p>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>localghost.io</title><link rel="alternate" href="//feed.xml" type="application/rss+xml" title="-Love data, design and most of all, the web"><link rel="stylesheet" href="/css/normalize.css"><link rel="stylesheet" href="/css/layout.css"><link rel="stylesheet" href="/css/styling.css"><link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Rokkitt|Roboto+Condensed|Share+Tech+Mono"><link rel="stylesheet" href="/css/styles/ir_black.css"><script src="/js/highlight.pack.js"></script><script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script><script src="/js/comments.js"></script><!--script(src='/js/script.js')--></head><body><nav><ul><li><a href="/articles/oss-development,-a-continuous-lesson-in-humility-2013-03-07/" class="selected">Blog</a></li><li class="sep">|</li><li><a href="/archive.html" id="archive" class="">Archives</a></li><li class="sep">|</li><li><a href="/about-me.html" class="">About Me</a></li></ul></nav><header class="clearfix"><!--img#logo(src='/images/backgrounds/logo-32.png')      --><h1> <a href="/">localghost.io</a><span class="blink">_</span></h1></header><section class="content"></section><article class="post"><header><h2><a href>Static blogging on Azure</a></h2></header><section class="content"><p>I&#39;ve been playing with static blog sites way more then I ought to have especially considering this right here constitutes as my first blog post.</p>
 <p>I find blogging scary enough, I make a lot of grammar mistakes even in my own native tongue and always mix up sayings at the amusal of my colleagues, friends and relatives. 
-Mark Twain has been quoted as saying that he respected a person who could spell a word more than one way. Me thinks Mark Twain and I would have gotten along.
-
-</p>
-<p>So to get me started on blogging I need to be able to write and push from the command line where I feel comfortable and safe with little time to get cold feet thinking about all the horrible grammar mistakes I&apos;ve made. 
-
-</p>
-<p>So I&apos;ve settled on <a href="http://jnordberg.github.com/wintersmith/">wintersmith</a> mostly because it&apos;s nodejs based and nodejs is really easy to set up on any machine whether its windows, linux or mac. <a href="http://jnordberg.github.com/wintersmith/">wintersmith</a> stood out to me because it has just enough to please without feeling crippled. 
-
-</p>
+Mark Twain has been quoted as saying that he respected a person who could spell a word more than one way. Me thinks Mark Twain and I would have gotten along.</p>
+<p>So to get me started on blogging I need to be able to write and push from the command line where I feel comfortable and safe with little time to get cold feet thinking about all the horrible grammar mistakes I&#39;ve made. </p>
+<p>So I&#39;ve settled on <a href="http://jnordberg.github.com/wintersmith/">wintersmith</a> mostly because it&#39;s nodejs based and nodejs is really easy to set up on any machine whether its windows, linux or mac. <a href="http://jnordberg.github.com/wintersmith/">wintersmith</a> stood out to me because it has just enough to please without feeling crippled. </p>
 <pre><code>$ wintersmith preview</code></pre>
-<p>and
-
-</p>
+<p>and</p>
 <pre><code>$ wintersmith build</code></pre>
-<p>bring home the cake.
-
-</p>
-<p>I added a small <code>Makefile</code> to ease with adding new articles as I really want to have a date in my slug
-
-
-</p>
-<pre><code>NAME = <span class="string">"new-article"</span>
-FULLDATE=`date +<span class="string">'%y-%m-%d %H:%M'</span>`
-DATE=`date +<span class="string">'%Y-%m-%d'</span>`
-FOLDER = <span class="string">"./contents/articles/`echo $(NAME) | tr A-Z a-z | tr "</span> <span class="string">" -`-$(DATE)"</span>
-MSG = <span class="string">""</span>
+<p>bring home the cake.</p>
+<p>I added a small <code>Makefile</code> to ease with adding new articles as I really want to have a date in my slug</p>
+<pre><code>NAME = &quot;new-article&quot;
+FULLDATE=`date +&#39;%y-%m-%d %H:%M&#39;`
+DATE=`date +&#39;%Y-%m-%d&#39;`
+FOLDER = &quot;./contents/articles/`echo $(NAME) | tr A-Z a-z | tr &quot; &quot; -`-$(DATE)&quot;
+MSG = &quot;&quot;
 
 all:
     wintersmith build 
     git add .
-    git commit -am <span class="string">"releasing $(MSG)"</span>
+    git commit -am &quot;releasing $(MSG)&quot;
     git push origin master
 
-<span class="keyword">new</span>:
-    mkdir <span class="string">"$(FOLDER)"</span>
-    <span class="keyword">echo</span> <span class="string">"title: $(NAME)\nauthor: Mpdreamz\ndate: 20$(FULLDATE)\ntemplate: article.jade\n\n"</span> >> <span class="string">"$(FOLDER)/index.md"</span></code></pre>
-<p>now 
-
-</p>
-<pre><code>$ make <span class="keyword">new</span> NAME=<span class="string">"My New Article"</span></code></pre>
-<p>and 
-
-</p>
-<pre><code>$ make MSG="Commit message" </code></pre>
+new:
+    mkdir &quot;$(FOLDER)&quot;
+    echo &quot;title: $(NAME)\nauthor: Mpdreamz\ndate: 20$(FULLDATE)\ntemplate: article.jade\n\n&quot; &gt;&gt; &quot;$(FOLDER)/index.md&quot;</code></pre>
+<p>now </p>
+<pre><code>$ make new NAME=&quot;My New Article&quot;</code></pre>
+<p>and </p>
+<pre><code>$ make MSG=&quot;Commit message&quot; </code></pre>
 <p>brings home the cake. <code>make new</code> takes care of figuring out what day it is and slugifying my desired blog title.
-<code>MAKE MSG=&quot;&quot;</code> will commit my changes and push it to github. Github then notifies Azure to deploy my latest changes. This all happens within a few seconds!
-
-
-</p>
+<code>MAKE MSG=&quot;&quot;</code> will commit my changes and push it to github. Github then notifies Azure to deploy my latest changes. This all happens within a few seconds!</p>
 <p>For hosting I ended up with Azure git based hosting because it has a little gem I could not get on Heroku
-the <code>.deployment</code> file where I can point to an alternative root. 
-
-</p>
-<pre><code class="ini">[config]
-project=build</code></pre>
-<p>This little feature is a huge advantage to the other platforms I looked at, Heroku needs a small server to serve from a subfolder and github pages need a separate branch.
-
-</p>
-<p>For now I&apos;m pleased with this setup
-
-</p>
-<p>Sidenote: I just ran a <code>:set spell</code> and I&apos;m certain I&apos;m a respectable person by Mark Twain standards. 
-</p>
-
-        <h2><a href="https://github.com/Mpdreamz/localghost.io/issues/2" class="commentCount">Comments       </a></h2>
-        <p class="comments">Comments on this post are linked to <a href="https://github.com/Mpdreamz/localghost.io/issues/2" data-api="https://api.github.com/repos/Mpdreamz/localghost.io/issues/2/comments" class="commentLink">this post's issue page on GitHub</a></p></section>
-    </article>
-    <script>hljs.initHighlightingOnLoad(); </script>
-  </body>
-</html>
+the <code>.deployment</code> file where I can point to an alternative root. </p>
+<pre><code class="lang-ini"><span class="title">[config]</span>
+<span class="setting">project=<span class="value">build</span></span></code></pre>
+<p>This little feature is a huge advantage to the other platforms I looked at, Heroku needs a small server to serve from a subfolder and github pages need a separate branch.</p>
+<p>For now I&#39;m pleased with this setup</p>
+<p>Sidenote: I just ran a <code>:set spell</code> and I&#39;m certain I&#39;m a respectable person by Mark Twain standards. </p>
+<h2><a href="https://github.com/Mpdreamz/localghost.io/issues/2" class="commentCount">Comments       </a></h2><p class="comments">Comments on this post are linked to <a href="https://github.com/Mpdreamz/localghost.io/issues/2" data-api="https://api.github.com/repos/Mpdreamz/localghost.io/issues/2/comments" class="commentLink">this post's issue page on GitHub</a></p></section></article><script>hljs.initHighlightingOnLoad(); </script></body></html>

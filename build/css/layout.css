@@ -57,6 +57,40 @@ nav li {
   float: right;
   list-style: none; }
 
+@media screen and (max-width: 1024px) {
+  nav ul {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 0.7em; }
+
+  nav {
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%; }
+
+  nav li {
+    float: none;
+    margin: 0;
+    padding: 0;
+    width: 20%; }
+
+  nav li.sep {
+    width: 5%;
+    visibility: hidden; }
+
+  nav li a {
+    text-align: center;
+    display: inline-block;
+    width: 100%; }
+
+  nav li a.selected {
+    border-bottom: 5px solid #551A8B;
+    background: black !important;
+    color: white; }
+
+  h1 {
+    margin: 0; } }
 section img {
   display: block;
   padding: 10px;
