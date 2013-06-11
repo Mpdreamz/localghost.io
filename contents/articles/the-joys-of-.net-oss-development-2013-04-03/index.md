@@ -1,8 +1,10 @@
+---
 title: The joys of .NET OSS development
 author: Mpdreamz
-date: 2013-04-03 21:33
+date: 2013-04-03 09:33
 template: article.jade
 commentid: 5
+----
 
 Today a quite heated debate opened up on twitter on a number of questions concerning open source development in .NET
 Doing a full recap of all the points being made would be rather tedious but have a look at [Glenn Block's twitter feed](https://www.twitter.com/gblock) most of the question and arguments raised boiled down to:
