@@ -13,7 +13,7 @@ Last week I did a presentation at work on a .NET website we put into production 
 
 ![hipster cat](http://media.giphy.com/media/UNgpSaZNi9YcM/giphy.gif)
 
-On a more serious note: this was a great exercise in evaluating what it means completely develop in .NET outside the realm off microsoft.
+On a more serious note: this was a great exercise in evaluating what it means to completely develop in C# outside off the microsoft realm.
 
 * Xamarin Studio as IDE
 * Vim works pretty well too with OmniSharp but you really miss csproj/sln file manipulation.
