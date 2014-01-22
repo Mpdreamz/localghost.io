@@ -76,34 +76,34 @@ For last tuesday's talk I created a demo which progressively goes from vanilla O
 ### 01 - Barebones
 
 No dlls, just a simple owin handler.
-[Owin101.BareBones's Readme](https://github.com/Mpdreamz/owin-101/Owin101.BareBones)
+[Owin101.BareBones's Readme](https://github.com/Mpdreamz/owin-101/tree/master/Owin101.BareBones)
 
 ### 02 - Barebones Middleware
 
 Still no dlls, combining owin middleware by ourselves.
-[Owin101.BareBonesMiddleware's Readme](https://github.com/Mpdreamz/owin-101/Owin101.BareBonesMiddleware)
+[Owin101.BareBonesMiddleware's Readme](https://github.com/Mpdreamz/owin-101/tree/master/Owin101.BareBonesMiddleware)
 
 ### 03 - Introducing IAppBuilder
 
 We take a dependency on owin.dll and see what that gives us in return. 
-[Owin101.IntroducingIAppBuilder's Readme](https://github.com/Mpdreamz/owin-101/Owin101.IntroducingIAppBuilder)
+[Owin101.IntroducingIAppBuilder's Readme](https://github.com/Mpdreamz/tree/master/owin-101/Owin101.IntroducingIAppBuilder)
 
 ### 04 - Helper assemblies
 
 We take on additional dependencies on Owin.Extensions and Owin.Types and again look into how these
 help us write terser/better typed owin middleware. 
-[Owin101.HelperAssemblies's Readme](https://github.com/Mpdreamz/owin-101/Owin101.HelperAssemblies)
+[Owin101.HelperAssemblies's Readme](https://github.com/Mpdreamz/owin-101/tree/master/Owin101.HelperAssemblies)
 
 ### 05 - Branching the builder
 
 We take a dependency on Microsoft.Owin.Mapping to see how we can get a very simple routing going on. Up until now our handlers were 
 completely sequential. This shows how to branch off and have different endpoints doing different things.
-[Owin101.BranchingBuilder's Readme](https://github.com/Mpdreamz/owin-101/Owin101.BranchingBuilder)
+[Owin101.BranchingBuilder's Readme](https://github.com/Mpdreamz/owin-101/tree/master/Owin101.BranchingBuilder)
 
 ### 06 - Hosting
 
 This example shows how katana handles the hosting be it self host in a console/service or in IIS.
-[Owin101.Hosting's Readme](https://github.com/Mpdreamz/owin-101/Owin101.Hosting)
+[Owin101.Hosting's Readme](https://github.com/Mpdreamz/owin-101/tree/master/Owin101.Hosting)
 
 
 Checkout the repos [here](https://github.com/Mpdreamz/owin-101) the root readme also goes into how to run the examples.
