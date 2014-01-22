@@ -8,7 +8,7 @@ commentid: 8
 
 TLDR: [Play with my repository if you want to get to grips with OWIN](https://github.com/Mpdreamz/owin-101)
 
-Last week I did a presentation at work on a .NET website completely built on a Mac just because … hipsterism is suppose.
+Last week I did a presentation at work on a .NET website we put into production last december completely built on OSX just because … hipsterism is suppose.
 
 
 ![hipster cat](http://media.giphy.com/media/UNgpSaZNi9YcM/giphy.gif)
