@@ -17,6 +17,7 @@ section div.comment,
 section code,
 section ul,
 section h2,
+section h3,
 header {
   width: 70%;
   max-width: 800px;
@@ -30,6 +31,7 @@ header {
     section code,
     section ul,
     section h2,
+    section h3,
     header {
       width: 95%;
       max-width: 95%;
