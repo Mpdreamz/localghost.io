@@ -1,0 +1,69 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>localghost.io</title><link rel="alternate" href="//feed.xml" type="application/rss+xml" title="-Love data, design and most of all, the web"><link rel="stylesheet" href="/css/normalize.css"><link rel="stylesheet" href="/css/layout.css"><link rel="stylesheet" href="/css/styling.css"><link rel="stylesheet" href="/css/fonts.css"><link rel="stylesheet" href="/css/styles/ir_black.css"><script src="/js/highlight.pack.js"></script><script src="/js/jquery.min.js"></script><script src="/js/comments.js"></script><!--script(src='/js/script.js')--></head><body><nav><ul><li><a href="/articles/owin-101-a-progressive-walkthrough-2014-01-22/" class="selected">Blog</a></li><li class="sep">|</li><li><a href="/archive.html" id="archive" class="">Archives</a></li><li class="sep">|</li><li><a href="/about-me.html" class="">About Me</a></li></ul></nav><header class="clearfix"><!--img#logo(src='/images/backgrounds/logo-32.png')      --><h1> <a href="/">localghost.io</a><span class="blink">_</span></h1></header><section class="content"></section><article class="post"><header><h2><a href>Owin 101 a progressive walkthrough</a></h2></header><section class="content"><p>TLDR: [Play with my repository if you want to get to grips with OWIN] (<a href="https://github.com/Mpdreamz/owin-101">https://github.com/Mpdreamz/owin-101</a>)</p>
+<p>Last week I did a presentation at work on a .NET website completely built on a Mac just because … hipsterism is suppose.</p>
+<p><div class="image-wrapper"><img src="http://media.giphy.com/media/UNgpSaZNi9YcM/giphy.gif" alt="hipster cat"></div></p>
+<p>On a more serious note: this was a great exercise in evaluating what it means completely develop in .NET outside the realm off microsoft.</p>
+<ul>
+<li>Xamarin Studio as IDE</li>
+<li>Vim works pretty well too with OmniSharp but you really miss csproj/sln file manipulation.</li>
+<li>NanxyFx as web framework</li>
+<li>Elasticsearch as datastore </li>
+<li>OWIN as the glue to host the damn thing. </li>
+</ul>
+<p>I&#39;ll save all of the challenges, lessons learned for another blog post and focus on the glue, OWIN. </p>
+<h2>Precursor to what us .NET web dev&#39;s have had to deal with</h2>
+<p>Historically .NET web development happened inside the ASP.NET pipeline that was hosted inside IIS, end of story. Now whats particularly bad is that this pipeline was designed to accommodate for the ASP.NET WebForms paradigm, where clicks on the client would result in posts that would run server code. This to unify WinForms and WebForms sort off. This caused the entire pipeline to be way to complex, feast your eyes on this.</p>
+<p><div class="image-wrapper"><img src="http://www.eggheadcafe.com/articles/o_aspNet_Page_LifeCycle.jpg" alt="asp.net web-forms pipeline"></div></p>
+<p>This was back in 2002, somewhere around 2009 ASP.NET MVC was released. This did away with the notion of postbacks and let us program the web as it was meant to: stateless. However MVC was still shoehorned into the existing pipeline even if it does a great job of hiding it, you still need a global.asax <code>Application_Startup</code> <code>Application_OnError</code> still are the ways to initialise and catch errors for instance. Granted it did do away with 90% of the cruft in the previous diagram.</p>
+<p>If you&#39;re interested read about the whole pipeline <a href="http://msdn.microsoft.com/en-us/library/ms178473.aspx">here</a></p>
+<p>To add fault to injury historically aspx pages worked much like php or other interpreted languages as they were compiled as they were hit so they came with a first hist performance problem. Precompilation of these pages has been added as far back as 2005 but this never mitigated the problem of the first request being particularly hard to tame. I blame this on <code>FirstRequestInit()</code> still trying to scan for aspx pages, theres a mysterious call to <code>System.Web.Compilation.CompilationLock</code>, files get copied to <code>%\Framework\[FRAMEWORK]\Temporary ASP.NET Files</code> ARGH do I need to go on? So much cruft! Get rid of it!</p>
+<p>I didn&#39;t even get into the split that is now introduced with ASP.NET MVC/ ASP.NET Web Api/ ASP.NET WebPages all introducing slightly different pipelines that makes it impossible to take a request filter written for mvc and reuse it in web api. I feel like screaming.</p>
+<p><div class="image-wrapper"><img src="http://media.giphy.com/media/ZKZiW6GSx8eSA/giphy.gif" alt="rage quit"></div></p>
+<h2>Owin to the rescue!</h2>
+<p><a href="http://owin.org/#about">OWIN</a> is a specification that decouples the pipeline from frameworks and servers. Inspired by Rack in ruby, Connect in node, WSGI in python, the list goes on and now .NET has finally followed suit. </p>
+<p>It defines a minimal interface for middleware to implement without needing to take ANY dependencies and promises to finally bring a lightweight composable pipeline to us .NET web developers. </p>
+<p>The spec pretty much states, if your lib has a <code>Startup</code> class with a public
+<code>Configuration</code> method that returns a <code>Func&lt;Dictionary&lt;string, env&gt;, Task&gt;</code> you are writing a web application. </p>
+<pre><code>public class Startup
+{
+    public Func&lt;IDictionary&lt;string, object&gt;, Task&gt; Configuration()
+    {
+        return async env =&gt;
+        {
+            object responseStream;
+            if (!env.TryGetValue(&quot;owin.ResponseBody&quot;, out responseStream))
+                throw new Exception(&quot;Expecting a valid owin dictionary&quot;);
+
+            using (var s = (Stream) responseStream)
+            using (var sr = new StreamWriter(s))
+            {
+               await sr.WriteAsync(&quot;Hello world&quot;);
+            }
+        };
+    }
+}</code></pre>
+<p>The <a href="http://owin.org/#about">OWIN specification</a> states that whatever server runs this should make the response stream available under the key <code>owin.ResponseBody</code>.</p>
+<p>Now much to Microsoft credit they have an awesome team working hard to make the OWIN ecosystem happening and much of it is under the codename <code>Katana</code> but with all the examples online being implemented with the <code>Microsoft.Owin.*</code> packages it&#39;s hard to distinguish whats OWIN and whats Katana. In fact even the Owin.dll inside the Owin package on nuget is NOT part of OWIN.</p>
+<p>For last tuesday&#39;s talk I created a demo which progressively goes from vanilla OWIN into the world of KATANA in 6 steps</p>
+<h3>01 - Barebones</h3>
+<p>No dlls, just a simple owin handler.
+<a href="https://github.com/Mpdreamz/owin-101/Owin101.BareBones">Owin101.BareBones&#39;s Readme</a></p>
+<h3>02 - Barebones Middleware</h3>
+<p>Still no dlls, combining owin middleware by ourselves.
+<a href="https://github.com/Mpdreamz/owin-101/Owin101.BareBonesMiddleware">Owin101.BareBonesMiddleware&#39;s Readme</a></p>
+<h3>03 - Introducing IAppBuilder</h3>
+<p>We take a dependency on owin.dll and see what that gives us in return. 
+<a href="https://github.com/Mpdreamz/owin-101/Owin101.IntroducingIAppBuilder">Owin101.IntroducingIAppBuilder&#39;s Readme</a></p>
+<h3>04 - Helper assemblies</h3>
+<p>We take on additional dependencies on Owin.Extensions and Owin.Types and again look into how these
+help us write terser/better typed owin middleware. 
+<a href="https://github.com/Mpdreamz/owin-101/Owin101.HelperAssemblies">Owin101.HelperAssemblies&#39;s Readme</a></p>
+<h3>05 - Branching the builder</h3>
+<p>We take a dependency on Microsoft.Owin.Mapping to see how we can get a very simple routing going on. Up until now our handlers were 
+completely sequential. This shows how to branch off and have different endpoints doing different things.
+<a href="https://github.com/Mpdreamz/owin-101/Owin101.BranchingBuilder">Owin101.BranchingBuilder&#39;s Readme</a></p>
+<h3>06 - Hosting</h3>
+<p>This example shows how katana handles the hosting be it self host in a console/service or in IIS.
+<a href="https://github.com/Mpdreamz/owin-101/Owin101.Hosting">Owin101.Hosting&#39;s Readme</a></p>
+<p>Checkout the repos <a href="https://github.com/Mpdreamz/owin-101">here</a> the root readme also goes into how to run the examples.</p>
+<p>Hopefully this is of some use to someone out there!</p>
+<h2><a href="https://github.com/Mpdreamz/localghost.io/issues/8" class="commentCount">Comments       </a></h2><p class="comments">Comments on this post are linked to <a href="https://github.com/Mpdreamz/localghost.io/issues/8" data-api="https://api.github.com/repos/Mpdreamz/localghost.io/issues/8/comments" class="commentLink">this post's issue page on GitHub</a></p></section></article><script>hljs.initHighlightingOnLoad(); </script></body></html>

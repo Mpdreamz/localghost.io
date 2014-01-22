@@ -1,4 +1,116 @@
-<?xml version="1.0" encoding="utf-8" ?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Mpdreamz.nl</title><atom:link href="//feed.xml" rel="self" type="application/rss+xml"></atom:link><link>/</link><description>-Love data, design and most of all, the web</description><pubDate>Tue, 11 Jun 2013 08:57:00 +0200</pubDate><generator>The mighty Wintersmith</generator><language>en</language><item><title>On devops at a project based shop</title><link>//articles/on-devops-at-a-project-based-shop-2013-06-11/</link><pubDate>Tue, 11 Jun 2013 08:57:00 +0200</pubDate><guid isPermaLink="true">//articles/on-devops-at-a-project-based-shop-2013-06-11/</guid><author></author><description>&lt;p&gt;The term &lt;code&gt;DevOps&lt;/code&gt; has many overloaded meanings so let me first state what I think encompasses the term &lt;code&gt;DevOps&lt;/code&gt;: everything related to development but not directly to implementing the core product/project&amp;#39;s functionality. &lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" ?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Mpdreamz.nl</title><atom:link href="//feed.xml" rel="self" type="application/rss+xml"></atom:link><link>/</link><description>-Love data, design and most of all, the web</description><pubDate>Wed, 22 Jan 2014 20:39:00 +0100</pubDate><generator>The mighty Wintersmith</generator><language>en</language><item><title>Owin 101 a progressive walkthrough</title><link>//articles/owin-101-a-progressive-walkthrough-2014-01-22/</link><pubDate>Wed, 22 Jan 2014 20:39:00 +0100</pubDate><guid isPermaLink="true">//articles/owin-101-a-progressive-walkthrough-2014-01-22/</guid><author></author><description>&lt;p&gt;TLDR: [Play with my repository if you want to get to grips with OWIN] (&lt;a href=&quot;https://github.com/Mpdreamz/owin-101&quot;&gt;https://github.com/Mpdreamz/owin-101&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;Last week I did a presentation at work on a .NET website completely built on a Mac just because … hipsterism is suppose.&lt;/p&gt;
+&lt;p&gt;&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;http://media.giphy.com/media/UNgpSaZNi9YcM/giphy.gif&quot; alt=&quot;hipster cat&quot;&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;On a more serious note: this was a great exercise in evaluating what it means completely develop in .NET outside the realm off microsoft.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Xamarin Studio as IDE&lt;/li&gt;
+&lt;li&gt;Vim works pretty well too with OmniSharp but you really miss csproj/sln file manipulation.&lt;/li&gt;
+&lt;li&gt;NanxyFx as web framework&lt;/li&gt;
+&lt;li&gt;Elasticsearch as datastore &lt;/li&gt;
+&lt;li&gt;OWIN as the glue to host the damn thing. &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I&amp;#39;ll save all of the challenges, lessons learned for another blog post and focus on the glue, OWIN. &lt;/p&gt;
+&lt;h2&gt;Precursor to what us .NET web dev&amp;#39;s have had to deal with&lt;/h2&gt;
+&lt;p&gt;Historically .NET web development happened inside the ASP.NET pipeline that was hosted inside IIS, end of story. Now whats particularly bad is that this pipeline was designed to accommodate for the ASP.NET WebForms paradigm, where clicks on the client would result in posts that would run server code. This to unify WinForms and WebForms sort off. This caused the entire pipeline to be way to complex, feast your eyes on this.&lt;/p&gt;
+&lt;p&gt;&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;http://www.eggheadcafe.com/articles/o_aspNet_Page_LifeCycle.jpg&quot; alt=&quot;asp.net web-forms pipeline&quot;&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;This was back in 2002, somewhere around 2009 ASP.NET MVC was released. This did away with the notion of postbacks and let us program the web as it was meant to: stateless. However MVC was still shoehorned into the existing pipeline even if it does a great job of hiding it, you still need a global.asax &lt;code&gt;Application_Startup&lt;/code&gt; &lt;code&gt;Application_OnError&lt;/code&gt; still are the ways to initialise and catch errors for instance. Granted it did do away with 90% of the cruft in the previous diagram.&lt;/p&gt;
+&lt;p&gt;If you&amp;#39;re interested read about the whole pipeline &lt;a href=&quot;http://msdn.microsoft.com/en-us/library/ms178473.aspx&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;To add fault to injury historically aspx pages worked much like php or other interpreted languages as they were compiled as they were hit so they came with a first hist performance problem. Precompilation of these pages has been added as far back as 2005 but this never mitigated the problem of the first request being particularly hard to tame. I blame this on &lt;code&gt;FirstRequestInit()&lt;/code&gt; still trying to scan for aspx pages, theres a mysterious call to &lt;code&gt;System.Web.Compilation.CompilationLock&lt;/code&gt;, files get copied to &lt;code&gt;%\Framework\[FRAMEWORK]\Temporary ASP.NET Files&lt;/code&gt; ARGH do I need to go on? So much cruft! Get rid of it!&lt;/p&gt;
+&lt;p&gt;I didn&amp;#39;t even get into the split that is now introduced with ASP.NET MVC/ ASP.NET Web Api/ ASP.NET WebPages all introducing slightly different pipelines that makes it impossible to take a request filter written for mvc and reuse it in web api. I feel like screaming.&lt;/p&gt;
+&lt;p&gt;&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;http://media.giphy.com/media/ZKZiW6GSx8eSA/giphy.gif&quot; alt=&quot;rage quit&quot;&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;h2&gt;Owin to the rescue!&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;http://owin.org/#about&quot;&gt;OWIN&lt;/a&gt; is a specification that decouples the pipeline from frameworks and servers. Inspired by Rack in ruby, Connect in node, WSGI in python, the list goes on and now .NET has finally followed suit. &lt;/p&gt;
+&lt;p&gt;It defines a minimal interface for middleware to implement without needing to take ANY dependencies and promises to finally bring a lightweight composable pipeline to us .NET web developers. &lt;/p&gt;
+&lt;p&gt;The spec pretty much states, if your lib has a &lt;code&gt;Startup&lt;/code&gt; class with a public
+&lt;code&gt;Configuration&lt;/code&gt; method that returns a &lt;code&gt;Func&amp;lt;Dictionary&amp;lt;string, env&amp;gt;, Task&amp;gt;&lt;/code&gt; you are writing a web application. &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;public class Startup
+{
+    public Func&amp;lt;IDictionary&amp;lt;string, object&amp;gt;, Task&amp;gt; Configuration()
+    {
+        return async env =&amp;gt;
+        {
+            object responseStream;
+            if (!env.TryGetValue(&amp;quot;owin.ResponseBody&amp;quot;, out responseStream))
+                throw new Exception(&amp;quot;Expecting a valid owin dictionary&amp;quot;);
+
+            using (var s = (Stream) responseStream)
+            using (var sr = new StreamWriter(s))
+            {
+               await sr.WriteAsync(&amp;quot;Hello world&amp;quot;);
+            }
+        };
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The &lt;a href=&quot;http://owin.org/#about&quot;&gt;OWIN specification&lt;/a&gt; states that whatever server runs this should make the response stream available under the key &lt;code&gt;owin.ResponseBody&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Now much to Microsoft credit they have an awesome team working hard to make the OWIN ecosystem happening and much of it is under the codename &lt;code&gt;Katana&lt;/code&gt; but with all the examples online being implemented with the &lt;code&gt;Microsoft.Owin.*&lt;/code&gt; packages it&amp;#39;s hard to distinguish whats OWIN and whats Katana. In fact even the Owin.dll inside the Owin package on nuget is NOT part of OWIN.&lt;/p&gt;
+&lt;p&gt;For last tuesday&amp;#39;s talk I created a demo which progressively goes from vanilla OWIN into the world of KATANA in 6 steps&lt;/p&gt;
+&lt;h3&gt;01 - Barebones&lt;/h3&gt;
+&lt;p&gt;No dlls, just a simple owin handler.
+&lt;a href=&quot;https://github.com/Mpdreamz/owin-101/Owin101.BareBones&quot;&gt;Owin101.BareBones&amp;#39;s Readme&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;02 - Barebones Middleware&lt;/h3&gt;
+&lt;p&gt;Still no dlls, combining owin middleware by ourselves.
+&lt;a href=&quot;https://github.com/Mpdreamz/owin-101/Owin101.BareBonesMiddleware&quot;&gt;Owin101.BareBonesMiddleware&amp;#39;s Readme&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;03 - Introducing IAppBuilder&lt;/h3&gt;
+&lt;p&gt;We take a dependency on owin.dll and see what that gives us in return. 
+&lt;a href=&quot;https://github.com/Mpdreamz/owin-101/Owin101.IntroducingIAppBuilder&quot;&gt;Owin101.IntroducingIAppBuilder&amp;#39;s Readme&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;04 - Helper assemblies&lt;/h3&gt;
+&lt;p&gt;We take on additional dependencies on Owin.Extensions and Owin.Types and again look into how these
+help us write terser/better typed owin middleware. 
+&lt;a href=&quot;https://github.com/Mpdreamz/owin-101/Owin101.HelperAssemblies&quot;&gt;Owin101.HelperAssemblies&amp;#39;s Readme&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;05 - Branching the builder&lt;/h3&gt;
+&lt;p&gt;We take a dependency on Microsoft.Owin.Mapping to see how we can get a very simple routing going on. Up until now our handlers were 
+completely sequential. This shows how to branch off and have different endpoints doing different things.
+&lt;a href=&quot;https://github.com/Mpdreamz/owin-101/Owin101.BranchingBuilder&quot;&gt;Owin101.BranchingBuilder&amp;#39;s Readme&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;06 - Hosting&lt;/h3&gt;
+&lt;p&gt;This example shows how katana handles the hosting be it self host in a console/service or in IIS.
+&lt;a href=&quot;https://github.com/Mpdreamz/owin-101/Owin101.Hosting&quot;&gt;Owin101.Hosting&amp;#39;s Readme&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Checkout the repos &lt;a href=&quot;https://github.com/Mpdreamz/owin-101&quot;&gt;here&lt;/a&gt; the root readme also goes into how to run the examples.&lt;/p&gt;
+&lt;p&gt;Hopefully this is of some use to someone out there!&lt;/p&gt;
+</description></item><item><title>IIS7 and static files madness</title><link>//articles/iis7-and-static-files-madness-2013-10-05/</link><pubDate>Sat, 05 Oct 2013 12:23:00 +0200</pubDate><guid isPermaLink="true">//articles/iis7-and-static-files-madness-2013-10-05/</guid><author></author><description>&lt;p&gt;While doing some performance monitoring with &lt;a href=&quot;https://github.com/wg/wrk&quot;&gt;wrk&lt;/a&gt; I noticed something perculiar about the throughput of my static files.&lt;/p&gt;
+&lt;p&gt;I have an MVC4 website where all the static live in a folder called &lt;code&gt;WebStatic&lt;/code&gt; and that folder has the following in its web.config:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+&amp;lt;configuration&amp;gt;
+  &amp;lt;system.webServer&amp;gt;
+    &amp;lt;handlers&amp;gt;
+      &amp;lt;clear /&amp;gt;
+      &amp;lt;add name=&amp;quot;StaticFile&amp;quot; path=&amp;quot;*&amp;quot; verb=&amp;quot;*&amp;quot; modules=&amp;quot;StaticFileModule&amp;quot; resourceType=&amp;quot;File&amp;quot; requireAccess=&amp;quot;None&amp;quot; /&amp;gt;
+    &amp;lt;/handlers&amp;gt;
+    &amp;lt;staticContent&amp;gt;
+      &amp;lt;clientCache cacheControlCustom=&amp;quot;public&amp;quot; cacheControlMaxAge=&amp;quot;12:00:00&amp;quot; cacheControlMode=&amp;quot;UseMaxAge&amp;quot; /&amp;gt;
+      &amp;lt;remove fileExtension=&amp;quot;.ttf&amp;quot; /&amp;gt;
+      &amp;lt;remove fileExtension=&amp;quot;.otf&amp;quot; /&amp;gt;
+      &amp;lt;remove fileExtension=&amp;quot;.eot&amp;quot; /&amp;gt;
+      &amp;lt;mimeMap fileExtension=&amp;quot;.ttf&amp;quot; mimeType=&amp;quot;font/ttf&amp;quot; /&amp;gt;
+      &amp;lt;mimeMap fileExtension=&amp;quot;.eot&amp;quot; mimeType=&amp;quot;application/vnd.ms-fontobject&amp;quot; /&amp;gt;
+      &amp;lt;mimeMap fileExtension=&amp;quot;.otf&amp;quot; mimeType=&amp;quot;font/otf&amp;quot; /&amp;gt;
+    &amp;lt;/staticContent&amp;gt;
+  &amp;lt;/system.webServer&amp;gt;
+&amp;lt;/configuration&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This removes all &lt;code&gt;httphandlers&lt;/code&gt; and makes sure only the StaticFile handler is registered.&lt;/p&gt;
+&lt;p&gt;I place a manually gzipped file here and it hit with &lt;code&gt;wrk&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Running 10s test @ http://mymvcsite/webstatic/gzipped.css
+  2 threads and 20 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     4.55ms  697.96us   8.61ms   81.95%
+    Req/Sec     1.97k   171.44     2.00k    96.99%
+  43000 requests in 10.00s, 835.99MB read
+Requests/sec:   4299.89
+Transfer/sec:     83.60MB&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Hmm &lt;code&gt;4k/s&lt;/code&gt; does not seem like a whole lot for Microsofts flag ship web server. 
+Lets try that again this time placing the &lt;code&gt;gzipped.css&lt;/code&gt; file outside my mvc application in a new IIS website hosting nothing but that css file.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Running 10s test @ http://myplainsite/gzipped.css
+  2 threads and 20 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.96ms  127.15us   2.77ms   90.70%
+    Req/Sec     4.56k   528.96     5.00k    57.36%
+  100446 requests in 10.00s, 1.91GB read
+Requests/sec:  10044.50
+Transfer/sec:    195.41MB&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Woah &lt;code&gt;10k/s&lt;/code&gt; now, thats loads better. &lt;/p&gt;
+&lt;p&gt;Now I realise benchmarking is hard and correlation does not imply causation and so I do not entirely place IIS at fault for the low throughput of my static files in my MVC site. I do however blame IIS for having an overly complex pipeline of machine.configs &amp;gt; parent web.config&amp;#39;s all creeping into my final &lt;code&gt;/webstatic&lt;/code&gt; folder&amp;#39;s performance.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;This is why we need OWIN.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Disclaimer: I ran the &lt;code&gt;wrk&lt;/code&gt; tests a couple of times and picked one that best represented the mean request/s ratio.&lt;/p&gt;
+</description></item><item><title>On devops at a project based shop</title><link>//articles/on-devops-at-a-project-based-shop-2013-06-11/</link><pubDate>Tue, 11 Jun 2013 08:57:00 +0200</pubDate><guid isPermaLink="true">//articles/on-devops-at-a-project-based-shop-2013-06-11/</guid><author></author><description>&lt;p&gt;The term &lt;code&gt;DevOps&lt;/code&gt; has many overloaded meanings so let me first state what I think encompasses the term &lt;code&gt;DevOps&lt;/code&gt;: everything related to development but not directly to implementing the core product/project&amp;#39;s functionality. &lt;/p&gt;
 &lt;p&gt;More concretely:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Automating the build&lt;/li&gt;
@@ -57,50 +169,6 @@
 &lt;/ul&gt;
 &lt;p&gt;One thing is for sure &lt;code&gt;Devops&lt;/code&gt; work is a constant battle but as long it&amp;#39;s a battle we are fighting we&amp;#39;re on the right track. &lt;/p&gt;
 &lt;p&gt;Do you work for a project shop and are also fighting the &lt;code&gt;shadow work&lt;/code&gt; let me know how you are coping in the comments!&lt;/p&gt;
-</description></item><item><title>IIS7 and static files madness</title><link>//articles/iis7-and-static-files-madness-2013-10-05/</link><pubDate>Sat, 05 Oct 2013 12:23:00 +0200</pubDate><guid isPermaLink="true">//articles/iis7-and-static-files-madness-2013-10-05/</guid><author></author><description>&lt;p&gt;While doing some performance monitoring with &lt;a href=&quot;https://github.com/wg/wrk&quot;&gt;wrk&lt;/a&gt; I noticed something perculiar about the throughput of my static files.&lt;/p&gt;
-&lt;p&gt;I have an MVC4 website where all the static live in a folder called &lt;code&gt;WebStatic&lt;/code&gt; and that folder has the following in its web.config:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;configuration&amp;gt;
-  &amp;lt;system.webServer&amp;gt;
-    &amp;lt;handlers&amp;gt;
-      &amp;lt;clear /&amp;gt;
-      &amp;lt;add name=&amp;quot;StaticFile&amp;quot; path=&amp;quot;*&amp;quot; verb=&amp;quot;*&amp;quot; modules=&amp;quot;StaticFileModule&amp;quot; resourceType=&amp;quot;File&amp;quot; requireAccess=&amp;quot;None&amp;quot; /&amp;gt;
-    &amp;lt;/handlers&amp;gt;
-    &amp;lt;staticContent&amp;gt;
-      &amp;lt;clientCache cacheControlCustom=&amp;quot;public&amp;quot; cacheControlMaxAge=&amp;quot;12:00:00&amp;quot; cacheControlMode=&amp;quot;UseMaxAge&amp;quot; /&amp;gt;
-      &amp;lt;remove fileExtension=&amp;quot;.ttf&amp;quot; /&amp;gt;
-      &amp;lt;remove fileExtension=&amp;quot;.otf&amp;quot; /&amp;gt;
-      &amp;lt;remove fileExtension=&amp;quot;.eot&amp;quot; /&amp;gt;
-      &amp;lt;mimeMap fileExtension=&amp;quot;.ttf&amp;quot; mimeType=&amp;quot;font/ttf&amp;quot; /&amp;gt;
-      &amp;lt;mimeMap fileExtension=&amp;quot;.eot&amp;quot; mimeType=&amp;quot;application/vnd.ms-fontobject&amp;quot; /&amp;gt;
-      &amp;lt;mimeMap fileExtension=&amp;quot;.otf&amp;quot; mimeType=&amp;quot;font/otf&amp;quot; /&amp;gt;
-    &amp;lt;/staticContent&amp;gt;
-  &amp;lt;/system.webServer&amp;gt;
-&amp;lt;/configuration&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This removes all &lt;code&gt;httphandlers&lt;/code&gt; and makes sure only the StaticFile handler is registered.&lt;/p&gt;
-&lt;p&gt;I place a manually gzipped file here and it hit with &lt;code&gt;wrk&lt;/code&gt;.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;Running 10s test @ http://mymvcsite/webstatic/gzipped.css
-  2 threads and 20 connections
-  Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     4.55ms  697.96us   8.61ms   81.95%
-    Req/Sec     1.97k   171.44     2.00k    96.99%
-  43000 requests in 10.00s, 835.99MB read
-Requests/sec:   4299.89
-Transfer/sec:     83.60MB&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Hmm &lt;code&gt;4k/s&lt;/code&gt; does not seem like a whole lot for Microsofts flag ship web server. 
-Lets try that again this time placing the &lt;code&gt;gzipped.css&lt;/code&gt; file outside my mvc application in a new IIS website hosting nothing but that css file.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;Running 10s test @ http://myplainsite/gzipped.css
-  2 threads and 20 connections
-  Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     1.96ms  127.15us   2.77ms   90.70%
-    Req/Sec     4.56k   528.96     5.00k    57.36%
-  100446 requests in 10.00s, 1.91GB read
-Requests/sec:  10044.50
-Transfer/sec:    195.41MB&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Woah &lt;code&gt;10k/s&lt;/code&gt; now, thats loads better. &lt;/p&gt;
-&lt;p&gt;Now I realise benchmarking is hard and correlation does not imply causation and so I do not entirely place IIS at fault for the low throughput of my static files in my MVC site. I do however blame IIS for having an overly complex pipeline of machine.configs &amp;gt; parent web.config&amp;#39;s all creeping into my final &lt;code&gt;/webstatic&lt;/code&gt; folder&amp;#39;s performance.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;This is why we need OWIN.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Disclaimer: I ran the &lt;code&gt;wrk&lt;/code&gt; tests a couple of times and picked one that best represented the mean request/s ratio.&lt;/p&gt;
 </description></item><item><title>OSS development, a continuous lesson in humility</title><link>//articles/oss-development,-a-continuous-lesson-in-humility-2013-03-07/</link><pubDate>Thu, 07 Mar 2013 13:41:00 +0100</pubDate><guid isPermaLink="true">//articles/oss-development,-a-continuous-lesson-in-humility-2013-03-07/</guid><author></author><description>&lt;p&gt;Yesterday I recieved a bug report on &lt;a href=&quot;https://github.com/Mpdreamz/NEST&quot;&gt;NEST&lt;/a&gt;, my .net client for elasticsearch. Now I&amp;#39;ve received many bug reports in the last 2 years and on several occasions these bug reports made me feel humiliated to the bone.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;Yes, I wrote that and yes, that&amp;#39;s pretty stupid&lt;/code&gt; &lt;/p&gt;
 &lt;p&gt;Now I am only human, my first reaction when I receive a pretty severe bug report is: &lt;code&gt;Surely this can&amp;#39;t be true&lt;/code&gt; and &lt;code&gt;Come on! I&amp;#39;m not that stupid!&lt;/code&gt; but 90% of the time I investigate and can only conclude: &lt;code&gt;Yes it IS true&lt;/code&gt; and &lt;code&gt;Yes I AM that stupid&lt;/code&gt;.&lt;/p&gt;
@@ -197,6 +265,44 @@ Thrift: 17575 docs/s&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Nice, we actually improved throughput from 12k 4 months ago to 17k now. Awesome!&lt;/p&gt;
 &lt;p&gt;This is why developing in the open is so awesome, it keeps you humble and grounded benefiting both your sanity and the quality of the project.&lt;/p&gt;
 &lt;p&gt;These fixes are pushed to nuget and in &lt;a href=&quot;https://www.nuget.org/packages/Nest&quot;&gt;Nest 0.9.20.0&lt;/a&gt;&lt;/p&gt;
+</description></item><item><title>Static blogging on Azure</title><link>//articles/static-blogging-on-azure-2012-12-12/</link><pubDate>Wed, 12 Dec 2012 19:54:00 +0100</pubDate><guid isPermaLink="true">//articles/static-blogging-on-azure-2012-12-12/</guid><author></author><description>&lt;p&gt;I&amp;#39;ve been playing with static blog sites way more then I ought to have especially considering this right here constitutes as my first blog post.&lt;/p&gt;
+&lt;p&gt;I find blogging scary enough, I make a lot of grammar mistakes even in my own native tongue and always mix up sayings at the amusal of my colleagues, friends and relatives. 
+Mark Twain has been quoted as saying that he respected a person who could spell a word more than one way. Me thinks Mark Twain and I would have gotten along.&lt;/p&gt;
+&lt;p&gt;So to get me started on blogging I need to be able to write and push from the command line where I feel comfortable and safe with little time to get cold feet thinking about all the horrible grammar mistakes I&amp;#39;ve made. &lt;/p&gt;
+&lt;p&gt;So I&amp;#39;ve settled on &lt;a href=&quot;http://jnordberg.github.com/wintersmith/&quot;&gt;wintersmith&lt;/a&gt; mostly because it&amp;#39;s nodejs based and nodejs is really easy to set up on any machine whether its windows, linux or mac. &lt;a href=&quot;http://jnordberg.github.com/wintersmith/&quot;&gt;wintersmith&lt;/a&gt; stood out to me because it has just enough to please without feeling crippled. &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ wintersmith preview&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;and&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ wintersmith build&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;bring home the cake.&lt;/p&gt;
+&lt;p&gt;I added a small &lt;code&gt;Makefile&lt;/code&gt; to ease with adding new articles as I really want to have a date in my slug&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;NAME = &amp;quot;new-article&amp;quot;
+FULLDATE=`date +&amp;#39;%y-%m-%d %H:%M&amp;#39;`
+DATE=`date +&amp;#39;%Y-%m-%d&amp;#39;`
+FOLDER = &amp;quot;./contents/articles/`echo $(NAME) | tr A-Z a-z | tr &amp;quot; &amp;quot; -`-$(DATE)&amp;quot;
+MSG = &amp;quot;&amp;quot;
+
+all:
+    wintersmith build 
+    git add .
+    git commit -am &amp;quot;releasing $(MSG)&amp;quot;
+    git push origin master
+
+new:
+    mkdir &amp;quot;$(FOLDER)&amp;quot;
+    echo &amp;quot;title: $(NAME)\nauthor: Mpdreamz\ndate: 20$(FULLDATE)\ntemplate: article.jade\n\n&amp;quot; &amp;gt;&amp;gt; &amp;quot;$(FOLDER)/index.md&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;now &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ make new NAME=&amp;quot;My New Article&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;and &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ make MSG=&amp;quot;Commit message&amp;quot; &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;brings home the cake. &lt;code&gt;make new&lt;/code&gt; takes care of figuring out what day it is and slugifying my desired blog title.
+&lt;code&gt;MAKE MSG=&amp;quot;&amp;quot;&lt;/code&gt; will commit my changes and push it to github. Github then notifies Azure to deploy my latest changes. This all happens within a few seconds!&lt;/p&gt;
+&lt;p&gt;For hosting I ended up with Azure git based hosting because it has a little gem I could not get on Heroku
+the &lt;code&gt;.deployment&lt;/code&gt; file where I can point to an alternative root. &lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-ini&quot;&gt;&lt;span class=&quot;title&quot;&gt;[config]&lt;/span&gt;
+&lt;span class=&quot;setting&quot;&gt;project=&lt;span class=&quot;value&quot;&gt;build&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This little feature is a huge advantage to the other platforms I looked at, Heroku needs a small server to serve from a subfolder and github pages need a separate branch.&lt;/p&gt;
+&lt;p&gt;For now I&amp;#39;m pleased with this setup&lt;/p&gt;
+&lt;p&gt;Sidenote: I just ran a &lt;code&gt;:set spell&lt;/code&gt; and I&amp;#39;m certain I&amp;#39;m a respectable person by Mark Twain standards. &lt;/p&gt;
 </description></item><item><title>raygun.io first thoughts</title><link>//articles/raygun.io-first-thoughts-2013-03-07/</link><pubDate>Thu, 07 Mar 2013 08:35:00 +0100</pubDate><guid isPermaLink="true">//articles/raygun.io-first-thoughts-2013-03-07/</guid><author></author><description>&lt;p&gt;&lt;a href=&quot;http://raygun.io/&quot;&gt;raygun.io&lt;/a&gt; is a new application error monitoring service for many languages and platforms from the kiwi&amp;#39;s over at &lt;a href=&quot;http://www.mindscapehq.com/&quot;&gt;Mindscape&lt;/a&gt;.  &lt;/p&gt;
 &lt;p&gt;&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;/articles/raygun.io-first-thoughts-2013-03-07/homeFeature.png&quot; alt=&quot;overview of raygun.io&quot;&gt;&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;Since this will mostly be a rant about the things I &lt;code&gt;don&amp;#39;t&lt;/code&gt; like I&amp;#39;d like to state first and foremost that I&amp;#39;m &lt;code&gt;using and paying&lt;/code&gt; for this service and am &lt;code&gt;very content&lt;/code&gt; overall!.&lt;/p&gt;
@@ -264,42 +370,4 @@ Microsoft does not hand out MVP&amp;#39;s for doing well in opensource, no msdn 
 &lt;p&gt;If we&amp;#39;re too thrive as a community doing .NET OSS development it should be despite of Microsoft, not because of it. &lt;/p&gt;
 &lt;p&gt;Which is also why I&amp;#39;ll refrain from bullet-listing everything Microsoft does wrong..&lt;/p&gt;
 &lt;p&gt;As a closing note I like to think if my project, that serves quite a niche, gets so many involved either through raising issues or sending pull requests I am anything but pessimistic about the community. Even if C# is only the 11th most popular language on github. &lt;/p&gt;
-</description></item><item><title>Static blogging on Azure</title><link>//articles/static-blogging-on-azure-2012-12-12/</link><pubDate>Wed, 12 Dec 2012 19:54:00 +0100</pubDate><guid isPermaLink="true">//articles/static-blogging-on-azure-2012-12-12/</guid><author></author><description>&lt;p&gt;I&amp;#39;ve been playing with static blog sites way more then I ought to have especially considering this right here constitutes as my first blog post.&lt;/p&gt;
-&lt;p&gt;I find blogging scary enough, I make a lot of grammar mistakes even in my own native tongue and always mix up sayings at the amusal of my colleagues, friends and relatives. 
-Mark Twain has been quoted as saying that he respected a person who could spell a word more than one way. Me thinks Mark Twain and I would have gotten along.&lt;/p&gt;
-&lt;p&gt;So to get me started on blogging I need to be able to write and push from the command line where I feel comfortable and safe with little time to get cold feet thinking about all the horrible grammar mistakes I&amp;#39;ve made. &lt;/p&gt;
-&lt;p&gt;So I&amp;#39;ve settled on &lt;a href=&quot;http://jnordberg.github.com/wintersmith/&quot;&gt;wintersmith&lt;/a&gt; mostly because it&amp;#39;s nodejs based and nodejs is really easy to set up on any machine whether its windows, linux or mac. &lt;a href=&quot;http://jnordberg.github.com/wintersmith/&quot;&gt;wintersmith&lt;/a&gt; stood out to me because it has just enough to please without feeling crippled. &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ wintersmith preview&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;and&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ wintersmith build&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;bring home the cake.&lt;/p&gt;
-&lt;p&gt;I added a small &lt;code&gt;Makefile&lt;/code&gt; to ease with adding new articles as I really want to have a date in my slug&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;NAME = &amp;quot;new-article&amp;quot;
-FULLDATE=`date +&amp;#39;%y-%m-%d %H:%M&amp;#39;`
-DATE=`date +&amp;#39;%Y-%m-%d&amp;#39;`
-FOLDER = &amp;quot;./contents/articles/`echo $(NAME) | tr A-Z a-z | tr &amp;quot; &amp;quot; -`-$(DATE)&amp;quot;
-MSG = &amp;quot;&amp;quot;
-
-all:
-    wintersmith build 
-    git add .
-    git commit -am &amp;quot;releasing $(MSG)&amp;quot;
-    git push origin master
-
-new:
-    mkdir &amp;quot;$(FOLDER)&amp;quot;
-    echo &amp;quot;title: $(NAME)\nauthor: Mpdreamz\ndate: 20$(FULLDATE)\ntemplate: article.jade\n\n&amp;quot; &amp;gt;&amp;gt; &amp;quot;$(FOLDER)/index.md&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;now &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ make new NAME=&amp;quot;My New Article&amp;quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;and &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ make MSG=&amp;quot;Commit message&amp;quot; &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;brings home the cake. &lt;code&gt;make new&lt;/code&gt; takes care of figuring out what day it is and slugifying my desired blog title.
-&lt;code&gt;MAKE MSG=&amp;quot;&amp;quot;&lt;/code&gt; will commit my changes and push it to github. Github then notifies Azure to deploy my latest changes. This all happens within a few seconds!&lt;/p&gt;
-&lt;p&gt;For hosting I ended up with Azure git based hosting because it has a little gem I could not get on Heroku
-the &lt;code&gt;.deployment&lt;/code&gt; file where I can point to an alternative root. &lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;lang-ini&quot;&gt;&lt;span class=&quot;title&quot;&gt;[config]&lt;/span&gt;
-&lt;span class=&quot;setting&quot;&gt;project=&lt;span class=&quot;value&quot;&gt;build&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;This little feature is a huge advantage to the other platforms I looked at, Heroku needs a small server to serve from a subfolder and github pages need a separate branch.&lt;/p&gt;
-&lt;p&gt;For now I&amp;#39;m pleased with this setup&lt;/p&gt;
-&lt;p&gt;Sidenote: I just ran a &lt;code&gt;:set spell&lt;/code&gt; and I&amp;#39;m certain I&amp;#39;m a respectable person by Mark Twain standards. &lt;/p&gt;
 </description></item></channel></rss>
