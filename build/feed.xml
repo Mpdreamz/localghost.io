@@ -57,6 +57,50 @@
 &lt;/ul&gt;
 &lt;p&gt;One thing is for sure &lt;code&gt;Devops&lt;/code&gt; work is a constant battle but as long it&amp;#39;s a battle we are fighting we&amp;#39;re on the right track. &lt;/p&gt;
 &lt;p&gt;Do you work for a project shop and are also fighting the &lt;code&gt;shadow work&lt;/code&gt; let me know how you are coping in the comments!&lt;/p&gt;
+</description></item><item><title>IIS7 and static files madness</title><link>//articles/iis7-and-static-files-madness-2013-10-05/</link><pubDate>Sat, 05 Oct 2013 12:23:00 +0200</pubDate><guid isPermaLink="true">//articles/iis7-and-static-files-madness-2013-10-05/</guid><author></author><description>&lt;p&gt;While doing some performance monitoring with &lt;a href=&quot;https://github.com/wg/wrk&quot;&gt;wrk&lt;/a&gt; I noticed something perculiar about the throughput of my static files.&lt;/p&gt;
+&lt;p&gt;I have an MVC4 website where all the static live in a folder called &lt;code&gt;WebStatic&lt;/code&gt; and that folder has the following in its web.config:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+&amp;lt;configuration&amp;gt;
+  &amp;lt;system.webServer&amp;gt;
+    &amp;lt;handlers&amp;gt;
+      &amp;lt;clear /&amp;gt;
+      &amp;lt;add name=&amp;quot;StaticFile&amp;quot; path=&amp;quot;*&amp;quot; verb=&amp;quot;*&amp;quot; modules=&amp;quot;StaticFileModule&amp;quot; resourceType=&amp;quot;File&amp;quot; requireAccess=&amp;quot;None&amp;quot; /&amp;gt;
+    &amp;lt;/handlers&amp;gt;
+    &amp;lt;staticContent&amp;gt;
+      &amp;lt;clientCache cacheControlCustom=&amp;quot;public&amp;quot; cacheControlMaxAge=&amp;quot;12:00:00&amp;quot; cacheControlMode=&amp;quot;UseMaxAge&amp;quot; /&amp;gt;
+      &amp;lt;remove fileExtension=&amp;quot;.ttf&amp;quot; /&amp;gt;
+      &amp;lt;remove fileExtension=&amp;quot;.otf&amp;quot; /&amp;gt;
+      &amp;lt;remove fileExtension=&amp;quot;.eot&amp;quot; /&amp;gt;
+      &amp;lt;mimeMap fileExtension=&amp;quot;.ttf&amp;quot; mimeType=&amp;quot;font/ttf&amp;quot; /&amp;gt;
+      &amp;lt;mimeMap fileExtension=&amp;quot;.eot&amp;quot; mimeType=&amp;quot;application/vnd.ms-fontobject&amp;quot; /&amp;gt;
+      &amp;lt;mimeMap fileExtension=&amp;quot;.otf&amp;quot; mimeType=&amp;quot;font/otf&amp;quot; /&amp;gt;
+    &amp;lt;/staticContent&amp;gt;
+  &amp;lt;/system.webServer&amp;gt;
+&amp;lt;/configuration&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This removes all &lt;code&gt;httphandlers&lt;/code&gt; and makes sure only the StaticFile handler is registered.&lt;/p&gt;
+&lt;p&gt;I place a manually gzipped file here and it hit with &lt;code&gt;wrk&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Running 10s test @ http://mymvcsite/webstatic/gzipped.css
+  2 threads and 20 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     4.55ms  697.96us   8.61ms   81.95%
+    Req/Sec     1.97k   171.44     2.00k    96.99%
+  43000 requests in 10.00s, 835.99MB read
+Requests/sec:   4299.89
+Transfer/sec:     83.60MB&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Hmm &lt;code&gt;4k/s&lt;/code&gt; does not seem like a whole lot for Microsofts flag ship web server. 
+Lets try that again this time placing the &lt;code&gt;gzipped.css&lt;/code&gt; file outside my mvc application in a new IIS website hosting nothing but that css file.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Running 10s test @ http://myplainsite/gzipped.css
+  2 threads and 20 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.96ms  127.15us   2.77ms   90.70%
+    Req/Sec     4.56k   528.96     5.00k    57.36%
+  100446 requests in 10.00s, 1.91GB read
+Requests/sec:  10044.50
+Transfer/sec:    195.41MB&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Woah &lt;code&gt;10k/s&lt;/code&gt; now, thats loads better. &lt;/p&gt;
+&lt;p&gt;Now I realise benchmarking is hard and correlation does not imply causation and so I do not entirely place IIS at fault for the low throughput of my static files in my MVC site. I do however blame IIS for having an overly complex pipeline of machine.configs &amp;gt; parent web.config&amp;#39;s all creeping into my final &lt;code&gt;/webstatic&lt;/code&gt; folder&amp;#39;s performance.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;This is why we need OWIN.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Disclaimer: I ran the &lt;code&gt;wrk&lt;/code&gt; tests a couple of times and picked one that best represented the mean request/s ratio.&lt;/p&gt;
 </description></item><item><title>OSS development, a continuous lesson in humility</title><link>//articles/oss-development,-a-continuous-lesson-in-humility-2013-03-07/</link><pubDate>Thu, 07 Mar 2013 13:41:00 +0100</pubDate><guid isPermaLink="true">//articles/oss-development,-a-continuous-lesson-in-humility-2013-03-07/</guid><author></author><description>&lt;p&gt;Yesterday I recieved a bug report on &lt;a href=&quot;https://github.com/Mpdreamz/NEST&quot;&gt;NEST&lt;/a&gt;, my .net client for elasticsearch. Now I&amp;#39;ve received many bug reports in the last 2 years and on several occasions these bug reports made me feel humiliated to the bone.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;Yes, I wrote that and yes, that&amp;#39;s pretty stupid&lt;/code&gt; &lt;/p&gt;
 &lt;p&gt;Now I am only human, my first reaction when I receive a pretty severe bug report is: &lt;code&gt;Surely this can&amp;#39;t be true&lt;/code&gt; and &lt;code&gt;Come on! I&amp;#39;m not that stupid!&lt;/code&gt; but 90% of the time I investigate and can only conclude: &lt;code&gt;Yes it IS true&lt;/code&gt; and &lt;code&gt;Yes I AM that stupid&lt;/code&gt;.&lt;/p&gt;
@@ -176,6 +220,50 @@ Thrift: 17575 docs/s&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;/articles/raygun.io-first-thoughts-2013-03-07/mobile4.jpg&quot; alt=&quot;login at last&quot;&gt;&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;From here I enter my details and hit submit... nothing... no loading icon .... I give up.&lt;/p&gt;
 &lt;p&gt;As I don&amp;#39;t like closing on a negative note let me repeat that I&amp;#39;ve long been a fan of the guys and girls over at Mindscape. I&amp;#39;m glad they got &lt;a href=&quot;http://raygun.io/&quot;&gt;raygun.io&lt;/a&gt; out the door early to let early adopters like myself moan and groan, that&amp;#39;s a good thing and a sign of a healthy project. Considering this service went from inception to being up and running in a couple of months and is already in the state it is now speaks parts on how things will shape up in the future.&lt;/p&gt;
+</description></item><item><title>Writing a simple wintersmith plugin</title><link>//articles/writing-a-simple-wintersmith-plugin-2013-02-03/</link><pubDate>Sun, 03 Feb 2013 19:57:00 +0100</pubDate><guid isPermaLink="true">//articles/writing-a-simple-wintersmith-plugin-2013-02-03/</guid><author></author><description>&lt;p&gt;I wanted to hook in to how &lt;code&gt;&amp;lt;img&amp;gt;&lt;/code&gt; are outputted by giving them a wrapper element. 
+The reason I want to do this is so that i can give the wrapper a full page width background while centering and constraining the img&amp;#39;s &lt;code&gt;max-width&lt;/code&gt; to different sizes on different screen sizes. &lt;/p&gt;
+&lt;p&gt;Enter &lt;code&gt;wintersmith-markdownhacks&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;lang-coffee&quot;&gt;fs = require &amp;#39;fs&amp;#39;
+path = require &amp;#39;path&amp;#39;
+url = require &amp;#39;url&amp;#39;
+
+module.exports = (wintersmith, callback) -&amp;gt;
+
+class LocalGhostPage extends wintersmith.defaultPlugins.MarkdownPage
+
+    getHtml: (base) -&amp;gt;
+        super base
+        @_html = @_html.replace(/(&amp;lt;img[^&amp;gt;]+&amp;gt;)/g, &amp;#39;&amp;lt;div class=&amp;quot;image-wrapper&amp;quot;&amp;gt;$1&amp;lt;/div&amp;gt;&amp;#39;)
+        return @_html
+
+
+    wintersmith.registerContentPlugin &amp;#39;pages&amp;#39;, &amp;#39;**/*.*(markdown|mkd|md)&amp;#39;, LocalGhostPage
+
+    callback()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Registered in wintersmith&amp;#39;s &lt;code&gt;config.json&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;quot;plugins&amp;quot;: [
+    &amp;quot;wintersmith-sass&amp;quot;,
+    &amp;quot;./node_modules/wintersmith-markdownhacks/plugin.coffee&amp;quot;
+]&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;It&amp;#39;s dirty but I love it&amp;#153;. Here&amp;#39;s an obligatory cat gif showing the end result.&lt;/p&gt;
+&lt;p&gt;&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;https://lh3.googleusercontent.com/-LRMOoQYIynY/UNH4iMul_gI/AAAAAAAAGoY/eJHrtOsd2QI/s275/137.gif&quot; alt=&quot;obligatory cat gif&quot;&gt;&lt;/div&gt;&lt;/p&gt;
+</description></item><item><title>The joys of .NET OSS development</title><link>//articles/the-joys-of-.net-oss-development-2013-04-03/</link><pubDate>Wed, 03 Apr 2013 09:33:00 +0200</pubDate><guid isPermaLink="true">//articles/the-joys-of-.net-oss-development-2013-04-03/</guid><author></author><description>&lt;p&gt;Today a quite heated debate opened up on twitter on a number of questions concerning open source development in .NET
+Doing a full recap of all the points being made would be rather tedious but have a look at &lt;a href=&quot;https://www.twitter.com/gblock&quot;&gt;Glenn Block&amp;#39;s twitter feed&lt;/a&gt; most of the question and arguments raised boiled down to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Does Microsoft do enough to promote OSS projects?&lt;/li&gt;
+&lt;li&gt;Should Microsoft even step up or should the community do more?&lt;/li&gt;
+&lt;li&gt;Is there even a OSS .net community?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This also sparked quite an interesting conversation on Jabbr that i sadly just missed out on. I went back to preserve &lt;a href=&quot;/articles/the-joys-of-.net-oss-development-2013-04-03/jabbr-oss-room-convo.html&quot;&gt;the conversation here&lt;/a&gt; if you&amp;#39;d like to read it back. You&amp;#39;ll have to scroll down to Wednesday, April 03, 2013, forgive my laziness here.&lt;/p&gt;
+&lt;p&gt;I&amp;#39;ve been running &lt;a href=&quot;https://www.github.com/Mpdreamz/NEST&quot;&gt;an open source project&lt;/a&gt; for the past two years with success, I&amp;#39;ve had many people contribute and submit issues and the project is in use at some great sites out there and I couldn&amp;#39;t be happier with the community. The fact remains though that I am still the project&amp;#39;s only main maintainer and the only one answering questions on github and stackoverflow. &lt;/p&gt;
+&lt;p&gt;The only exposure I get is through making sure my documentation is on par and the project looks like its stable and still maintained when people hit the readme page on github. People have tweeted kind words, like &lt;a href=&quot;https://twitter.com/jptoto/status/287329848249167873&quot;&gt;this&lt;/a&gt; or &lt;a href=&quot;https://twitter.com/montesinnos/status/318811105478725634&quot;&gt;this&lt;/a&gt;, for which I&amp;#39;m super grateful!, that helps create a possitive buzz when someone googles for a .NET elasticsearch client.&lt;/p&gt;
+&lt;p&gt;To be honest though I think this is too be expected and I am OK with this. Unless you are lucky to have someone on board as a second maintainer, opensource means you have to do all the hard work. I don&amp;#39;t write code to please Microsoft so I ask for nothing in return. I write code because I need it, I share it so that others may benefit. If enough people do, which I believe to be the case even in the .NET dev world, you get a community going. &lt;/p&gt;
+&lt;p&gt;Although I dont expect anything from Microsoft I really &lt;strong&gt;don&amp;#39;t&lt;/strong&gt; get anything from Microsoft either. jetBrains donated a free Resharper license, my awesome employer &lt;a href=&quot;http://www.q42.nl/&quot;&gt;Q42&lt;/a&gt; even donates a day a week of my time to the project. 
+Microsoft does not hand out MVP&amp;#39;s for doing well in opensource, no msdn subscription, no reach outs from community managers.&lt;/p&gt;
+&lt;p&gt;To be fair as a community I do think we too can do better, we don&amp;#39;t have a go to website everybody goes to for daily updates on whats going on in the .net world. Finding like minded developers is an exercise in who follows who on twitter.&lt;/p&gt;
+&lt;p&gt;If we&amp;#39;re too thrive as a community doing .NET OSS development it should be despite of Microsoft, not because of it. &lt;/p&gt;
+&lt;p&gt;Which is also why I&amp;#39;ll refrain from bullet-listing everything Microsoft does wrong..&lt;/p&gt;
+&lt;p&gt;As a closing note I like to think if my project, that serves quite a niche, gets so many involved either through raising issues or sending pull requests I am anything but pessimistic about the community. Even if C# is only the 11th most popular language on github. &lt;/p&gt;
 </description></item><item><title>Static blogging on Azure</title><link>//articles/static-blogging-on-azure-2012-12-12/</link><pubDate>Wed, 12 Dec 2012 19:54:00 +0100</pubDate><guid isPermaLink="true">//articles/static-blogging-on-azure-2012-12-12/</guid><author></author><description>&lt;p&gt;I&amp;#39;ve been playing with static blog sites way more then I ought to have especially considering this right here constitutes as my first blog post.&lt;/p&gt;
 &lt;p&gt;I find blogging scary enough, I make a lot of grammar mistakes even in my own native tongue and always mix up sayings at the amusal of my colleagues, friends and relatives. 
 Mark Twain has been quoted as saying that he respected a person who could spell a word more than one way. Me thinks Mark Twain and I would have gotten along.&lt;/p&gt;
@@ -214,48 +302,4 @@ the &lt;code&gt;.deployment&lt;/code&gt; file where I can point to an alternativ
 &lt;p&gt;This little feature is a huge advantage to the other platforms I looked at, Heroku needs a small server to serve from a subfolder and github pages need a separate branch.&lt;/p&gt;
 &lt;p&gt;For now I&amp;#39;m pleased with this setup&lt;/p&gt;
 &lt;p&gt;Sidenote: I just ran a &lt;code&gt;:set spell&lt;/code&gt; and I&amp;#39;m certain I&amp;#39;m a respectable person by Mark Twain standards. &lt;/p&gt;
-</description></item><item><title>The joys of .NET OSS development</title><link>//articles/the-joys-of-.net-oss-development-2013-04-03/</link><pubDate>Wed, 03 Apr 2013 09:33:00 +0200</pubDate><guid isPermaLink="true">//articles/the-joys-of-.net-oss-development-2013-04-03/</guid><author></author><description>&lt;p&gt;Today a quite heated debate opened up on twitter on a number of questions concerning open source development in .NET
-Doing a full recap of all the points being made would be rather tedious but have a look at &lt;a href=&quot;https://www.twitter.com/gblock&quot;&gt;Glenn Block&amp;#39;s twitter feed&lt;/a&gt; most of the question and arguments raised boiled down to:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Does Microsoft do enough to promote OSS projects?&lt;/li&gt;
-&lt;li&gt;Should Microsoft even step up or should the community do more?&lt;/li&gt;
-&lt;li&gt;Is there even a OSS .net community?&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;This also sparked quite an interesting conversation on Jabbr that i sadly just missed out on. I went back to preserve &lt;a href=&quot;/articles/the-joys-of-.net-oss-development-2013-04-03/jabbr-oss-room-convo.html&quot;&gt;the conversation here&lt;/a&gt; if you&amp;#39;d like to read it back. You&amp;#39;ll have to scroll down to Wednesday, April 03, 2013, forgive my laziness here.&lt;/p&gt;
-&lt;p&gt;I&amp;#39;ve been running &lt;a href=&quot;https://www.github.com/Mpdreamz/NEST&quot;&gt;an open source project&lt;/a&gt; for the past two years with success, I&amp;#39;ve had many people contribute and submit issues and the project is in use at some great sites out there and I couldn&amp;#39;t be happier with the community. The fact remains though that I am still the project&amp;#39;s only main maintainer and the only one answering questions on github and stackoverflow. &lt;/p&gt;
-&lt;p&gt;The only exposure I get is through making sure my documentation is on par and the project looks like its stable and still maintained when people hit the readme page on github. People have tweeted kind words, like &lt;a href=&quot;https://twitter.com/jptoto/status/287329848249167873&quot;&gt;this&lt;/a&gt; or &lt;a href=&quot;https://twitter.com/montesinnos/status/318811105478725634&quot;&gt;this&lt;/a&gt;, for which I&amp;#39;m super grateful!, that helps create a possitive buzz when someone googles for a .NET elasticsearch client.&lt;/p&gt;
-&lt;p&gt;To be honest though I think this is too be expected and I am OK with this. Unless you are lucky to have someone on board as a second maintainer, opensource means you have to do all the hard work. I don&amp;#39;t write code to please Microsoft so I ask for nothing in return. I write code because I need it, I share it so that others may benefit. If enough people do, which I believe to be the case even in the .NET dev world, you get a community going. &lt;/p&gt;
-&lt;p&gt;Although I dont expect anything from Microsoft I really &lt;strong&gt;don&amp;#39;t&lt;/strong&gt; get anything from Microsoft either. jetBrains donated a free Resharper license, my awesome employer &lt;a href=&quot;http://www.q42.nl/&quot;&gt;Q42&lt;/a&gt; even donates a day a week of my time to the project. 
-Microsoft does not hand out MVP&amp;#39;s for doing well in opensource, no msdn subscription, no reach outs from community managers.&lt;/p&gt;
-&lt;p&gt;To be fair as a community I do think we too can do better, we don&amp;#39;t have a go to website everybody goes to for daily updates on whats going on in the .net world. Finding like minded developers is an exercise in who follows who on twitter.&lt;/p&gt;
-&lt;p&gt;If we&amp;#39;re too thrive as a community doing .NET OSS development it should be despite of Microsoft, not because of it. &lt;/p&gt;
-&lt;p&gt;Which is also why I&amp;#39;ll refrain from bullet-listing everything Microsoft does wrong..&lt;/p&gt;
-&lt;p&gt;As a closing note I like to think if my project, that serves quite a niche, gets so many involved either through raising issues or sending pull requests I am anything but pessimistic about the community. Even if C# is only the 11th most popular language on github. &lt;/p&gt;
-</description></item><item><title>Writing a simple wintersmith plugin</title><link>//articles/writing-a-simple-wintersmith-plugin-2013-02-03/</link><pubDate>Sun, 03 Feb 2013 19:57:00 +0100</pubDate><guid isPermaLink="true">//articles/writing-a-simple-wintersmith-plugin-2013-02-03/</guid><author></author><description>&lt;p&gt;I wanted to hook in to how &lt;code&gt;&amp;lt;img&amp;gt;&lt;/code&gt; are outputted by giving them a wrapper element. 
-The reason I want to do this is so that i can give the wrapper a full page width background while centering and constraining the img&amp;#39;s &lt;code&gt;max-width&lt;/code&gt; to different sizes on different screen sizes. &lt;/p&gt;
-&lt;p&gt;Enter &lt;code&gt;wintersmith-markdownhacks&lt;/code&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;lang-coffee&quot;&gt;fs = require &amp;#39;fs&amp;#39;
-path = require &amp;#39;path&amp;#39;
-url = require &amp;#39;url&amp;#39;
-
-module.exports = (wintersmith, callback) -&amp;gt;
-
-class LocalGhostPage extends wintersmith.defaultPlugins.MarkdownPage
-
-    getHtml: (base) -&amp;gt;
-        super base
-        @_html = @_html.replace(/(&amp;lt;img[^&amp;gt;]+&amp;gt;)/g, &amp;#39;&amp;lt;div class=&amp;quot;image-wrapper&amp;quot;&amp;gt;$1&amp;lt;/div&amp;gt;&amp;#39;)
-        return @_html
-
-
-    wintersmith.registerContentPlugin &amp;#39;pages&amp;#39;, &amp;#39;**/*.*(markdown|mkd|md)&amp;#39;, LocalGhostPage
-
-    callback()&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Registered in wintersmith&amp;#39;s &lt;code&gt;config.json&lt;/code&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;quot;plugins&amp;quot;: [
-    &amp;quot;wintersmith-sass&amp;quot;,
-    &amp;quot;./node_modules/wintersmith-markdownhacks/plugin.coffee&amp;quot;
-]&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;It&amp;#39;s dirty but I love it&amp;#153;. Here&amp;#39;s an obligatory cat gif showing the end result.&lt;/p&gt;
-&lt;p&gt;&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;https://lh3.googleusercontent.com/-LRMOoQYIynY/UNH4iMul_gI/AAAAAAAAGoY/eJHrtOsd2QI/s275/137.gif&quot; alt=&quot;obligatory cat gif&quot;&gt;&lt;/div&gt;&lt;/p&gt;
 </description></item></channel></rss>
