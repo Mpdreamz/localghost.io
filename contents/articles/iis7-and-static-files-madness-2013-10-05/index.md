@@ -3,11 +3,13 @@ title: IIS7 and static files madness
 author: Mpdreamz
 date: 2013-10-05 12:23
 template: article.jade
+commentid: 7
 ---
 
 While doing some performance monitoring with [wrk](https://github.com/wg/wrk) I noticed something perculiar about the throughput of my static files.
 
-I have an MVC4 website where all the static live in a folder called `WebStatic` and it has the following in its web.config:
+I have an MVC4 website where all the static live in a folder called `WebStatic` and that folder has the following in its web.config:
+
 ```
 <?xml version="1.0" encoding="utf-8"?>
 <configuration>
@@ -60,7 +62,10 @@ Transfer/sec:    195.41MB
 
 Woah `10k/s` now, thats loads better. 
 
+
 Now I realise benchmarking is hard and correlation does not imply causation and so I do not entirely place IIS at fault for the low throughput of my static files in my MVC site. I do however blame IIS for having an overly complex pipeline of machine.configs > parent web.config's all creeping into my final `/webstatic` folder's performance.
 
-Disclaimer: I ran the `wrk` tests a couple of times and picked one that best represented the mean rquest per second ratio.
+**This is why we need OWIN.**
+
+Disclaimer: I ran the `wrk` tests a couple of times and picked one that best represented the mean request/s ratio.
 
