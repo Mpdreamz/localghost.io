@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>localghost.io</title><link rel="alternate" href="//feed.xml" type="application/rss+xml" title="-Love data, design and most of all, the web"><link rel="stylesheet" href="/css/normalize.css"><link rel="stylesheet" href="/css/layout.css"><link rel="stylesheet" href="/css/styling.css"><link rel="stylesheet" href="/css/fonts.css"><link rel="stylesheet" href="/css/styles/ir_black.css"><script src="/js/highlight.pack.js"></script><script src="/js/jquery.min.js"></script><script src="/js/comments.js"></script><!--script(src='/js/script.js')--></head><body><nav><ul><li><a href="/articles/owin-101-a-progressive-walkthrough-2014-01-22/" class="selected">Blog</a></li><li class="sep">|</li><li><a href="/archive.html" id="archive" class="">Archives</a></li><li class="sep">|</li><li><a href="/about-me.html" class="">About Me</a></li></ul></nav><header class="clearfix"><!--img#logo(src='/images/backgrounds/logo-32.png')      --><h1> <a href="/">localghost.io</a><span class="blink">_</span></h1></header><section class="content"></section><article class="post"><header><h2><a href>IIS7 and static files madness</a></h2></header><section class="content"><p>While doing some performance monitoring with <a href="https://github.com/wg/wrk">wrk</a> I noticed something perculiar about the throughput of my static files.</p>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>localghost.io</title><link rel="alternate" href="//feed.xml" type="application/rss+xml" title="-Love data, design and most of all, the web"><link rel="stylesheet" href="/css/normalize.css"><link rel="stylesheet" href="/css/layout.css"><link rel="stylesheet" href="/css/styling.css"><link rel="stylesheet" href="/css/fonts.css"><link rel="stylesheet" href="/css/styles/ir_black.css"><script src="/js/highlight.pack.js"></script><script src="/js/jquery.min.js"></script><script src="/js/comments.js"></script><!--script(src='/js/script.js')--></head><body><nav><ul><li><a href="/articles/owin-101-a-progressive-walkthrough-2014-01-22/" class="selected">Blog</a></li><li class="sep">|</li><li><a href="/archive.html" id="archive">Archives</a></li><li class="sep">|</li><li><a href="/about-me.html">About Me</a></li></ul></nav><header class="clearfix"><!--img#logo(src='/images/backgrounds/logo-32.png')      --><h1><a href="/">localghost.io</a><span class="blink">_</span></h1></header><section class="content"></section><article class="post"><header><h2><a href>IIS7 and static files madness</a></h2></header><section class="content"><p>While doing some performance monitoring with <a href="https://github.com/wg/wrk">wrk</a> I noticed something perculiar about the throughput of my static files.</p>
 <p>I have an MVC4 website where all the static live in a folder called <code>WebStatic</code> and that folder has the following in its web.config:</p>
 <pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
 &lt;configuration&gt;
@@ -17,8 +17,8 @@
       &lt;mimeMap fileExtension=&quot;.otf&quot; mimeType=&quot;font/otf&quot; /&gt;
     &lt;/staticContent&gt;
   &lt;/system.webServer&gt;
-&lt;/configuration&gt;</code></pre>
-<p>This removes all <code>httphandlers</code> and makes sure only the StaticFile handler is registered.</p>
+&lt;/configuration&gt;
+</code></pre><p>This removes all <code>httphandlers</code> and makes sure only the StaticFile handler is registered.</p>
 <p>I place a manually gzipped file here and it hit with <code>wrk</code>.</p>
 <pre><code>Running 10s test @ http://mymvcsite/webstatic/gzipped.css
   2 threads and 20 connections
@@ -27,8 +27,8 @@
     Req/Sec     1.97k   171.44     2.00k    96.99%
   43000 requests in 10.00s, 835.99MB read
 Requests/sec:   4299.89
-Transfer/sec:     83.60MB</code></pre>
-<p>Hmm <code>4k/s</code> does not seem like a whole lot for Microsofts flag ship web server. 
+Transfer/sec:     83.60MB
+</code></pre><p>Hmm <code>4k/s</code> does not seem like a whole lot for Microsofts flag ship web server. 
 Lets try that again this time placing the <code>gzipped.css</code> file outside my mvc application in a new IIS website hosting nothing but that css file.</p>
 <pre><code>Running 10s test @ http://myplainsite/gzipped.css
   2 threads and 20 connections
@@ -37,8 +37,8 @@ Lets try that again this time placing the <code>gzipped.css</code> file outside 
     Req/Sec     4.56k   528.96     5.00k    57.36%
   100446 requests in 10.00s, 1.91GB read
 Requests/sec:  10044.50
-Transfer/sec:    195.41MB</code></pre>
-<p>Woah <code>10k/s</code> now, thats loads better. </p>
+Transfer/sec:    195.41MB
+</code></pre><p>Woah <code>10k/s</code> now, thats loads better. </p>
 <p>Now I realise benchmarking is hard and correlation does not imply causation and so I do not entirely place IIS at fault for the low throughput of my static files in my MVC site. I do however blame IIS for having an overly complex pipeline of machine.configs &gt; parent web.config&#39;s all creeping into my final <code>/webstatic</code> folder&#39;s performance.</p>
 <p><strong>This is why we need OWIN.</strong></p>
 <p>Disclaimer: I ran the <code>wrk</code> tests a couple of times and picked one that best represented the mean request/s ratio.</p>

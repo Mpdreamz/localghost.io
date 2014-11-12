@@ -50,10 +50,8 @@ nav li a.selected {
 @-webkit-keyframes blinker {
   from {
     opacity: 1.0; }
-
   to {
     opacity: 0.0; } }
-
 .blink {
   -webkit-animation-name: blinker;
   -webkit-animation-iteration-count: infinite;

@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>localghost.io</title><link rel="alternate" href="//feed.xml" type="application/rss+xml" title="-Love data, design and most of all, the web"><link rel="stylesheet" href="/css/normalize.css"><link rel="stylesheet" href="/css/layout.css"><link rel="stylesheet" href="/css/styling.css"><link rel="stylesheet" href="/css/fonts.css"><link rel="stylesheet" href="/css/styles/ir_black.css"><script src="/js/highlight.pack.js"></script><script src="/js/jquery.min.js"></script><script src="/js/comments.js"></script><!--script(src='/js/script.js')--></head><body><nav><ul><li><a href="/articles/owin-101-a-progressive-walkthrough-2014-01-22/" class="selected">Blog</a></li><li class="sep">|</li><li><a href="/archive.html" id="archive" class="">Archives</a></li><li class="sep">|</li><li><a href="/about-me.html" class="">About Me</a></li></ul></nav><header class="clearfix"><!--img#logo(src='/images/backgrounds/logo-32.png')      --><h1> <a href="/">localghost.io</a><span class="blink">_</span></h1></header><section class="content"></section><article class="post"><header><h2><a href>OSS development, a continuous lesson in humility</a></h2></header><section class="content"><p>Yesterday I recieved a bug report on <a href="https://github.com/Mpdreamz/NEST">NEST</a>, my .net client for elasticsearch. Now I&#39;ve received many bug reports in the last 2 years and on several occasions these bug reports made me feel humiliated to the bone.</p>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>localghost.io</title><link rel="alternate" href="//feed.xml" type="application/rss+xml" title="-Love data, design and most of all, the web"><link rel="stylesheet" href="/css/normalize.css"><link rel="stylesheet" href="/css/layout.css"><link rel="stylesheet" href="/css/styling.css"><link rel="stylesheet" href="/css/fonts.css"><link rel="stylesheet" href="/css/styles/ir_black.css"><script src="/js/highlight.pack.js"></script><script src="/js/jquery.min.js"></script><script src="/js/comments.js"></script><!--script(src='/js/script.js')--></head><body><nav><ul><li><a href="/articles/owin-101-a-progressive-walkthrough-2014-01-22/" class="selected">Blog</a></li><li class="sep">|</li><li><a href="/archive.html" id="archive">Archives</a></li><li class="sep">|</li><li><a href="/about-me.html">About Me</a></li></ul></nav><header class="clearfix"><!--img#logo(src='/images/backgrounds/logo-32.png')      --><h1><a href="/">localghost.io</a><span class="blink">_</span></h1></header><section class="content"></section><article class="post"><header><h2><a href>OSS development, a continuous lesson in humility</a></h2></header><section class="content"><p>Yesterday I recieved a bug report on <a href="https://github.com/Mpdreamz/NEST">NEST</a>, my .net client for elasticsearch. Now I&#39;ve received many bug reports in the last 2 years and on several occasions these bug reports made me feel humiliated to the bone.</p>
 <p><code>Yes, I wrote that and yes, that&#39;s pretty stupid</code> </p>
 <p>Now I am only human, my first reaction when I receive a pretty severe bug report is: <code>Surely this can&#39;t be true</code> and <code>Come on! I&#39;m not that stupid!</code> but 90% of the time I investigate and can only conclude: <code>Yes it IS true</code> and <code>Yes I AM that stupid</code>.</p>
 <p><a href="https://github.com/Mpdreamz/NEST/issues/189">Yesterday&#39;s bug report</a>, was a prime example of this.</p>
@@ -10,7 +10,8 @@ I think the fault might be with this code (DoAsyncRequest):
 
 if (tcs.Task != null &amp;&amp; tcs.Task.Result != null)
 
-As it accesses the Task's Result, we wait for the task to complete...</code></pre>
+As it accesses the Task's Result, we wait for the task to complete...
+</code></pre>
 <p>Fuck me thats pretty severe! <code>Surely this can&#39;t be true</code> and <code>Come on! I&#39;m not that stupid!</code> Looking <a href="https://github.com/Mpdreamz/NEST/blob/9aed4e2e90087d2ffb398dc18b68159190f951f3/src/Nest/Domain/Connection/Connection.cs#L156-L167">at the code</a> though:</p>
 <pre><code class="lang-cs"><span class="keyword">var</span> tcs = <span class="keyword">new</span> TaskCompletionSource&lt;ConnectionStatus&gt;();
 <span class="keyword">this</span>.Iterate(<span class="keyword">this</span>._AsyncSteps(request, tcs, data), tcs);
@@ -20,7 +21,8 @@ As it accesses the Task's Result, we wait for the task to complete...</code></pr
     tcs.Task.Result.RequestUrl = request.RequestUri.ToString();
     tcs.Task.Result.RequestMethod = request.Method;
 }
-<span class="keyword">return</span> tcs.Task;</code></pre>
+<span class="keyword">return</span> tcs.Task;
+</code></pre>
 <p>Damnit! <code>Yes it IS true</code> and <code>Yes I AM that stupid</code>. Fair enough the fix seems easy enough, return a continuation on the task instead.</p>
 <pre><code class="lang-cs"><span class="keyword">var</span> tcs = <span class="keyword">new</span> TaskCompletionSource&lt;ConnectionStatus&gt;();
 <span class="keyword">this</span>.Iterate(<span class="keyword">this</span>._AsyncSteps(request, tcs, data), tcs);
@@ -30,7 +32,8 @@ As it accesses the Task's Result, we wait for the task to complete...</code></pr
     tcs.Task.Result.RequestUrl = request.RequestUri.ToString();
     tcs.Task.Result.RequestMethod = request.Method;
     <span class="keyword">return</span> tcs.Task.Result;
-});</code></pre>
+});
+</code></pre>
 <p>Nest&#39;s comes with a demo indexer that tests the troughput of the different <code>IConnection</code> implementations. The code itself looks like this:</p>
 <pre><code class="lang-cs"><span class="keyword">var</span> partitionedMessages = msgGenerator.Generate(numMessages).Partition(bufferSize);
 Interlocked.Exchange(<span class="keyword">ref</span> NumSent, <span class="number">0</span>);
@@ -45,7 +48,8 @@ Interlocked.Exchange(<span class="keyword">ref</span> NumSent, <span class="numb
         Console.WriteLine(<span class="string">"Sent {0:0,0} messages to {1}"</span>, NumSent, indexName);
     }
 }
-Task.WaitAll(tasks.ToArray());</code></pre>
+Task.WaitAll(tasks.ToArray());
+</code></pre>
 <p><code>msgGenerator</code> generates <code>new Message()</code>&#39;s&#39; without doing ANY IO. So I really should be seeing multiple requests being being processed at the same time.</p>
 <p>Yet fiddlers timeline shows me something pretty horrific:</p>
 <p><div class="image-wrapper"><img src="/articles/oss-development,-a-continuous-lesson-in-humility-2013-03-07/fiddlertimelinefirstrun.PNG" alt="fiddler timeline first run"></div></p>
@@ -54,7 +58,8 @@ Task.WaitAll(tasks.ToArray());</code></pre>
 <div class="image-wrapper"><img src="/articles/oss-development,-a-continuous-lesson-in-humility-2013-03-07/consoleoutputfirstrun.PNG" alt="consoleoutputfirstrun"></div></p>
 <p>Fuck me these are not anywhere near the throughput numbers <a href="https://github.com/Mpdreamz/NEST/pull/112#issuecomment-10266029">I reported 4 months ago</a></p>
 <pre><code class="lang-markdown">HTTP: 12123 docs/s
-Thrift: 17575 docs/s</code></pre>
+Thrift: 17575 docs/s
+</code></pre>
 <p>Mother of regressions!</p>
 <p>Looking at the <code>&quot;fixed code&quot;</code> again:</p>
 <pre><code class="lang-cs"><span class="keyword">var</span> tcs = <span class="keyword">new</span> TaskCompletionSource&lt;ConnectionStatus&gt;();
@@ -65,7 +70,8 @@ Thrift: 17575 docs/s</code></pre>
     tcs.Task.Result.RequestUrl = request.RequestUri.ToString();
     tcs.Task.Result.RequestMethod = request.Method;
     <span class="keyword">return</span> tcs.Task.Result;
-});</code></pre>
+});
+</code></pre>
 <p>The <code>TaskCompletionSource</code> still blocks while it coordinates the async steps. Let&#39;s try that again:</p>
 <pre><code class="lang-cs"><span class="keyword">var</span> tcs = <span class="keyword">new</span> TaskCompletionSource&lt;ConnectionStatus&gt;();
 <span class="keyword">if</span> (!<span class="keyword">this</span>._ResourceLock.WaitOne(timeout))
@@ -85,7 +91,8 @@ Thrift: 17575 docs/s</code></pre>
 <span class="keyword">finally</span>
 {
     <span class="keyword">this</span>._ResourceLock.Release();
-}</code></pre>
+}
+</code></pre>
 <p>Here I explicitly start a new Task and on top of that moved the semaphore out of <code>_AsyncSteps()</code> so we delay the creation of <code>Task&lt;T&gt;</code>&#39;s to the very last second. The <code>TaskCreationOptions.LongRunning</code> is also key here to prevent threadpool starvation! The TPL will prefer to really start a new Thread for your task not take one from the threadpool. </p>
 <p>Let&#39;s see how we are doing now:</p>
 <p><div class="image-wrapper"><img src="/articles/oss-development,-a-continuous-lesson-in-humility-2013-03-07/fiddlertimelinesecondrun.PNG" alt="fiddler timeline second run"></div></p>
