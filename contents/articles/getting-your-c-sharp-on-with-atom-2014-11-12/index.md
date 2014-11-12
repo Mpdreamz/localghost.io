@@ -10,7 +10,7 @@ commentid: 9
 
 One of the last web projects I did before starting my current gig at [Elasticsearch](http://www.elasticsearch.org) was every developers' dream, 3 week POCO search interface, no fixed scope, have fun. 
 
-One of my internal goals of the project was to proof that developing C# on a mac did not have to suck. The team concisted of me and a frontend developer who also worked on OSX and was happiest if all he had to open was Sublime and a terminal. 
+One of my internal goals of the project was to proof that developing C# on a mac did not have to suck. The team consisted of me and a frontend developer who also worked on OSX and was happiest if all he had to open was Sublime and a terminal. 
 
 - nancyfx application
 - hosted in OWIN self host (Helios in production)
@@ -23,15 +23,17 @@ The project was a ton of fun but setting all the moving pieces up was a major pa
 
 Another big take away of the project was how simply awesome [OmniSharp](https://github.com/OmniSharp/omnisharp-vim) was. Developing in my vim with autocompletion and live error feedback? `HECK TO THE YES`!
 
-Whenever I needed to debug I moved to [Xamarin](http://www.xamarin.com) which is awesome as an IDE and debugger but as an editor still lacks behind. This was before all the recent awesome additions should as being able to dock windows next to eachother.
+Whenever I needed to debug I moved to [Xamarin](http://www.xamarin.com) which is awesome as an IDE and debugger but as an editor still lacks behind. This was before all the recent awesome additions should as being able to dock windows next to each other.
 
 ## OmniSharp
 
+![Omnisharp](/images/omnisharp.png)
+
 Some months ago an intern at Microsoft started a [Sublime plugin Kulture](https://github.com/ligershark/Kulture) using `Roslyn` to get intellissense and aspvnext commands directly in sublime.
 
-In one [of the issues](https://github.com/ligershark/Kulture/issues/12#issuecomment-51368208) on Kulture the general concensus however quickly became editors need to standardize on [OmniSharp](http://www.omnisharp.net)  and a Skype session was started with everyone involved. 
+In one [of the issues](https://github.com/ligershark/Kulture/issues/12#issuecomment-51368208) on Kulture the general consensus however quickly became editors need to standardize on [OmniSharp](http://www.omnisharp.net)  and a Skype session was started with everyone involved. 
 
-I joined but did not commit to anything, however the weekend after I started hacking in Atom and was pleasanlty suprised.
+I joined but did not commit to anything, however the weekend after I started hacking in Atom and was pleasantly surprised.
 
 First of all Atom's plugin development is a joy. Being able to leverage all my web development smarts to extend my editor? `HECK YES!` Move over VIMScript! After that [Omnisharp-atom](https://github.com/OmniSharp/omnisharp-atom) was born!
 
@@ -44,11 +46,11 @@ Right now the feature scope is still very limited:
 * ctrl-F12 Go to definition
 * shift-F12 Find usages
 * Completions appear as you type. To select an item, press the TAB key.
-* Editor addornments (squigglies) appear for errors and code hints as you type. 
+* Editor adornments (squiggles) appear for errors and code hints as you type. 
 
 Although in `master` [Stephen James](http://stephenjamescode.blogspot.co.uk/) also pushed support for `Format Code` and `Fix Usings` which will be released very soon!
 
-As an OmniSharp editor feature wise we lack behind on the [sublime plugin](https://github.com/OmniSharp/omnisharp-sublime) (honestly [Jonathan Channon](http://jonathanchannon.com/) is a beast!) the atom omnisharp plugin has a very sound fundation!
+As an OmniSharp editor feature wise we lack behind on the [sublime plugin](https://github.com/OmniSharp/omnisharp-sublime) (honestly [Jonathan Channon](http://jonathanchannon.com/) is a beast!) the atom omnisharp plugin has a very sound foundation!
 
 If you use Atom and C# we urge you to play with [Omnisharp-atom](https://github.com/OmniSharp/omnisharp-atom), use it anger, help us build out more and more features but most importantly have fun!
 
