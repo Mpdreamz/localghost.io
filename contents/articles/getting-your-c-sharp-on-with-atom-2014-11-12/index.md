@@ -57,7 +57,7 @@ If you use Atom and C# we urge you to play with [Omnisharp-atom](https://github.
 Too much has been said about opensource and microsoft: with crossplatform and multi editor support for our beloved language my biggest hope for the future is that we as a community put the `fun` back into C# development!
 
 ## Further reading:
-- [Scott Hanselman's blog post](hnsl.mn/dotnet2015)
+- [Scott Hanselman's blog post](http://hnsl.mn/dotnet2015)
 - [Jonathan Channon on omnisharp-sublime](http://mat-mcloughlin.net/2014/11/12/time-to-cast-away-visual-studio-and-use-a-text-editor/)
 - [Matthew McLoughlin on omnisharp-brackets](http://mat-mcloughlin.net/2014/11/12/time-to-cast-away-visual-studio-and-use-a-text-editor/) 
 
