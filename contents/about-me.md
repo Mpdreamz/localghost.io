@@ -8,7 +8,7 @@ This is me:
 
 ![Mpdreamz hardly working](/images/martijnl.gif)
 
-I work for [ElasticSearch](http://www.elasticsearch.org) as .NET developer. 
+I work for [Elasticsearch](http://www.elasticsearch.org) as .NET developer. 
 
 [I'm a serial commiter on github](http://www.github.com/Mpdreamz).
 
