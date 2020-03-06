@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8" ?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Mpdreamz.nl</title><atom:link href="//feed.xml" rel="self" type="application/rss+xml"></atom:link><link>/</link><description>-Love data, design and most of all, the web</description><pubDate>Wed, 12 Nov 2014 15:15:00 +0100</pubDate><generator>The mighty Wintersmith</generator><language>en</language><item><title>Getting your C# on with Atom</title><link>//articles/getting-your-c-sharp-on-with-atom-2014-11-12/</link><pubDate>Wed, 12 Nov 2014 15:15:00 +0100</pubDate><guid isPermaLink="true">//articles/getting-your-c-sharp-on-with-atom-2014-11-12/</guid><author></author><description>&lt;h2 id=&quot;a-precursor&quot;&gt;A precursor&lt;/h2&gt;
-&lt;p&gt;One of the last web projects I did before starting my current gig at &lt;a href=&quot;http://www.elasticsearch.org/&quot;&gt;Elasticsearch&lt;/a&gt; was every developers&amp;#39; dream, 3 week POCO search interface, no fixed scope, have fun. &lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" ?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>localghost.io</title><atom:link href="//feed.xml" rel="self" type="application/rss+xml"></atom:link><link>/</link><description>-Love data, design and most of all, the web</description><pubDate>Wed, 12 Nov 2014 15:15:00 +0100</pubDate><generator>The mighty Wintersmith</generator><language>en</language><item><title>Getting your C# on with Atom</title><link>//articles/getting-your-c-sharp-on-with-atom-2014-11-12/</link><pubDate>Wed, 12 Nov 2014 15:15:00 +0100</pubDate><guid isPermaLink="true">//articles/getting-your-c-sharp-on-with-atom-2014-11-12/</guid><author></author><description>&lt;h2 id=&quot;a-precursor&quot;&gt;A precursor&lt;/h2&gt;
+&lt;p&gt;One of the last web projects I did before starting my current gig at &lt;a href=&quot;http://www.elasticsearch.org&quot;&gt;Elasticsearch&lt;/a&gt; was every developers&amp;#39; dream, 3 week POCO search interface, no fixed scope, have fun. &lt;/p&gt;
 &lt;p&gt;One of my internal goals of the project was to proof that developing C# on a mac did not have to suck. The team consisted of me and a frontend developer who also worked on OSX and was happiest if all he had to open was Sublime and a terminal. &lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;nancyfx application&lt;/li&gt;
@@ -11,11 +11,11 @@
 &lt;/ul&gt;
 &lt;p&gt;The project was a ton of fun but setting all the moving pieces up was a major pain. Grunt builds were tedious and prone to &lt;code&gt;KILL&lt;/code&gt; itself. &lt;a href=&quot;http://www.github.com/aspnet/Home&quot;&gt;ASP vNEXT&lt;/a&gt; simplifies everything soo much and having been through the pain of doing it manually having a framework that solves running, watching, building is something that has me super super excited. &lt;/p&gt;
 &lt;p&gt;Another big take away of the project was how simply awesome &lt;a href=&quot;https://github.com/OmniSharp/omnisharp-vim&quot;&gt;OmniSharp&lt;/a&gt; was. Developing in my vim with autocompletion and live error feedback? &lt;code&gt;HECK TO THE YES&lt;/code&gt;!&lt;/p&gt;
-&lt;p&gt;Whenever I needed to debug I moved to &lt;a href=&quot;http://www.xamarin.com/&quot;&gt;Xamarin&lt;/a&gt; which is awesome as an IDE and debugger but as an editor still lacks behind. This was before all the recent awesome additions should as being able to dock windows next to each other.&lt;/p&gt;
+&lt;p&gt;Whenever I needed to debug I moved to &lt;a href=&quot;http://www.xamarin.com&quot;&gt;Xamarin&lt;/a&gt; which is awesome as an IDE and debugger but as an editor still lacks behind. This was before all the recent awesome additions should as being able to dock windows next to each other.&lt;/p&gt;
 &lt;h2 id=&quot;omnisharp&quot;&gt;OmniSharp&lt;/h2&gt;
 &lt;p&gt;&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;/images/omnisharp.png&quot; alt=&quot;Omnisharp&quot;&gt;&lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;Some months ago an intern at Microsoft started a &lt;a href=&quot;https://github.com/ligershark/Kulture&quot;&gt;Sublime plugin Kulture&lt;/a&gt; using &lt;code&gt;Roslyn&lt;/code&gt; to get intellissense and aspvnext commands directly in sublime.&lt;/p&gt;
-&lt;p&gt;In one &lt;a href=&quot;https://github.com/ligershark/Kulture/issues/12#issuecomment-51368208&quot;&gt;of the issues&lt;/a&gt; on Kulture the general consensus however quickly became editors need to standardize on &lt;a href=&quot;http://www.omnisharp.net/&quot;&gt;OmniSharp&lt;/a&gt;  and a Skype session was started with everyone involved. &lt;/p&gt;
+&lt;p&gt;In one &lt;a href=&quot;https://github.com/ligershark/Kulture/issues/12#issuecomment-51368208&quot;&gt;of the issues&lt;/a&gt; on Kulture the general consensus however quickly became editors need to standardize on &lt;a href=&quot;http://www.omnisharp.net&quot;&gt;OmniSharp&lt;/a&gt;  and a Skype session was started with everyone involved. &lt;/p&gt;
 &lt;p&gt;I joined but did not commit to anything, however the weekend after I started hacking in Atom and was pleasantly surprised.&lt;/p&gt;
 &lt;p&gt;First of all Atom&amp;#39;s plugin development is a joy. Being able to leverage all my web development smarts to extend my editor? &lt;code&gt;HECK YES!&lt;/code&gt; Move over VIMScript! After that &lt;a href=&quot;https://github.com/OmniSharp/omnisharp-atom&quot;&gt;Omnisharp-atom&lt;/a&gt; was born!&lt;/p&gt;
 &lt;p&gt;Shortly after &lt;a href=&quot;http://stephenjamescode.blogspot.co.uk/&quot;&gt;Stephen James&lt;/a&gt; hopped aboard and implemented several features and did a awesome job abstracting implementing new features.&lt;/p&gt;
@@ -37,50 +37,199 @@
 &lt;li&gt;&lt;a href=&quot;http://mat-mcloughlin.net/2014/11/12/time-to-cast-away-visual-studio-and-use-a-text-editor/&quot;&gt;Jonathan Channon on omnisharp-sublime&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://mat-mcloughlin.net/2014/11/12/time-to-cast-away-visual-studio-and-use-a-text-editor/&quot;&gt;Matthew McLoughlin on omnisharp-brackets&lt;/a&gt; &lt;/li&gt;
 &lt;/ul&gt;
-</description></item><item><title>IIS7 and static files madness</title><link>//articles/iis7-and-static-files-madness-2013-10-05/</link><pubDate>Sat, 05 Oct 2013 12:23:00 +0200</pubDate><guid isPermaLink="true">//articles/iis7-and-static-files-madness-2013-10-05/</guid><author></author><description>&lt;p&gt;While doing some performance monitoring with &lt;a href=&quot;https://github.com/wg/wrk&quot;&gt;wrk&lt;/a&gt; I noticed something perculiar about the throughput of my static files.&lt;/p&gt;
-&lt;p&gt;I have an MVC4 website where all the static live in a folder called &lt;code&gt;WebStatic&lt;/code&gt; and that folder has the following in its web.config:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
-&amp;lt;configuration&amp;gt;
-  &amp;lt;system.webServer&amp;gt;
-    &amp;lt;handlers&amp;gt;
-      &amp;lt;clear /&amp;gt;
-      &amp;lt;add name=&amp;quot;StaticFile&amp;quot; path=&amp;quot;*&amp;quot; verb=&amp;quot;*&amp;quot; modules=&amp;quot;StaticFileModule&amp;quot; resourceType=&amp;quot;File&amp;quot; requireAccess=&amp;quot;None&amp;quot; /&amp;gt;
-    &amp;lt;/handlers&amp;gt;
-    &amp;lt;staticContent&amp;gt;
-      &amp;lt;clientCache cacheControlCustom=&amp;quot;public&amp;quot; cacheControlMaxAge=&amp;quot;12:00:00&amp;quot; cacheControlMode=&amp;quot;UseMaxAge&amp;quot; /&amp;gt;
-      &amp;lt;remove fileExtension=&amp;quot;.ttf&amp;quot; /&amp;gt;
-      &amp;lt;remove fileExtension=&amp;quot;.otf&amp;quot; /&amp;gt;
-      &amp;lt;remove fileExtension=&amp;quot;.eot&amp;quot; /&amp;gt;
-      &amp;lt;mimeMap fileExtension=&amp;quot;.ttf&amp;quot; mimeType=&amp;quot;font/ttf&amp;quot; /&amp;gt;
-      &amp;lt;mimeMap fileExtension=&amp;quot;.eot&amp;quot; mimeType=&amp;quot;application/vnd.ms-fontobject&amp;quot; /&amp;gt;
-      &amp;lt;mimeMap fileExtension=&amp;quot;.otf&amp;quot; mimeType=&amp;quot;font/otf&amp;quot; /&amp;gt;
-    &amp;lt;/staticContent&amp;gt;
-  &amp;lt;/system.webServer&amp;gt;
-&amp;lt;/configuration&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This removes all &lt;code&gt;httphandlers&lt;/code&gt; and makes sure only the StaticFile handler is registered.&lt;/p&gt;
-&lt;p&gt;I place a manually gzipped file here and it hit with &lt;code&gt;wrk&lt;/code&gt;.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;Running 10s test @ http://mymvcsite/webstatic/gzipped.css
-  2 threads and 20 connections
-  Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     4.55ms  697.96us   8.61ms   81.95%
-    Req/Sec     1.97k   171.44     2.00k    96.99%
-  43000 requests in 10.00s, 835.99MB read
-Requests/sec:   4299.89
-Transfer/sec:     83.60MB
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Hmm &lt;code&gt;4k/s&lt;/code&gt; does not seem like a whole lot for Microsofts flag ship web server. 
-Lets try that again this time placing the &lt;code&gt;gzipped.css&lt;/code&gt; file outside my mvc application in a new IIS website hosting nothing but that css file.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;Running 10s test @ http://myplainsite/gzipped.css
-  2 threads and 20 connections
-  Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     1.96ms  127.15us   2.77ms   90.70%
-    Req/Sec     4.56k   528.96     5.00k    57.36%
-  100446 requests in 10.00s, 1.91GB read
-Requests/sec:  10044.50
-Transfer/sec:    195.41MB
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Woah &lt;code&gt;10k/s&lt;/code&gt; now, thats loads better. &lt;/p&gt;
-&lt;p&gt;Now I realise benchmarking is hard and correlation does not imply causation and so I do not entirely place IIS at fault for the low throughput of my static files in my MVC site. I do however blame IIS for having an overly complex pipeline of machine.configs &amp;gt; parent web.config&amp;#39;s all creeping into my final &lt;code&gt;/webstatic&lt;/code&gt; folder&amp;#39;s performance.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;This is why we need OWIN.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Disclaimer: I ran the &lt;code&gt;wrk&lt;/code&gt; tests a couple of times and picked one that best represented the mean request/s ratio.&lt;/p&gt;
+</description></item><item><title>Introducing assembly-differ</title><link>//articles/introducing-assembly-differ-2020-03-06/</link><pubDate>Fri, 06 Mar 2020 22:44:00 +0100</pubDate><guid isPermaLink="true">//articles/introducing-assembly-differ-2020-03-06/</guid><author></author><description>&lt;p&gt;Hi! ever wanted created a dll and nuget package and wanted to get a report of all of the assembly changes? Well now there is a dotnet tool for that!&lt;/p&gt;
+&lt;p&gt;To install globally:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;dotnet tool install -g assembly-differ&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;But installing globally is not very repeatable build friendly so lets use &lt;a href=&quot;/articles/introducing-assembly-differ-2020-03-06/&quot;&gt;local tools&lt;/a&gt; that were introduced with .NET core 3.0. Andrew Lock did &lt;a href=&quot;https://andrewlock.net/new-in-net-core-3-local-tools/&quot;&gt;a fantastic blog post introducing these&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Create a manifest file locally if one does not exist already:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;dotnet new tool-manifest&lt;/code&gt;&lt;/pre&gt;&lt;pre&gt;&lt;code&gt;dotnet tool install assembly-differ&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Now you can run e.g:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;dotnet assembly-differ &amp;quot;nuget|Elasticsearch.Net|7.3.0|netstandard2.0&amp;quot; &amp;quot;nuget|Elasticsearch.Net|7.4.1|netstandard2.0&amp;quot;
+dotnet assembly-differ &amp;quot;nuget|Newtonsoft.Json|10.0.1|netstandard2.0&amp;quot; &amp;quot;nuget|Newtonsoft.Json|12.0.1|netstandard2.0&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;To get the differences between two nuget packages. &lt;/p&gt;
+&lt;p&gt;Differ builds on the amazing work done by &lt;a href=&quot;https://github.com/telerik/JustAssembly&quot;&gt;JustAssembly, licensed under Apache 2.0&lt;/a&gt;. We currently run on a fork that we know works on linux/osx as well. &lt;/p&gt;
+&lt;p&gt;We hope this tool in the future will be able to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;emit standard out errors if breaking changes exists so this could be easy leveraged in CI,&lt;/li&gt;
+&lt;li&gt;Pass the tool with the version you intend to release and have the tool report the version it thinks it should be based on the differences between the assemblies&lt;/li&gt;
+&lt;li&gt;Wrap all of this in Github Actions&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Trying to blog on the eve before a vacation does not leave me much time to fully do all its capabilites justice so expect more blog posts in the future!&lt;/p&gt;
+</description></item><item><title>OSS development, a continuous lesson in humility</title><link>//articles/oss-development,-a-continuous-lesson-in-humility-2013-03-07/</link><pubDate>Thu, 07 Mar 2013 13:41:00 +0100</pubDate><guid isPermaLink="true">//articles/oss-development,-a-continuous-lesson-in-humility-2013-03-07/</guid><author></author><description>&lt;p&gt;Yesterday I recieved a bug report on &lt;a href=&quot;https://github.com/Mpdreamz/NEST&quot;&gt;NEST&lt;/a&gt;, my .net client for elasticsearch. Now I&amp;#39;ve received many bug reports in the last 2 years and on several occasions these bug reports made me feel humiliated to the bone.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Yes, I wrote that and yes, that&amp;#39;s pretty stupid&lt;/code&gt; &lt;/p&gt;
+&lt;p&gt;Now I am only human, my first reaction when I receive a pretty severe bug report is: &lt;code&gt;Surely this can&amp;#39;t be true&lt;/code&gt; and &lt;code&gt;Come on! I&amp;#39;m not that stupid!&lt;/code&gt; but 90% of the time I investigate and can only conclude: &lt;code&gt;Yes it IS true&lt;/code&gt; and &lt;code&gt;Yes I AM that stupid&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/Mpdreamz/NEST/issues/189&quot;&gt;Yesterday&amp;#39;s bug report&lt;/a&gt;, was a prime example of this.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-markdown&quot;&gt;&lt;span class=&quot;section&quot;&gt;Async requests are not really async
+------&lt;/span&gt;
+Hi,
+I noticed that SearchAsync is making synchronous calls in reality.
+I think the fault might be with this code (DoAsyncRequest):
+
+if (tcs.Task != null &amp;amp;&amp;amp; tcs.Task.Result != null)
+
+As it accesses the Task's Result, we wait for the task to complete...&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Fuck me thats pretty severe! &lt;code&gt;Surely this can&amp;#39;t be true&lt;/code&gt; and &lt;code&gt;Come on! I&amp;#39;m not that stupid!&lt;/code&gt; Looking &lt;a href=&quot;https://github.com/Mpdreamz/NEST/blob/9aed4e2e90087d2ffb398dc18b68159190f951f3/src/Nest/Domain/Connection/Connection.cs#L156-L167&quot;&gt;at the code&lt;/a&gt; though:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-cs&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; tcs = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; TaskCompletionSource&amp;lt;ConnectionStatus&amp;gt;();
+&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.Iterate(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;._AsyncSteps(request, tcs, data), tcs);
+&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (tcs.Task != &lt;span class=&quot;literal&quot;&gt;null&lt;/span&gt; &amp;amp;&amp;amp; tcs.Task.Result != &lt;span class=&quot;literal&quot;&gt;null&lt;/span&gt;)
+{
+    tcs.Task.Result.Request = data;
+    tcs.Task.Result.RequestUrl = request.RequestUri.ToString();
+    tcs.Task.Result.RequestMethod = request.Method;
+}
+&lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; tcs.Task;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Damnit! &lt;code&gt;Yes it IS true&lt;/code&gt; and &lt;code&gt;Yes I AM that stupid&lt;/code&gt;. Fair enough the fix seems easy enough, return a continuation on the task instead.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-cs&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; tcs = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; TaskCompletionSource&amp;lt;ConnectionStatus&amp;gt;();
+&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.Iterate(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;._AsyncSteps(request, tcs, data), tcs);
+&lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; tcs.Task.ContinueWith(t =&amp;gt;
+{
+    cs.Task.Result.Request = data;
+    tcs.Task.Result.RequestUrl = request.RequestUri.ToString();
+    tcs.Task.Result.RequestMethod = request.Method;
+    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; tcs.Task.Result;
+});&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Nest&amp;#39;s comes with a demo indexer that tests the troughput of the different &lt;code&gt;IConnection&lt;/code&gt; implementations. The code itself looks like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-cs&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; partitionedMessages = msgGenerator.Generate(numMessages).Partition(bufferSize);
+Interlocked.Exchange(&lt;span class=&quot;keyword&quot;&gt;ref&lt;/span&gt; NumSent, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;);
+&lt;span class=&quot;keyword&quot;&gt;foreach&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; messages &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; partitionedMessages)
+{
+    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; t = client.IndexManyAsync(messages, indexName, bulkParms);
+    tasks.Add(t);
+
+    Interlocked.Add(&lt;span class=&quot;keyword&quot;&gt;ref&lt;/span&gt; NumSent, bufferSize);
+    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (NumSent % &lt;span class=&quot;number&quot;&gt;10000&lt;/span&gt; == &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;)
+    {
+        Console.WriteLine(&lt;span class=&quot;string&quot;&gt;&quot;Sent {0:0,0} messages to {1}&quot;&lt;/span&gt;, NumSent, indexName);
+    }
+}
+Task.WaitAll(tasks.ToArray());&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;msgGenerator&lt;/code&gt; generates &lt;code&gt;new Message()&lt;/code&gt;&amp;#39;s&amp;#39; without doing ANY IO. So I really should be seeing multiple requests being being processed at the same time.&lt;/p&gt;
+&lt;p&gt;Yet fiddlers timeline shows me something pretty horrific:&lt;/p&gt;
+&lt;p&gt;&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;/articles/oss-development,-a-continuous-lesson-in-humility-2013-03-07/fiddlertimelinefirstrun.PNG&quot; alt=&quot;fiddler timeline first run&quot;&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Somethings still blocking damnit.&lt;/p&gt;
+&lt;p&gt;For reference here&amp;#39;s the throughput the test app reports:
+&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;/articles/oss-development,-a-continuous-lesson-in-humility-2013-03-07/consoleoutputfirstrun.PNG&quot; alt=&quot;consoleoutputfirstrun&quot;&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Fuck me these are not anywhere near the throughput numbers &lt;a href=&quot;https://github.com/Mpdreamz/NEST/pull/112#issuecomment-10266029&quot;&gt;I reported 4 months ago&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-markdown&quot;&gt;HTTP: 12123 docs/s
+Thrift: 17575 docs/s&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Mother of regressions!&lt;/p&gt;
+&lt;p&gt;Looking at the &lt;code&gt;&amp;quot;fixed code&amp;quot;&lt;/code&gt; again:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-cs&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; tcs = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; TaskCompletionSource&amp;lt;ConnectionStatus&amp;gt;();
+&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.Iterate(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;._AsyncSteps(request, tcs, data), tcs);
+&lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; tcs.Task.ContinueWith(t =&amp;gt;
+{
+    cs.Task.Result.Request = data;
+    tcs.Task.Result.RequestUrl = request.RequestUri.ToString();
+    tcs.Task.Result.RequestMethod = request.Method;
+    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; tcs.Task.Result;
+});&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;The &lt;code&gt;TaskCompletionSource&lt;/code&gt; still blocks while it coordinates the async steps. Let&amp;#39;s try that again:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-cs&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; tcs = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; TaskCompletionSource&amp;lt;ConnectionStatus&amp;gt;();
+&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (!&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;._ResourceLock.WaitOne(timeout))
+{
+    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; m = &lt;span class=&quot;string&quot;&gt;&quot;Could not start the operation before the timeout of &quot;&lt;/span&gt; + timeout + &lt;span class=&quot;string&quot;&gt;&quot;ms completed while waiting for the semaphore&quot;&lt;/span&gt;;
+    tcs.SetResult(&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; ConnectionStatus(&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; TimeoutException(m)));
+    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; tcs.Task;
+}
+&lt;span class=&quot;keyword&quot;&gt;try&lt;/span&gt;
+{
+    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; Task.Factory.StartNew(() =&amp;gt;
+    {
+        &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.Iterate(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;._AsyncSteps(request, tcs, data), tcs);
+        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; tcs.Task.Result;
+    }, TaskCreationOptions.LongRunning);
+}
+&lt;span class=&quot;keyword&quot;&gt;finally&lt;/span&gt;
+{
+    &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;._ResourceLock.Release();
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Here I explicitly start a new Task and on top of that moved the semaphore out of &lt;code&gt;_AsyncSteps()&lt;/code&gt; so we delay the creation of &lt;code&gt;Task&amp;lt;T&amp;gt;&lt;/code&gt;&amp;#39;s to the very last second. The &lt;code&gt;TaskCreationOptions.LongRunning&lt;/code&gt; is also key here to prevent threadpool starvation! The TPL will prefer to really start a new Thread for your task not take one from the threadpool. &lt;/p&gt;
+&lt;p&gt;Let&amp;#39;s see how we are doing now:&lt;/p&gt;
+&lt;p&gt;&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;/articles/oss-development,-a-continuous-lesson-in-humility-2013-03-07/fiddlertimelinesecondrun.PNG&quot; alt=&quot;fiddler timeline second run&quot;&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Yes! that&amp;#39;s more like it!&lt;/p&gt;
+&lt;p&gt;&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;/articles/oss-development,-a-continuous-lesson-in-humility-2013-03-07/consoleoutputsecondrun.PNG&quot; alt=&quot;consoleoutputsecondrun&quot;&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Nice, we actually improved throughput from 12k 4 months ago to 17k now. Awesome!&lt;/p&gt;
+&lt;p&gt;This is why developing in the open is so awesome, it keeps you humble and grounded benefiting both your sanity and the quality of the project.&lt;/p&gt;
+&lt;p&gt;These fixes are pushed to nuget and in &lt;a href=&quot;https://www.nuget.org/packages/Nest&quot;&gt;Nest 0.9.20.0&lt;/a&gt;&lt;/p&gt;
+</description></item><item><title>raygun.io first thoughts</title><link>//articles/raygun.io-first-thoughts-2013-03-07/</link><pubDate>Thu, 07 Mar 2013 08:35:00 +0100</pubDate><guid isPermaLink="true">//articles/raygun.io-first-thoughts-2013-03-07/</guid><author></author><description>&lt;p&gt;&lt;a href=&quot;http://raygun.io&quot;&gt;raygun.io&lt;/a&gt; is a new application error monitoring service for many languages and platforms from the kiwi&amp;#39;s over at &lt;a href=&quot;http://www.mindscapehq.com/&quot;&gt;Mindscape&lt;/a&gt;.  &lt;/p&gt;
+&lt;p&gt;&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;/articles/raygun.io-first-thoughts-2013-03-07/homeFeature.png&quot; alt=&quot;overview of raygun.io&quot;&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Since this will mostly be a rant about the things I &lt;code&gt;don&amp;#39;t&lt;/code&gt; like I&amp;#39;d like to state first and foremost that I&amp;#39;m &lt;code&gt;using and paying&lt;/code&gt; for this service and am &lt;code&gt;very content&lt;/code&gt; overall!.&lt;/p&gt;
+&lt;p&gt;Ok let&amp;#39;s start &lt;/p&gt;
+&lt;p&gt;&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;/articles/raygun.io-first-thoughts-2013-03-07/menu.png&quot; alt=&quot;menu hides information&quot;&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;The menu introduces a toggle between current app options and listing all the applications. I&amp;#39;d much much rather see an accordion like design here:&lt;/p&gt;
+&lt;p&gt;&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;/articles/raygun.io-first-thoughts-2013-03-07/menu-new.png&quot; alt=&quot;new menu&quot;&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;This lets me group different applications, staging environments in this case, together and get an immediate glimpse of the state of all my applications/application groups. The ugly red balls in my mockup  are suppose to be error counts. I  can then use the abundance of space on the right to toggle application views. Which also brings me to my next point: the dashboard view.&lt;/p&gt;
+&lt;p&gt;&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;/articles/raygun.io-first-thoughts-2013-03-07/dashboard.png&quot; alt=&quot;dashboard&quot;&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;As you can see in the above image this is the only overview page you have for all the errors in your application. All the noise is great for a dashboard view but I really need a hardcore straight up list of data. Remember the image above is scaled down pretty much already.The fancy graph nearly pushes the errors off screen on my 22&amp;quot; full hd monitors.&lt;/p&gt;
+&lt;p&gt;I&amp;#39;d much rather see a data first view as the default, sort of like this:&lt;/p&gt;
+&lt;p&gt;&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;/articles/raygun.io-first-thoughts-2013-03-07/dataviewmock.png&quot; alt=&quot;mockup&quot;&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Wow me here good folk over at Mindscape, let me choose the facets I want, let me select all the errors older then 2 days (even if there are over 9000 of them) and resolve them in 2 clicks. &lt;/p&gt;
+&lt;p&gt;The last big area &lt;a href=&quot;http://raygun.io&quot;&gt;raygun.io&lt;/a&gt; needs to improve is mobile support. Today on the train ride back home I received emails from &lt;a href=&quot;http://raygun.io&quot;&gt;raygun.io&lt;/a&gt; of exceptions occurring on the testing environment. Followed pretty quickly by the client emailing he spotted a bug. &amp;quot;Great!&amp;quot;,I thought, &amp;quot;let me look at the exceptions on my iPhone!&amp;quot; so I can respond to the client with an informed answer. &lt;/p&gt;
+&lt;p&gt;&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;/articles/raygun.io-first-thoughts-2013-03-07/mobile1.jpg&quot; alt=&quot;This doesn&amp;#39;t look responsive&quot;&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Oomph, this doesn&amp;#39;t look responsive at all. I can&amp;#39;t get to the top right login button I know is there.&lt;/p&gt;
+&lt;p&gt;&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;/articles/raygun.io-first-thoughts-2013-03-07/mobile2.jpg&quot; alt=&quot;Sign in at the bottom&quot;&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Ohh I&amp;#39;m in luck, there&amp;#39;s a sign in link in the footer.&lt;/p&gt;
+&lt;p&gt;&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;/articles/raygun.io-first-thoughts-2013-03-07/mobile3.jpg&quot; alt=&quot;hello white blob&quot;&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;Hello whitespace!, luckily I know the login box is to the right&lt;/p&gt;
+&lt;p&gt;&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;/articles/raygun.io-first-thoughts-2013-03-07/mobile4.jpg&quot; alt=&quot;login at last&quot;&gt;&lt;/div&gt;&lt;/p&gt;
+&lt;p&gt;From here I enter my details and hit submit... nothing... no loading icon .... I give up.&lt;/p&gt;
+&lt;p&gt;As I don&amp;#39;t like closing on a negative note let me repeat that I&amp;#39;ve long been a fan of the guys and girls over at Mindscape. I&amp;#39;m glad they got &lt;a href=&quot;http://raygun.io&quot;&gt;raygun.io&lt;/a&gt; out the door early to let early adopters like myself moan and groan, that&amp;#39;s a good thing and a sign of a healthy project. Considering this service went from inception to being up and running in a couple of months and is already in the state it is now speaks parts on how things will shape up in the future.&lt;/p&gt;
+</description></item><item><title>On devops at a project based shop</title><link>//articles/on-devops-at-a-project-based-shop-2013-06-11/</link><pubDate>Tue, 11 Jun 2013 08:57:00 +0200</pubDate><guid isPermaLink="true">//articles/on-devops-at-a-project-based-shop-2013-06-11/</guid><author></author><description>&lt;p&gt;The term &lt;code&gt;DevOps&lt;/code&gt; has many overloaded meanings so let me first state what I think encompasses the term &lt;code&gt;DevOps&lt;/code&gt;: everything related to development but not directly to implementing the core product/project&amp;#39;s functionality. &lt;/p&gt;
+&lt;p&gt;More concretely:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Automating the build&lt;/li&gt;
+&lt;li&gt;Continuous Builds&lt;/li&gt;
+&lt;li&gt;Continuous Integration&lt;/li&gt;
+&lt;li&gt;Unit Testing&lt;/li&gt;
+&lt;li&gt;Integration Tests&lt;/li&gt;
+&lt;li&gt;Continuous Testing&lt;/li&gt;
+&lt;li&gt;Automating the deploy procedure&lt;/li&gt;
+&lt;li&gt;Package the deploy&lt;/li&gt;
+&lt;li&gt;Continuous Deploy&lt;/li&gt;
+&lt;li&gt;Centralized error monitoring&lt;/li&gt;
+&lt;li&gt;Centralized log inspection&lt;/li&gt;
+&lt;li&gt;Centralized machine monitoring&lt;/li&gt;
+&lt;li&gt;Custom event monitoring (think statsd)&lt;/li&gt;
+&lt;li&gt;Machine provisioning&lt;/li&gt;
+&lt;li&gt;Machine configuration automation&lt;/li&gt;
+&lt;li&gt;Automating data backups&lt;/li&gt;
+&lt;li&gt;Automating data synchronization&lt;/li&gt;
+&lt;li&gt;Automating data-store upgrades&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;As you can imagine checking every item on this list of quality providing measurements is a massive undertaking. This is usually not scoped in product development let alone in project development. Yet each and everyone of this steps is a huge quality assurance indicator with massive value and if we are to take our trade seriously is something we should all be doing. &lt;/p&gt;
+&lt;p&gt;I tend to view this check list as &lt;code&gt;shadow work&lt;/code&gt;: work that is implicitly implied but never explicitly mentioned.&lt;/p&gt;
+&lt;p&gt;From what I&amp;#39;ve seen it&amp;#39;s the shops who develop products or maintain a single website tend to do better then project based shops who inherently have shorter development cycles. &lt;/p&gt;
+&lt;p&gt;A product shop has a continuous life-cycle which rather non-surprisingly makes way for continuous &lt;code&gt;&amp;lt;anything&amp;gt;&lt;/code&gt; to creep it&amp;#39;s way high on the agenda as they start to form obstacles. &lt;/p&gt;
+&lt;p&gt;A project shop has a very limited life-cycle, getting something out the door often trumps all and often rightfully so. The rather cruel catch 22 here is that especially these short life-cycle projects benefit the most from the devops checklist. Knowledge of the ins and outs of the moving parts of such a project are lost quickly. All the items on the devops serve as documentation as code and provide a warm welcome back for any developer picking up the project back up after a year or when doing SLA maintenance work.&lt;/p&gt;
+&lt;p&gt;Limited life-cycle is only one factor hindering project shops checking items off the devops check list. Having multiple projects means that each project comes with its own set of challenges further complicating the matter.&lt;/p&gt;
+&lt;p&gt;At my previous job at a project shop I helped standardize some of the devops check list and there I had the added benefit that all development happened in .NET on windows machines, the websites were hosted on in house windows servers and development happened rather linearly in SVN. This means that solutions for items on the checklist are reusable and learnings from one project can be transfered to the next. As a developer this meant that introducing new moving parts, say an exotic tech-stack is not something you can easily do. Even in this homogeneous development environment getting to check &lt;em&gt;ALL&lt;/em&gt; the items off the list is quite an investment both financially and personally convincing everyone involved of the necessity.&lt;/p&gt;
+&lt;p&gt;At my current job at a bigger project shop, that prides itself on using whatever tech stack is best for the project and has quite an agile mindset, development happens on Windows, Linux, OSX machines and projects are hosted on the cloud with Google, Amazon and Microsoft or on private dedicated servers behind weird VPN arrangements and project spans range from 6 weeks to three years. On top of that some releases follow a strict sign off procedure by clients others can be released when we deem necessary. Some development is linear and is easily continuously integrated, some follow a heavy branching model.     &lt;/p&gt;
+&lt;p&gt;This means that the knowledge on how to implement each item on the devops check list becomes very fragmented based on environment, language and framework choices, development model and release strategies. For an aspect of our profession already not high on the radar for many developers and managers this quickly becomes too much too handle. &lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;little dirty secret&lt;/strong&gt; in our industry that in a lot of cases devops turns into shadow work at best, done in the spare hours of a project. &lt;/p&gt;
+&lt;p&gt;The &lt;strong&gt;&lt;code&gt;big dirty secret&lt;/code&gt;&lt;/strong&gt; is that in a lot of cases this shadow work is simply ignored. This can have many causes&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Developers are simply unaware of this work&lt;/li&gt;
+&lt;li&gt;Developers ignore it because they are time-constraint because this &lt;code&gt;shadow work&lt;/code&gt; is not budgeted for.&lt;/li&gt;
+&lt;li&gt;Developers are aware but managers/project leads do not know how to sell this work to the client.&lt;/li&gt;
+&lt;li&gt;A client simply refuses to acknowledge the necessity of this &lt;code&gt;shadow work&lt;/code&gt; &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I think the &lt;code&gt;devops&lt;/code&gt; movement is great and more than just the new hip buzzword as it forces a flashlight onto the &lt;code&gt;shadow work&lt;/code&gt; and gets it on everybody&amp;#39;s agenda. &lt;/p&gt;
+&lt;p&gt;At &lt;a href=&quot;http://www.q42.nl&quot;&gt;@q42&lt;/a&gt; colleague &lt;a href=&quot;https://twitter.com/markvanstraten&quot;&gt;Mark van Straten&lt;/a&gt; was given 6 hours a week to improve our devops story and although Mark did an absolutely stellar job getting all the current and past projects to build and deploy automatically we really found that this is not a one man project and 6 hours a week is really not sufficient to take care of ALL the shadow work on the &lt;code&gt;devops checklist&lt;/code&gt;. &lt;/p&gt;
+&lt;p&gt;Having fulfilled a similar role in my previous job Mark and I often debate to &lt;code&gt;How&amp;#39;s and Why&amp;#39;s&lt;/code&gt; of devops and even-though we disagree sometimes on details we share the greater vision of the importance of this &lt;code&gt;shadow work&lt;/code&gt;. So we recently called a meeting, &lt;code&gt;&amp;lt;insert meeting bashing comment here&amp;gt;&lt;/code&gt; with fellow colleagues who also take an interest and came to the following conclusions:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Devops is &lt;strong&gt;NOT&lt;/strong&gt; a one man operation.&lt;/li&gt;
+&lt;li&gt;That said a dedicated &lt;code&gt;devop&amp;#39;er&lt;/code&gt; might be a very good idea, not every developer has the time to learn puppet/chef and all the other aspects of the &lt;code&gt;ops&lt;/code&gt; side of things.&lt;/li&gt;
+&lt;li&gt;A project technical lead is responsible for getting &lt;code&gt;shadow work&lt;/code&gt; on a project&amp;#39;s agenda.&lt;/li&gt;
+&lt;li&gt;This can mean that he/she decides not to something on the &lt;code&gt;checklist&lt;/code&gt; for pragmatic reasons.&lt;/li&gt;
+&lt;li&gt;Everybody in a team is responsible for actually doing devops work.&lt;/li&gt;
+&lt;li&gt;Devops is not just a back-ender&amp;#39;s job there&amp;#39;s a lot to automate on the front-end too.&lt;ul&gt;
+&lt;li&gt;i.e a JS front-end guy writes scripts and makes sure they can report results in a xunit format so TC knows what it means.&lt;/li&gt;
+&lt;li&gt;The CSS guru automates the styleguide generation i.e rendering all the button permutations.&lt;/li&gt;
+&lt;li&gt;Writing integration tests in phantomjs&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.gruntjs.com&quot;&gt;GruntJS&lt;/a&gt; all the things!&lt;/li&gt;
+&lt;li&gt;etcetera..&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;One thing is for sure &lt;code&gt;Devops&lt;/code&gt; work is a constant battle but as long it&amp;#39;s a battle we are fighting we&amp;#39;re on the right track. &lt;/p&gt;
+&lt;p&gt;Do you work for a project shop and are also fighting the &lt;code&gt;shadow work&lt;/code&gt; let me know how you are coping in the comments!&lt;/p&gt;
 </description></item><item><title>Owin 101 a progressive walkthrough</title><link>//articles/owin-101-a-progressive-walkthrough-2014-01-22/</link><pubDate>Wed, 22 Jan 2014 20:39:00 +0100</pubDate><guid isPermaLink="true">//articles/owin-101-a-progressive-walkthrough-2014-01-22/</guid><author></author><description>&lt;p&gt;TLDR: &lt;a href=&quot;https://github.com/Mpdreamz/owin-101&quot;&gt;Play with my repository if you want to get to grips with OWIN&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Last week I did a presentation at work on a .NET website we put into production last december completely built on OSX just because … hipsterism is suppose.&lt;/p&gt;
 &lt;p&gt;&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;http://media.giphy.com/media/UNgpSaZNi9YcM/giphy.gif&quot; alt=&quot;hipster cat&quot;&gt;&lt;/div&gt;&lt;/p&gt;
@@ -123,8 +272,7 @@ Transfer/sec:    195.41MB
             }
         };
     }
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The &lt;a href=&quot;http://owin.org/#about&quot;&gt;OWIN specification&lt;/a&gt; states that whatever server runs this should make the response stream available under the key &lt;code&gt;owin.ResponseBody&lt;/code&gt;.&lt;/p&gt;
+}&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The &lt;a href=&quot;http://owin.org/#about&quot;&gt;OWIN specification&lt;/a&gt; states that whatever server runs this should make the response stream available under the key &lt;code&gt;owin.ResponseBody&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Now much to Microsoft credit they have an awesome team working hard to make the OWIN ecosystem happening and much of it is under the codename &lt;code&gt;Katana&lt;/code&gt; but with all the examples online being implemented with the &lt;code&gt;Microsoft.Owin.*&lt;/code&gt; packages it&amp;#39;s hard to distinguish whats OWIN and whats Katana. In fact even the Owin.dll inside the Owin package on nuget is NOT part of OWIN.&lt;/p&gt;
 &lt;p&gt;For last tuesday&amp;#39;s talk I created a demo which progressively goes from vanilla OWIN into the world of KATANA in 6 steps&lt;/p&gt;
 &lt;h3 id=&quot;01-barebones&quot;&gt;01 - Barebones&lt;/h3&gt;
@@ -149,141 +297,39 @@ completely sequential. This shows how to branch off and have different endpoints
 &lt;a href=&quot;https://github.com/Mpdreamz/owin-101/tree/master/Owin101.Hosting&quot;&gt;Owin101.Hosting&amp;#39;s Readme&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Checkout the repos &lt;a href=&quot;https://github.com/Mpdreamz/owin-101&quot;&gt;here&lt;/a&gt; the root readme also goes into how to run the examples.&lt;/p&gt;
 &lt;p&gt;Hopefully this is of some use to someone out there!&lt;/p&gt;
-</description></item><item><title>OSS development, a continuous lesson in humility</title><link>//articles/oss-development,-a-continuous-lesson-in-humility-2013-03-07/</link><pubDate>Thu, 07 Mar 2013 13:41:00 +0100</pubDate><guid isPermaLink="true">//articles/oss-development,-a-continuous-lesson-in-humility-2013-03-07/</guid><author></author><description>&lt;p&gt;Yesterday I recieved a bug report on &lt;a href=&quot;https://github.com/Mpdreamz/NEST&quot;&gt;NEST&lt;/a&gt;, my .net client for elasticsearch. Now I&amp;#39;ve received many bug reports in the last 2 years and on several occasions these bug reports made me feel humiliated to the bone.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Yes, I wrote that and yes, that&amp;#39;s pretty stupid&lt;/code&gt; &lt;/p&gt;
-&lt;p&gt;Now I am only human, my first reaction when I receive a pretty severe bug report is: &lt;code&gt;Surely this can&amp;#39;t be true&lt;/code&gt; and &lt;code&gt;Come on! I&amp;#39;m not that stupid!&lt;/code&gt; but 90% of the time I investigate and can only conclude: &lt;code&gt;Yes it IS true&lt;/code&gt; and &lt;code&gt;Yes I AM that stupid&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/Mpdreamz/NEST/issues/189&quot;&gt;Yesterday&amp;#39;s bug report&lt;/a&gt;, was a prime example of this.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;lang-markdown&quot;&gt;&lt;span class=&quot;header&quot;&gt;Async requests are not really async
-------&lt;/span&gt;
-Hi,
-I noticed that SearchAsync is making synchronous calls in reality.
-I think the fault might be with this code (DoAsyncRequest):
+</description></item><item><title>Writing a simple wintersmith plugin</title><link>//articles/writing-a-simple-wintersmith-plugin-2013-02-03/</link><pubDate>Sun, 03 Feb 2013 19:57:00 +0100</pubDate><guid isPermaLink="true">//articles/writing-a-simple-wintersmith-plugin-2013-02-03/</guid><author></author><description>&lt;p&gt;I wanted to hook in to how &lt;code&gt;&amp;lt;img&amp;gt;&lt;/code&gt; are outputted by giving them a wrapper element. 
+The reason I want to do this is so that i can give the wrapper a full page width background while centering and constraining the img&amp;#39;s &lt;code&gt;max-width&lt;/code&gt; to different sizes on different screen sizes. &lt;/p&gt;
+&lt;p&gt;Enter &lt;code&gt;wintersmith-markdownhacks&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-coffee&quot;&gt;fs = &lt;span class=&quot;built_in&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;'fs'&lt;/span&gt;
+path = &lt;span class=&quot;built_in&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;'path'&lt;/span&gt;
+url = &lt;span class=&quot;built_in&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;'url'&lt;/span&gt;
 
-if (tcs.Task != null &amp;amp;&amp;amp; tcs.Task.Result != null)
+&lt;span class=&quot;built_in&quot;&gt;module&lt;/span&gt;.exports = &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;params&quot;&gt;(wintersmith, callback)&lt;/span&gt; -&amp;gt;&lt;/span&gt;
 
-As it accesses the Task's Result, we wait for the task to complete...
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Fuck me thats pretty severe! &lt;code&gt;Surely this can&amp;#39;t be true&lt;/code&gt; and &lt;code&gt;Come on! I&amp;#39;m not that stupid!&lt;/code&gt; Looking &lt;a href=&quot;https://github.com/Mpdreamz/NEST/blob/9aed4e2e90087d2ffb398dc18b68159190f951f3/src/Nest/Domain/Connection/Connection.cs#L156-L167&quot;&gt;at the code&lt;/a&gt; though:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;lang-cs&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; tcs = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; TaskCompletionSource&amp;lt;ConnectionStatus&amp;gt;();
-&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.Iterate(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;._AsyncSteps(request, tcs, data), tcs);
-&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (tcs.Task != &lt;span class=&quot;keyword&quot;&gt;null&lt;/span&gt; &amp;amp;&amp;amp; tcs.Task.Result != &lt;span class=&quot;keyword&quot;&gt;null&lt;/span&gt;)
-{
-    tcs.Task.Result.Request = data;
-    tcs.Task.Result.RequestUrl = request.RequestUri.ToString();
-    tcs.Task.Result.RequestMethod = request.Method;
-}
-&lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; tcs.Task;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Damnit! &lt;code&gt;Yes it IS true&lt;/code&gt; and &lt;code&gt;Yes I AM that stupid&lt;/code&gt;. Fair enough the fix seems easy enough, return a continuation on the task instead.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;lang-cs&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; tcs = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; TaskCompletionSource&amp;lt;ConnectionStatus&amp;gt;();
-&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.Iterate(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;._AsyncSteps(request, tcs, data), tcs);
-&lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; tcs.Task.ContinueWith(t =&amp;gt;
-{
-    cs.Task.Result.Request = data;
-    tcs.Task.Result.RequestUrl = request.RequestUri.ToString();
-    tcs.Task.Result.RequestMethod = request.Method;
-    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; tcs.Task.Result;
-});
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Nest&amp;#39;s comes with a demo indexer that tests the troughput of the different &lt;code&gt;IConnection&lt;/code&gt; implementations. The code itself looks like this:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;lang-cs&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; partitionedMessages = msgGenerator.Generate(numMessages).Partition(bufferSize);
-Interlocked.Exchange(&lt;span class=&quot;keyword&quot;&gt;ref&lt;/span&gt; NumSent, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;);
-&lt;span class=&quot;keyword&quot;&gt;foreach&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; messages &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; partitionedMessages)
-{
-    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; t = client.IndexManyAsync(messages, indexName, bulkParms);
-    tasks.Add(t);
+&lt;span class=&quot;class&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;LocalGhostPage&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;wintersmith&lt;/span&gt;.&lt;span class=&quot;title&quot;&gt;defaultPlugins&lt;/span&gt;.&lt;span class=&quot;title&quot;&gt;MarkdownPage&lt;/span&gt;&lt;/span&gt;
 
-    Interlocked.Add(&lt;span class=&quot;keyword&quot;&gt;ref&lt;/span&gt; NumSent, bufferSize);
-    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (NumSent % &lt;span class=&quot;number&quot;&gt;10000&lt;/span&gt; == &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;)
-    {
-        Console.WriteLine(&lt;span class=&quot;string&quot;&gt;&quot;Sent {0:0,0} messages to {1}&quot;&lt;/span&gt;, NumSent, indexName);
-    }
-}
-Task.WaitAll(tasks.ToArray());
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;code&gt;msgGenerator&lt;/code&gt; generates &lt;code&gt;new Message()&lt;/code&gt;&amp;#39;s&amp;#39; without doing ANY IO. So I really should be seeing multiple requests being being processed at the same time.&lt;/p&gt;
-&lt;p&gt;Yet fiddlers timeline shows me something pretty horrific:&lt;/p&gt;
-&lt;p&gt;&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;/articles/oss-development,-a-continuous-lesson-in-humility-2013-03-07/fiddlertimelinefirstrun.PNG&quot; alt=&quot;fiddler timeline first run&quot;&gt;&lt;/div&gt;&lt;/p&gt;
-&lt;p&gt;Somethings still blocking damnit.&lt;/p&gt;
-&lt;p&gt;For reference here&amp;#39;s the throughput the test app reports:
-&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;/articles/oss-development,-a-continuous-lesson-in-humility-2013-03-07/consoleoutputfirstrun.PNG&quot; alt=&quot;consoleoutputfirstrun&quot;&gt;&lt;/div&gt;&lt;/p&gt;
-&lt;p&gt;Fuck me these are not anywhere near the throughput numbers &lt;a href=&quot;https://github.com/Mpdreamz/NEST/pull/112#issuecomment-10266029&quot;&gt;I reported 4 months ago&lt;/a&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;lang-markdown&quot;&gt;HTTP: 12123 docs/s
-Thrift: 17575 docs/s
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Mother of regressions!&lt;/p&gt;
-&lt;p&gt;Looking at the &lt;code&gt;&amp;quot;fixed code&amp;quot;&lt;/code&gt; again:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;lang-cs&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; tcs = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; TaskCompletionSource&amp;lt;ConnectionStatus&amp;gt;();
-&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.Iterate(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;._AsyncSteps(request, tcs, data), tcs);
-&lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; tcs.Task.ContinueWith(t =&amp;gt;
-{
-    cs.Task.Result.Request = data;
-    tcs.Task.Result.RequestUrl = request.RequestUri.ToString();
-    tcs.Task.Result.RequestMethod = request.Method;
-    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; tcs.Task.Result;
-});
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The &lt;code&gt;TaskCompletionSource&lt;/code&gt; still blocks while it coordinates the async steps. Let&amp;#39;s try that again:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;lang-cs&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; tcs = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; TaskCompletionSource&amp;lt;ConnectionStatus&amp;gt;();
-&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (!&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;._ResourceLock.WaitOne(timeout))
-{
-    &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; m = &lt;span class=&quot;string&quot;&gt;&quot;Could not start the operation before the timeout of &quot;&lt;/span&gt; + timeout + &lt;span class=&quot;string&quot;&gt;&quot;ms completed while waiting for the semaphore&quot;&lt;/span&gt;;
-    tcs.SetResult(&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; ConnectionStatus(&lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; TimeoutException(m)));
-    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; tcs.Task;
-}
-&lt;span class=&quot;keyword&quot;&gt;try&lt;/span&gt;
-{
-    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; Task.Factory.StartNew(() =&amp;gt;
-    {
-        &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.Iterate(&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;._AsyncSteps(request, tcs, data), tcs);
-        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; tcs.Task.Result;
-    }, TaskCreationOptions.LongRunning);
-}
-&lt;span class=&quot;keyword&quot;&gt;finally&lt;/span&gt;
-{
-    &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;._ResourceLock.Release();
-}
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Here I explicitly start a new Task and on top of that moved the semaphore out of &lt;code&gt;_AsyncSteps()&lt;/code&gt; so we delay the creation of &lt;code&gt;Task&amp;lt;T&amp;gt;&lt;/code&gt;&amp;#39;s to the very last second. The &lt;code&gt;TaskCreationOptions.LongRunning&lt;/code&gt; is also key here to prevent threadpool starvation! The TPL will prefer to really start a new Thread for your task not take one from the threadpool. &lt;/p&gt;
-&lt;p&gt;Let&amp;#39;s see how we are doing now:&lt;/p&gt;
-&lt;p&gt;&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;/articles/oss-development,-a-continuous-lesson-in-humility-2013-03-07/fiddlertimelinesecondrun.PNG&quot; alt=&quot;fiddler timeline second run&quot;&gt;&lt;/div&gt;&lt;/p&gt;
-&lt;p&gt;Yes! that&amp;#39;s more like it!&lt;/p&gt;
-&lt;p&gt;&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;/articles/oss-development,-a-continuous-lesson-in-humility-2013-03-07/consoleoutputsecondrun.PNG&quot; alt=&quot;consoleoutputsecondrun&quot;&gt;&lt;/div&gt;&lt;/p&gt;
-&lt;p&gt;Nice, we actually improved throughput from 12k 4 months ago to 17k now. Awesome!&lt;/p&gt;
-&lt;p&gt;This is why developing in the open is so awesome, it keeps you humble and grounded benefiting both your sanity and the quality of the project.&lt;/p&gt;
-&lt;p&gt;These fixes are pushed to nuget and in &lt;a href=&quot;https://www.nuget.org/packages/Nest&quot;&gt;Nest 0.9.20.0&lt;/a&gt;&lt;/p&gt;
-</description></item><item><title>raygun.io first thoughts</title><link>//articles/raygun.io-first-thoughts-2013-03-07/</link><pubDate>Thu, 07 Mar 2013 08:35:00 +0100</pubDate><guid isPermaLink="true">//articles/raygun.io-first-thoughts-2013-03-07/</guid><author></author><description>&lt;p&gt;&lt;a href=&quot;http://raygun.io/&quot;&gt;raygun.io&lt;/a&gt; is a new application error monitoring service for many languages and platforms from the kiwi&amp;#39;s over at &lt;a href=&quot;http://www.mindscapehq.com/&quot;&gt;Mindscape&lt;/a&gt;.  &lt;/p&gt;
-&lt;p&gt;&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;/articles/raygun.io-first-thoughts-2013-03-07/homeFeature.png&quot; alt=&quot;overview of raygun.io&quot;&gt;&lt;/div&gt;&lt;/p&gt;
-&lt;p&gt;Since this will mostly be a rant about the things I &lt;code&gt;don&amp;#39;t&lt;/code&gt; like I&amp;#39;d like to state first and foremost that I&amp;#39;m &lt;code&gt;using and paying&lt;/code&gt; for this service and am &lt;code&gt;very content&lt;/code&gt; overall!.&lt;/p&gt;
-&lt;p&gt;Ok let&amp;#39;s start &lt;/p&gt;
-&lt;p&gt;&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;/articles/raygun.io-first-thoughts-2013-03-07/menu.png&quot; alt=&quot;menu hides information&quot;&gt;&lt;/div&gt;&lt;/p&gt;
-&lt;p&gt;The menu introduces a toggle between current app options and listing all the applications. I&amp;#39;d much much rather see an accordion like design here:&lt;/p&gt;
-&lt;p&gt;&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;/articles/raygun.io-first-thoughts-2013-03-07/menu-new.png&quot; alt=&quot;new menu&quot;&gt;&lt;/div&gt;&lt;/p&gt;
-&lt;p&gt;This lets me group different applications, staging environments in this case, together and get an immediate glimpse of the state of all my applications/application groups. The ugly red balls in my mockup  are suppose to be error counts. I  can then use the abundance of space on the right to toggle application views. Which also brings me to my next point: the dashboard view.&lt;/p&gt;
-&lt;p&gt;&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;/articles/raygun.io-first-thoughts-2013-03-07/dashboard.png&quot; alt=&quot;dashboard&quot;&gt;&lt;/div&gt;&lt;/p&gt;
-&lt;p&gt;As you can see in the above image this is the only overview page you have for all the errors in your application. All the noise is great for a dashboard view but I really need a hardcore straight up list of data. Remember the image above is scaled down pretty much already.The fancy graph nearly pushes the errors off screen on my 22&amp;quot; full hd monitors.&lt;/p&gt;
-&lt;p&gt;I&amp;#39;d much rather see a data first view as the default, sort of like this:&lt;/p&gt;
-&lt;p&gt;&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;/articles/raygun.io-first-thoughts-2013-03-07/dataviewmock.png&quot; alt=&quot;mockup&quot;&gt;&lt;/div&gt;&lt;/p&gt;
-&lt;p&gt;Wow me here good folk over at Mindscape, let me choose the facets I want, let me select all the errors older then 2 days (even if there are over 9000 of them) and resolve them in 2 clicks. &lt;/p&gt;
-&lt;p&gt;The last big area &lt;a href=&quot;http://raygun.io/&quot;&gt;raygun.io&lt;/a&gt; needs to improve is mobile support. Today on the train ride back home I received emails from &lt;a href=&quot;http://raygun.io/&quot;&gt;raygun.io&lt;/a&gt; of exceptions occurring on the testing environment. Followed pretty quickly by the client emailing he spotted a bug. &amp;quot;Great!&amp;quot;,I thought, &amp;quot;let me look at the exceptions on my iPhone!&amp;quot; so I can respond to the client with an informed answer. &lt;/p&gt;
-&lt;p&gt;&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;/articles/raygun.io-first-thoughts-2013-03-07/mobile1.jpg&quot; alt=&quot;This doesn&amp;#39;t look responsive&quot;&gt;&lt;/div&gt;&lt;/p&gt;
-&lt;p&gt;Oomph, this doesn&amp;#39;t look responsive at all. I can&amp;#39;t get to the top right login button I know is there.&lt;/p&gt;
-&lt;p&gt;&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;/articles/raygun.io-first-thoughts-2013-03-07/mobile2.jpg&quot; alt=&quot;Sign in at the bottom&quot;&gt;&lt;/div&gt;&lt;/p&gt;
-&lt;p&gt;Ohh I&amp;#39;m in luck, there&amp;#39;s a sign in link in the footer.&lt;/p&gt;
-&lt;p&gt;&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;/articles/raygun.io-first-thoughts-2013-03-07/mobile3.jpg&quot; alt=&quot;hello white blob&quot;&gt;&lt;/div&gt;&lt;/p&gt;
-&lt;p&gt;Hello whitespace!, luckily I know the login box is to the right&lt;/p&gt;
-&lt;p&gt;&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;/articles/raygun.io-first-thoughts-2013-03-07/mobile4.jpg&quot; alt=&quot;login at last&quot;&gt;&lt;/div&gt;&lt;/p&gt;
-&lt;p&gt;From here I enter my details and hit submit... nothing... no loading icon .... I give up.&lt;/p&gt;
-&lt;p&gt;As I don&amp;#39;t like closing on a negative note let me repeat that I&amp;#39;ve long been a fan of the guys and girls over at Mindscape. I&amp;#39;m glad they got &lt;a href=&quot;http://raygun.io/&quot;&gt;raygun.io&lt;/a&gt; out the door early to let early adopters like myself moan and groan, that&amp;#39;s a good thing and a sign of a healthy project. Considering this service went from inception to being up and running in a couple of months and is already in the state it is now speaks parts on how things will shape up in the future.&lt;/p&gt;
+    getHtml: &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;params&quot;&gt;(base)&lt;/span&gt; -&amp;gt;&lt;/span&gt;
+        &lt;span class=&quot;keyword&quot;&gt;super&lt;/span&gt; base
+        @_html = @_html.replace(&lt;span class=&quot;regexp&quot;&gt;/(&amp;lt;img[^&amp;gt;]+&amp;gt;)/g&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;'&amp;lt;div class=&quot;image-wrapper&quot;&amp;gt;$1&amp;lt;/div&amp;gt;'&lt;/span&gt;)
+        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; @_html
+
+
+    wintersmith.registerContentPlugin &lt;span class=&quot;string&quot;&gt;'pages'&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;'**/*.*(markdown|mkd|md)'&lt;/span&gt;, LocalGhostPage
+
+    callback()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Registered in wintersmith&amp;#39;s &lt;code&gt;config.json&lt;/code&gt;:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;quot;plugins&amp;quot;: [
+    &amp;quot;wintersmith-sass&amp;quot;,
+    &amp;quot;./node_modules/wintersmith-markdownhacks/plugin.coffee&amp;quot;
+]&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;It&amp;#39;s dirty but I love it&amp;#153;. Here&amp;#39;s an obligatory cat gif showing the end result.&lt;/p&gt;
+&lt;p&gt;&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;https://lh3.googleusercontent.com/-LRMOoQYIynY/UNH4iMul_gI/AAAAAAAAGoY/eJHrtOsd2QI/s275/137.gif&quot; alt=&quot;obligatory cat gif&quot;&gt;&lt;/div&gt;&lt;/p&gt;
 </description></item><item><title>Static blogging on Azure</title><link>//articles/static-blogging-on-azure-2012-12-12/</link><pubDate>Wed, 12 Dec 2012 19:54:00 +0100</pubDate><guid isPermaLink="true">//articles/static-blogging-on-azure-2012-12-12/</guid><author></author><description>&lt;p&gt;I&amp;#39;ve been playing with static blog sites way more then I ought to have especially considering this right here constitutes as my first blog post.&lt;/p&gt;
 &lt;p&gt;I find blogging scary enough, I make a lot of grammar mistakes even in my own native tongue and always mix up sayings at the amusal of my colleagues, friends and relatives. 
 Mark Twain has been quoted as saying that he respected a person who could spell a word more than one way. Me thinks Mark Twain and I would have gotten along.&lt;/p&gt;
 &lt;p&gt;So to get me started on blogging I need to be able to write and push from the command line where I feel comfortable and safe with little time to get cold feet thinking about all the horrible grammar mistakes I&amp;#39;ve made. &lt;/p&gt;
 &lt;p&gt;So I&amp;#39;ve settled on &lt;a href=&quot;http://jnordberg.github.com/wintersmith/&quot;&gt;wintersmith&lt;/a&gt; mostly because it&amp;#39;s nodejs based and nodejs is really easy to set up on any machine whether its windows, linux or mac. &lt;a href=&quot;http://jnordberg.github.com/wintersmith/&quot;&gt;wintersmith&lt;/a&gt; stood out to me because it has just enough to please without feeling crippled. &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ wintersmith preview
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;and&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ wintersmith build
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;bring home the cake.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ wintersmith preview&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;and&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ wintersmith build&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;bring home the cake.&lt;/p&gt;
 &lt;p&gt;I added a small &lt;code&gt;Makefile&lt;/code&gt; to ease with adding new articles as I really want to have a date in my slug&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;NAME = &amp;quot;new-article&amp;quot;
 FULLDATE=`date +&amp;#39;%y-%m-%d %H:%M&amp;#39;`
@@ -299,80 +345,17 @@ all:
 
 new:
     mkdir &amp;quot;$(FOLDER)&amp;quot;
-    echo &amp;quot;title: $(NAME)\nauthor: Mpdreamz\ndate: 20$(FULLDATE)\ntemplate: article.jade\n\n&amp;quot; &amp;gt;&amp;gt; &amp;quot;$(FOLDER)/index.md&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;now &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ make new NAME=&amp;quot;My New Article&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;and &lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ make MSG=&amp;quot;Commit message&amp;quot; 
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;brings home the cake. &lt;code&gt;make new&lt;/code&gt; takes care of figuring out what day it is and slugifying my desired blog title.
+    echo &amp;quot;title: $(NAME)\nauthor: Mpdreamz\ndate: 20$(FULLDATE)\ntemplate: article.jade\n\n&amp;quot; &amp;gt;&amp;gt; &amp;quot;$(FOLDER)/index.md&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;now &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ make new NAME=&amp;quot;My New Article&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;and &lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ make MSG=&amp;quot;Commit message&amp;quot; &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;brings home the cake. &lt;code&gt;make new&lt;/code&gt; takes care of figuring out what day it is and slugifying my desired blog title.
 &lt;code&gt;MAKE MSG=&amp;quot;&amp;quot;&lt;/code&gt; will commit my changes and push it to github. Github then notifies Azure to deploy my latest changes. This all happens within a few seconds!&lt;/p&gt;
 &lt;p&gt;For hosting I ended up with Azure git based hosting because it has a little gem I could not get on Heroku
 the &lt;code&gt;.deployment&lt;/code&gt; file where I can point to an alternative root. &lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;lang-ini&quot;&gt;&lt;span class=&quot;title&quot;&gt;[config]&lt;/span&gt;
-&lt;span class=&quot;setting&quot;&gt;project=&lt;span class=&quot;value&quot;&gt;build&lt;/span&gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code class=&quot;language-ini&quot;&gt;&lt;span class=&quot;section&quot;&gt;[config]&lt;/span&gt;
+&lt;span class=&quot;attr&quot;&gt;project&lt;/span&gt;=build&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;This little feature is a huge advantage to the other platforms I looked at, Heroku needs a small server to serve from a subfolder and github pages need a separate branch.&lt;/p&gt;
 &lt;p&gt;For now I&amp;#39;m pleased with this setup&lt;/p&gt;
 &lt;p&gt;Sidenote: I just ran a &lt;code&gt;:set spell&lt;/code&gt; and I&amp;#39;m certain I&amp;#39;m a respectable person by Mark Twain standards. &lt;/p&gt;
-</description></item><item><title>On devops at a project based shop</title><link>//articles/on-devops-at-a-project-based-shop-2013-06-11/</link><pubDate>Tue, 11 Jun 2013 08:57:00 +0200</pubDate><guid isPermaLink="true">//articles/on-devops-at-a-project-based-shop-2013-06-11/</guid><author></author><description>&lt;p&gt;The term &lt;code&gt;DevOps&lt;/code&gt; has many overloaded meanings so let me first state what I think encompasses the term &lt;code&gt;DevOps&lt;/code&gt;: everything related to development but not directly to implementing the core product/project&amp;#39;s functionality. &lt;/p&gt;
-&lt;p&gt;More concretely:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Automating the build&lt;/li&gt;
-&lt;li&gt;Continuous Builds&lt;/li&gt;
-&lt;li&gt;Continuous Integration&lt;/li&gt;
-&lt;li&gt;Unit Testing&lt;/li&gt;
-&lt;li&gt;Integration Tests&lt;/li&gt;
-&lt;li&gt;Continuous Testing&lt;/li&gt;
-&lt;li&gt;Automating the deploy procedure&lt;/li&gt;
-&lt;li&gt;Package the deploy&lt;/li&gt;
-&lt;li&gt;Continuous Deploy&lt;/li&gt;
-&lt;li&gt;Centralized error monitoring&lt;/li&gt;
-&lt;li&gt;Centralized log inspection&lt;/li&gt;
-&lt;li&gt;Centralized machine monitoring&lt;/li&gt;
-&lt;li&gt;Custom event monitoring (think statsd)&lt;/li&gt;
-&lt;li&gt;Machine provisioning&lt;/li&gt;
-&lt;li&gt;Machine configuration automation&lt;/li&gt;
-&lt;li&gt;Automating data backups&lt;/li&gt;
-&lt;li&gt;Automating data synchronization&lt;/li&gt;
-&lt;li&gt;Automating data-store upgrades&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;As you can imagine checking every item on this list of quality providing measurements is a massive undertaking. This is usually not scoped in product development let alone in project development. Yet each and everyone of this steps is a huge quality assurance indicator with massive value and if we are to take our trade seriously is something we should all be doing. &lt;/p&gt;
-&lt;p&gt;I tend to view this check list as &lt;code&gt;shadow work&lt;/code&gt;: work that is implicitly implied but never explicitly mentioned.&lt;/p&gt;
-&lt;p&gt;From what I&amp;#39;ve seen it&amp;#39;s the shops who develop products or maintain a single website tend to do better then project based shops who inherently have shorter development cycles. &lt;/p&gt;
-&lt;p&gt;A product shop has a continuous life-cycle which rather non-surprisingly makes way for continuous &lt;code&gt;&amp;lt;anything&amp;gt;&lt;/code&gt; to creep it&amp;#39;s way high on the agenda as they start to form obstacles. &lt;/p&gt;
-&lt;p&gt;A project shop has a very limited life-cycle, getting something out the door often trumps all and often rightfully so. The rather cruel catch 22 here is that especially these short life-cycle projects benefit the most from the devops checklist. Knowledge of the ins and outs of the moving parts of such a project are lost quickly. All the items on the devops serve as documentation as code and provide a warm welcome back for any developer picking up the project back up after a year or when doing SLA maintenance work.&lt;/p&gt;
-&lt;p&gt;Limited life-cycle is only one factor hindering project shops checking items off the devops check list. Having multiple projects means that each project comes with its own set of challenges further complicating the matter.&lt;/p&gt;
-&lt;p&gt;At my previous job at a project shop I helped standardize some of the devops check list and there I had the added benefit that all development happened in .NET on windows machines, the websites were hosted on in house windows servers and development happened rather linearly in SVN. This means that solutions for items on the checklist are reusable and learnings from one project can be transfered to the next. As a developer this meant that introducing new moving parts, say an exotic tech-stack is not something you can easily do. Even in this homogeneous development environment getting to check &lt;em&gt;ALL&lt;/em&gt; the items off the list is quite an investment both financially and personally convincing everyone involved of the necessity.&lt;/p&gt;
-&lt;p&gt;At my current job at a bigger project shop, that prides itself on using whatever tech stack is best for the project and has quite an agile mindset, development happens on Windows, Linux, OSX machines and projects are hosted on the cloud with Google, Amazon and Microsoft or on private dedicated servers behind weird VPN arrangements and project spans range from 6 weeks to three years. On top of that some releases follow a strict sign off procedure by clients others can be released when we deem necessary. Some development is linear and is easily continuously integrated, some follow a heavy branching model.     &lt;/p&gt;
-&lt;p&gt;This means that the knowledge on how to implement each item on the devops check list becomes very fragmented based on environment, language and framework choices, development model and release strategies. For an aspect of our profession already not high on the radar for many developers and managers this quickly becomes too much too handle. &lt;/p&gt;
-&lt;p&gt;The &lt;strong&gt;little dirty secret&lt;/strong&gt; in our industry that in a lot of cases devops turns into shadow work at best, done in the spare hours of a project. &lt;/p&gt;
-&lt;p&gt;The &lt;strong&gt;&lt;code&gt;big dirty secret&lt;/code&gt;&lt;/strong&gt; is that in a lot of cases this shadow work is simply ignored. This can have many causes&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Developers are simply unaware of this work&lt;/li&gt;
-&lt;li&gt;Developers ignore it because they are time-constraint because this &lt;code&gt;shadow work&lt;/code&gt; is not budgeted for.&lt;/li&gt;
-&lt;li&gt;Developers are aware but managers/project leads do not know how to sell this work to the client.&lt;/li&gt;
-&lt;li&gt;A client simply refuses to acknowledge the necessity of this &lt;code&gt;shadow work&lt;/code&gt; &lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;I think the &lt;code&gt;devops&lt;/code&gt; movement is great and more than just the new hip buzzword as it forces a flashlight onto the &lt;code&gt;shadow work&lt;/code&gt; and gets it on everybody&amp;#39;s agenda. &lt;/p&gt;
-&lt;p&gt;At &lt;a href=&quot;http://www.q42.nl/&quot;&gt;@q42&lt;/a&gt; colleague &lt;a href=&quot;https://twitter.com/markvanstraten&quot;&gt;Mark van Straten&lt;/a&gt; was given 6 hours a week to improve our devops story and although Mark did an absolutely stellar job getting all the current and past projects to build and deploy automatically we really found that this is not a one man project and 6 hours a week is really not sufficient to take care of ALL the shadow work on the &lt;code&gt;devops checklist&lt;/code&gt;. &lt;/p&gt;
-&lt;p&gt;Having fulfilled a similar role in my previous job Mark and I often debate to &lt;code&gt;How&amp;#39;s and Why&amp;#39;s&lt;/code&gt; of devops and even-though we disagree sometimes on details we share the greater vision of the importance of this &lt;code&gt;shadow work&lt;/code&gt;. So we recently called a meeting, &lt;code&gt;&amp;lt;insert meeting bashing comment here&amp;gt;&lt;/code&gt; with fellow colleagues who also take an interest and came to the following conclusions:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Devops is &lt;strong&gt;NOT&lt;/strong&gt; a one man operation.&lt;/li&gt;
-&lt;li&gt;That said a dedicated &lt;code&gt;devop&amp;#39;er&lt;/code&gt; might be a very good idea, not every developer has the time to learn puppet/chef and all the other aspects of the &lt;code&gt;ops&lt;/code&gt; side of things.&lt;/li&gt;
-&lt;li&gt;A project technical lead is responsible for getting &lt;code&gt;shadow work&lt;/code&gt; on a project&amp;#39;s agenda.&lt;/li&gt;
-&lt;li&gt;This can mean that he/she decides not to something on the &lt;code&gt;checklist&lt;/code&gt; for pragmatic reasons.&lt;/li&gt;
-&lt;li&gt;Everybody in a team is responsible for actually doing devops work.&lt;/li&gt;
-&lt;li&gt;Devops is not just a back-ender&amp;#39;s job there&amp;#39;s a lot to automate on the front-end too.&lt;ul&gt;
-&lt;li&gt;i.e a JS front-end guy writes scripts and makes sure they can report results in a xunit format so TC knows what it means.&lt;/li&gt;
-&lt;li&gt;The CSS guru automates the styleguide generation i.e rendering all the button permutations.&lt;/li&gt;
-&lt;li&gt;Writing integration tests in phantomjs&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://www.gruntjs.com/&quot;&gt;GruntJS&lt;/a&gt; all the things!&lt;/li&gt;
-&lt;li&gt;etcetera..&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;One thing is for sure &lt;code&gt;Devops&lt;/code&gt; work is a constant battle but as long it&amp;#39;s a battle we are fighting we&amp;#39;re on the right track. &lt;/p&gt;
-&lt;p&gt;Do you work for a project shop and are also fighting the &lt;code&gt;shadow work&lt;/code&gt; let me know how you are coping in the comments!&lt;/p&gt;
 </description></item><item><title>The joys of .NET OSS development</title><link>//articles/the-joys-of-.net-oss-development-2013-04-03/</link><pubDate>Wed, 03 Apr 2013 09:33:00 +0200</pubDate><guid isPermaLink="true">//articles/the-joys-of-.net-oss-development-2013-04-03/</guid><author></author><description>&lt;p&gt;Today a quite heated debate opened up on twitter on a number of questions concerning open source development in .NET
 Doing a full recap of all the points being made would be rather tedious but have a look at &lt;a href=&quot;https://www.twitter.com/gblock&quot;&gt;Glenn Block&amp;#39;s twitter feed&lt;/a&gt; most of the question and arguments raised boiled down to:&lt;/p&gt;
 &lt;ul&gt;
@@ -384,38 +367,51 @@ Doing a full recap of all the points being made would be rather tedious but have
 &lt;p&gt;I&amp;#39;ve been running &lt;a href=&quot;https://www.github.com/Mpdreamz/NEST&quot;&gt;an open source project&lt;/a&gt; for the past two years with success, I&amp;#39;ve had many people contribute and submit issues and the project is in use at some great sites out there and I couldn&amp;#39;t be happier with the community. The fact remains though that I am still the project&amp;#39;s only main maintainer and the only one answering questions on github and stackoverflow. &lt;/p&gt;
 &lt;p&gt;The only exposure I get is through making sure my documentation is on par and the project looks like its stable and still maintained when people hit the readme page on github. People have tweeted kind words, like &lt;a href=&quot;https://twitter.com/jptoto/status/287329848249167873&quot;&gt;this&lt;/a&gt; or &lt;a href=&quot;https://twitter.com/montesinnos/status/318811105478725634&quot;&gt;this&lt;/a&gt;, for which I&amp;#39;m super grateful!, that helps create a possitive buzz when someone googles for a .NET elasticsearch client.&lt;/p&gt;
 &lt;p&gt;To be honest though I think this is too be expected and I am OK with this. Unless you are lucky to have someone on board as a second maintainer, opensource means you have to do all the hard work. I don&amp;#39;t write code to please Microsoft so I ask for nothing in return. I write code because I need it, I share it so that others may benefit. If enough people do, which I believe to be the case even in the .NET dev world, you get a community going. &lt;/p&gt;
-&lt;p&gt;Although I dont expect anything from Microsoft I really &lt;strong&gt;don&amp;#39;t&lt;/strong&gt; get anything from Microsoft either. jetBrains donated a free Resharper license, my awesome employer &lt;a href=&quot;http://www.q42.nl/&quot;&gt;Q42&lt;/a&gt; even donates a day a week of my time to the project. 
+&lt;p&gt;Although I dont expect anything from Microsoft I really &lt;strong&gt;don&amp;#39;t&lt;/strong&gt; get anything from Microsoft either. jetBrains donated a free Resharper license, my awesome employer &lt;a href=&quot;http://www.q42.nl&quot;&gt;Q42&lt;/a&gt; even donates a day a week of my time to the project. 
 Microsoft does not hand out MVP&amp;#39;s for doing well in opensource, no msdn subscription, no reach outs from community managers.&lt;/p&gt;
 &lt;p&gt;To be fair as a community I do think we too can do better, we don&amp;#39;t have a go to website everybody goes to for daily updates on whats going on in the .net world. Finding like minded developers is an exercise in who follows who on twitter.&lt;/p&gt;
 &lt;p&gt;If we&amp;#39;re too thrive as a community doing .NET OSS development it should be despite of Microsoft, not because of it. &lt;/p&gt;
 &lt;p&gt;Which is also why I&amp;#39;ll refrain from bullet-listing everything Microsoft does wrong..&lt;/p&gt;
 &lt;p&gt;As a closing note I like to think if my project, that serves quite a niche, gets so many involved either through raising issues or sending pull requests I am anything but pessimistic about the community. Even if C# is only the 11th most popular language on github. &lt;/p&gt;
-</description></item><item><title>Writing a simple wintersmith plugin</title><link>//articles/writing-a-simple-wintersmith-plugin-2013-02-03/</link><pubDate>Sun, 03 Feb 2013 19:57:00 +0100</pubDate><guid isPermaLink="true">//articles/writing-a-simple-wintersmith-plugin-2013-02-03/</guid><author></author><description>&lt;p&gt;I wanted to hook in to how &lt;code&gt;&amp;lt;img&amp;gt;&lt;/code&gt; are outputted by giving them a wrapper element. 
-The reason I want to do this is so that i can give the wrapper a full page width background while centering and constraining the img&amp;#39;s &lt;code&gt;max-width&lt;/code&gt; to different sizes on different screen sizes. &lt;/p&gt;
-&lt;p&gt;Enter &lt;code&gt;wintersmith-markdownhacks&lt;/code&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;lang-coffee&quot;&gt;fs = require &amp;#39;fs&amp;#39;
-path = require &amp;#39;path&amp;#39;
-url = require &amp;#39;url&amp;#39;
-
-module.exports = (wintersmith, callback) -&amp;gt;
-
-class LocalGhostPage extends wintersmith.defaultPlugins.MarkdownPage
-
-    getHtml: (base) -&amp;gt;
-        super base
-        @_html = @_html.replace(/(&amp;lt;img[^&amp;gt;]+&amp;gt;)/g, &amp;#39;&amp;lt;div class=&amp;quot;image-wrapper&amp;quot;&amp;gt;$1&amp;lt;/div&amp;gt;&amp;#39;)
-        return @_html
-
-
-    wintersmith.registerContentPlugin &amp;#39;pages&amp;#39;, &amp;#39;**/*.*(markdown|mkd|md)&amp;#39;, LocalGhostPage
-
-    callback()
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Registered in wintersmith&amp;#39;s &lt;code&gt;config.json&lt;/code&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&amp;quot;plugins&amp;quot;: [
-    &amp;quot;wintersmith-sass&amp;quot;,
-    &amp;quot;./node_modules/wintersmith-markdownhacks/plugin.coffee&amp;quot;
-]
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;It&amp;#39;s dirty but I love it&amp;#153;. Here&amp;#39;s an obligatory cat gif showing the end result.&lt;/p&gt;
-&lt;p&gt;&lt;div class=&quot;image-wrapper&quot;&gt;&lt;img src=&quot;https://lh3.googleusercontent.com/-LRMOoQYIynY/UNH4iMul_gI/AAAAAAAAGoY/eJHrtOsd2QI/s275/137.gif&quot; alt=&quot;obligatory cat gif&quot;&gt;&lt;/div&gt;&lt;/p&gt;
+</description></item><item><title>IIS7 and static files madness</title><link>//articles/iis7-and-static-files-madness-2013-10-05/</link><pubDate>Sat, 05 Oct 2013 12:23:00 +0200</pubDate><guid isPermaLink="true">//articles/iis7-and-static-files-madness-2013-10-05/</guid><author></author><description>&lt;p&gt;While doing some performance monitoring with &lt;a href=&quot;https://github.com/wg/wrk&quot;&gt;wrk&lt;/a&gt; I noticed something perculiar about the throughput of my static files.&lt;/p&gt;
+&lt;p&gt;I have an MVC4 website where all the static live in a folder called &lt;code&gt;WebStatic&lt;/code&gt; and that folder has the following in its web.config:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt;
+&amp;lt;configuration&amp;gt;
+  &amp;lt;system.webServer&amp;gt;
+    &amp;lt;handlers&amp;gt;
+      &amp;lt;clear /&amp;gt;
+      &amp;lt;add name=&amp;quot;StaticFile&amp;quot; path=&amp;quot;*&amp;quot; verb=&amp;quot;*&amp;quot; modules=&amp;quot;StaticFileModule&amp;quot; resourceType=&amp;quot;File&amp;quot; requireAccess=&amp;quot;None&amp;quot; /&amp;gt;
+    &amp;lt;/handlers&amp;gt;
+    &amp;lt;staticContent&amp;gt;
+      &amp;lt;clientCache cacheControlCustom=&amp;quot;public&amp;quot; cacheControlMaxAge=&amp;quot;12:00:00&amp;quot; cacheControlMode=&amp;quot;UseMaxAge&amp;quot; /&amp;gt;
+      &amp;lt;remove fileExtension=&amp;quot;.ttf&amp;quot; /&amp;gt;
+      &amp;lt;remove fileExtension=&amp;quot;.otf&amp;quot; /&amp;gt;
+      &amp;lt;remove fileExtension=&amp;quot;.eot&amp;quot; /&amp;gt;
+      &amp;lt;mimeMap fileExtension=&amp;quot;.ttf&amp;quot; mimeType=&amp;quot;font/ttf&amp;quot; /&amp;gt;
+      &amp;lt;mimeMap fileExtension=&amp;quot;.eot&amp;quot; mimeType=&amp;quot;application/vnd.ms-fontobject&amp;quot; /&amp;gt;
+      &amp;lt;mimeMap fileExtension=&amp;quot;.otf&amp;quot; mimeType=&amp;quot;font/otf&amp;quot; /&amp;gt;
+    &amp;lt;/staticContent&amp;gt;
+  &amp;lt;/system.webServer&amp;gt;
+&amp;lt;/configuration&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This removes all &lt;code&gt;httphandlers&lt;/code&gt; and makes sure only the StaticFile handler is registered.&lt;/p&gt;
+&lt;p&gt;I place a manually gzipped file here and it hit with &lt;code&gt;wrk&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Running 10s test @ http://mymvcsite/webstatic/gzipped.css
+  2 threads and 20 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     4.55ms  697.96us   8.61ms   81.95%
+    Req/Sec     1.97k   171.44     2.00k    96.99%
+  43000 requests in 10.00s, 835.99MB read
+Requests/sec:   4299.89
+Transfer/sec:     83.60MB&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Hmm &lt;code&gt;4k/s&lt;/code&gt; does not seem like a whole lot for Microsofts flag ship web server. 
+Lets try that again this time placing the &lt;code&gt;gzipped.css&lt;/code&gt; file outside my mvc application in a new IIS website hosting nothing but that css file.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Running 10s test @ http://myplainsite/gzipped.css
+  2 threads and 20 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency     1.96ms  127.15us   2.77ms   90.70%
+    Req/Sec     4.56k   528.96     5.00k    57.36%
+  100446 requests in 10.00s, 1.91GB read
+Requests/sec:  10044.50
+Transfer/sec:    195.41MB&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Woah &lt;code&gt;10k/s&lt;/code&gt; now, thats loads better. &lt;/p&gt;
+&lt;p&gt;Now I realise benchmarking is hard and correlation does not imply causation and so I do not entirely place IIS at fault for the low throughput of my static files in my MVC site. I do however blame IIS for having an overly complex pipeline of machine.configs &amp;gt; parent web.config&amp;#39;s all creeping into my final &lt;code&gt;/webstatic&lt;/code&gt; folder&amp;#39;s performance.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;This is why we need OWIN.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Disclaimer: I ran the &lt;code&gt;wrk&lt;/code&gt; tests a couple of times and picked one that best represented the mean request/s ratio.&lt;/p&gt;
 </description></item></channel></rss>

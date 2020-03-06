@@ -2,7 +2,7 @@
 title: 'OSS development, a continuous lesson in humility'
 author: Mpdreamz
 date: 2013-03-07 13:41
-template: article.jade
+template: article.pug
 commentid: 4
 ---
 

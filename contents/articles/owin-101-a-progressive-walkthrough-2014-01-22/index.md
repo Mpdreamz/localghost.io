@@ -2,7 +2,7 @@
 title: Owin 101 a progressive walkthrough
 author: Mpdreamz
 date: 2014-01-22 20:39
-template: article.jade
+template: article.pug
 commentid: 8
 ---
 

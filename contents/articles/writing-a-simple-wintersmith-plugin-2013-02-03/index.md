@@ -2,7 +2,7 @@
 title: Writing a simple wintersmith plugin
 author: Mpdreamz
 date: 2013-02-03 19:57
-template: article.jade
+template: article.pug
 commentid: 1
 ---
 

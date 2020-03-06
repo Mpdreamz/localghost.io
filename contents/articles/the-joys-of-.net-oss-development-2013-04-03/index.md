@@ -2,7 +2,7 @@
 title: The joys of .NET OSS development
 author: Mpdreamz
 date: 2013-04-03 09:33
-template: article.jade
+template: article.pug
 commentid: 5
 ----
 

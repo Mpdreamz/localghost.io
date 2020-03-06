@@ -2,7 +2,7 @@
 title: On devops at a project based shop
 author: Mpdreamz
 date: 2013-06-11 08:57
-template: article.jade
+template: article.pug
 commentid: 6
 ----
 

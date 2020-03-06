@@ -1,0 +1,163 @@
+@import 'grid.scss';
+@import 'vars.scss';
+
+
+
+body {
+	background: black;
+	color:white;
+}
+nav,
+section p,
+section div.comment,
+section code,
+section ul,
+section h2,
+section h3,
+header {
+	width:70%;
+	max-width:800px;
+	min-width:400px;
+	margin-left:auto;
+	margin-right:auto;
+	@media screen and (max-width: $break-medium) {
+		width:95%;
+		max-width:95%;
+		min-width:95%;
+	}
+}
+.image-wrapper img {
+	max-width:800px;
+	margin-left:auto;
+	margin-right:auto;
+	@media screen and (max-width: $break-medium) {
+		max-width:95%;
+	}
+}
+section ul li {
+	padding-left:10px;
+	margin-left:10px;
+}
+pre code {
+	display:block
+}
+nav li {
+	margin-top:10px;
+}
+nav li {
+	float:right;
+	list-style:none;
+}
+@media screen and (max-width: $break-medium) {
+	nav ul {
+		margin:0;
+		padding:0;
+		text-align:center;
+	}
+	nav {
+		width:100%;
+		max-width:100%;
+		min-width:100%;
+	}
+	nav li {
+		float:none;
+		margin:0;
+		padding:0;
+		width:20%;
+	}
+	nav li.sep {
+		width:5%;
+		visibility:hidden;
+	}
+	nav li a {
+		text-align:center;
+		display:inline-block;
+		width: 100%;
+	}
+	nav li a.selected {
+		border-bottom:5px solid #551A8B;
+		background:black !important;
+		color:white; 
+	}
+	h1 {
+	}
+}
+section img {
+	display:block;
+	padding:10px;
+	background:#111111;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+section div.comment figure {
+	display:inline-block;
+	float:left;
+}
+
+section div.comment figure img {
+	display:inline-block;
+	
+	padding:10px;
+	background:#111111;
+	margin-left:auto;
+	margin-right:auto;
+}
+div.comment div.comment-body {
+	background-image: linear-gradient(top, rgb(17,17,17) 0px, rgb(0,0,0) 60px);
+	background-image: -o-linear-gradient(top, rgb(17,17,17) 0px, rgb(0,0,0) 60px);
+	background-image: -moz-linear-gradient(top, rgb(17,17,17) 0px, rgb(0,0,0) 60px);
+	background-image: -webkit-linear-gradient(top, rgb(17,17,17) 0px, rgb(0,0,0) 60px);
+	background-image: -ms-linear-gradient(top, rgb(17,17,17) 0px, rgb(0,0,0) 60px);
+
+
+	min-height:100px;
+	margin-left:110px;
+}
+div.comment, p.comments {
+	clear:both;
+}
+div.comment p,
+div.comment ul,
+div.comment pre,
+div.comment pre code {
+	width:100%;
+	padding:0px;
+	font-size:0.8em;
+}
+div.comment-body img {
+	margin-right:0px;
+	margin-left:0px;
+}
+div.comment pre code {
+	font-size:14px;
+}
+div.comment pre {
+	margin-left:-10px;
+	padding:10px;
+}
+div.comment p {
+	margin:0;
+	margin-bottom:10px;
+	
+}
+div.comment-body {
+	padding:10px;
+}
+p.comments {
+	margin-top:20px;
+	margin-bottom:20px;
+}
+p.comment-user span {
+	background:#382C00;
+	color:#9C8228;
+	padding:2px;
+	display:inline-block;
+	float:right;
+
+}
+p.comment-user a {
+	background:#551A8B;
+	color:white;
+	padding:2px;
+}

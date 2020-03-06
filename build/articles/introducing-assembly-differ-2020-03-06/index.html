@@ -1,0 +1,16 @@
+<!DOCTYPE html><html lang="en"><head><a class="back" href="/"><< back to index</a><h1>Introducing assembly-differ</h1><p class="author">Written by <span class="author">Mpdreamz</span></p></head><body><nav><ul><li><a class="selected" href="/articles/introducing-assembly-differ-2020-03-06/">Blog</a></li><li class="sep">|</li><li><a href="/archive.html" id="archive">Archives</a></li><li class="sep">|</li><li><a href="/about-me.html">About Me</a></li></ul></nav><header class="clearfix"><!--img#logo(src='/images/backgrounds/logo-32.png')      --><h1> <a href="/">localghost.io</a><span class="blink">_</span></h1></header><section class="content"></section><article class="post"><header><h2><a href>Introducing assembly-differ</a><section class="content"><p>Hi! ever wanted created a dll and nuget package and wanted to get a report of all of the assembly changes? Well now there is a dotnet tool for that!</p>
+<p>To install globally:</p>
+<pre><code>dotnet tool install -g assembly-differ</code></pre><p>But installing globally is not very repeatable build friendly so lets use <a href="/articles/introducing-assembly-differ-2020-03-06/">local tools</a> that were introduced with .NET core 3.0. Andrew Lock did <a href="https://andrewlock.net/new-in-net-core-3-local-tools/">a fantastic blog post introducing these</a></p>
+<p>Create a manifest file locally if one does not exist already:</p>
+<pre><code>dotnet new tool-manifest</code></pre><pre><code>dotnet tool install assembly-differ</code></pre><p>Now you can run e.g:</p>
+<pre><code>dotnet assembly-differ &quot;nuget|Elasticsearch.Net|7.3.0|netstandard2.0&quot; &quot;nuget|Elasticsearch.Net|7.4.1|netstandard2.0&quot;
+dotnet assembly-differ &quot;nuget|Newtonsoft.Json|10.0.1|netstandard2.0&quot; &quot;nuget|Newtonsoft.Json|12.0.1|netstandard2.0&quot;</code></pre><p>To get the differences between two nuget packages. </p>
+<p>Differ builds on the amazing work done by <a href="https://github.com/telerik/JustAssembly">JustAssembly, licensed under Apache 2.0</a>. We currently run on a fork that we know works on linux/osx as well. </p>
+<p>We hope this tool in the future will be able to:</p>
+<ul>
+<li>emit standard out errors if breaking changes exists so this could be easy leveraged in CI,</li>
+<li>Pass the tool with the version you intend to release and have the tool report the version it thinks it should be based on the differences between the assemblies</li>
+<li>Wrap all of this in Github Actions</li>
+</ul>
+<p>Trying to blog on the eve before a vacation does not leave me much time to fully do all its capabilites justice so expect more blog posts in the future!</p>
+</section></h2><h2><a class="commentCount" href="https://github.com/Mpdreamz/localghost.io/issues/7">Comments       </a></h2><p class="comments">Comments on this post are linked to <a class="commentLink" href="https://github.com/Mpdreamz/localghost.io/issues/7" data-api="https://api.github.com/repos/Mpdreamz/localghost.io/issues/7/comments">this post's issue page on GitHub</a></p></header></article><script>hljs.initHighlightingOnLoad(); </script></body></html>

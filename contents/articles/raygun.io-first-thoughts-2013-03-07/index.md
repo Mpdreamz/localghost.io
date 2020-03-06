@@ -2,7 +2,7 @@
 title: "raygun.io first thoughts"
 author: Mpdreamz
 date: 2013-03-07 08:35
-template: article.jade
+template: article.pug
 commentid: 3
 ---
 

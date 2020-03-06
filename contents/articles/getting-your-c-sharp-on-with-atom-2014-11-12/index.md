@@ -2,7 +2,7 @@
 title: Getting your C# on with Atom
 author: Mpdreamz
 date: 2014-11-12 15:15
-template: article.jade
+template: article.pug
 commentid: 9
 ---
 

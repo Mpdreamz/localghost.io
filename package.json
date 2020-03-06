@@ -9,7 +9,9 @@
 	"author": "Martijn Laarman <Mpdreamz@gmail.com>",
 	"description": "My personal website",
 	"dependencies": {
-		"wintersmith": "1.0.x",
-		"connect": "2.6.x"
+		"connect": "2.6.x",
+		"underscore": "^1.9.2",
+		"wintersmith": "^1.2.4",
+		"wintersmith-sass": "^0.3.0"
 	}
 }

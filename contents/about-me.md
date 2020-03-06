@@ -1,5 +1,5 @@
 ---
-template: about-me.jade
+template: about-me.pug
 ---
 
 An about me, ARGH, always a pain to write so i'll keep it brief!

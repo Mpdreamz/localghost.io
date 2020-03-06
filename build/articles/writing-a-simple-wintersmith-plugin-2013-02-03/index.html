@@ -1,29 +1,27 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>localghost.io</title><link rel="alternate" href="//feed.xml" type="application/rss+xml" title="-Love data, design and most of all, the web"><link rel="stylesheet" href="/css/normalize.css"><link rel="stylesheet" href="/css/layout.css"><link rel="stylesheet" href="/css/styling.css"><link rel="stylesheet" href="/css/fonts.css"><link rel="stylesheet" href="/css/styles/ir_black.css"><script src="/js/highlight.pack.js"></script><script src="/js/jquery.min.js"></script><script src="/js/comments.js"></script><!--script(src='/js/script.js')--></head><body><nav><ul><li><a href="/articles/getting-your-c-sharp-on-with-atom-2014-11-12/" class="selected">Blog</a></li><li class="sep">|</li><li><a href="/archive.html" id="archive">Archives</a></li><li class="sep">|</li><li><a href="/about-me.html">About Me</a></li></ul></nav><header class="clearfix"><!--img#logo(src='/images/backgrounds/logo-32.png')      --><h1><a href="/">localghost.io</a><span class="blink">_</span></h1></header><section class="content"></section><article class="post"><header><h2><a href>Writing a simple wintersmith plugin</a></h2></header><section class="content"><p>I wanted to hook in to how <code>&lt;img&gt;</code> are outputted by giving them a wrapper element. 
+<!DOCTYPE html><html lang="en"><head><a class="back" href="/"><< back to index</a><h1>Writing a simple wintersmith plugin</h1><p class="author">Written by <span class="author">Mpdreamz</span></p></head><body><nav><ul><li><a class="selected" href="/articles/introducing-assembly-differ-2020-03-06/">Blog</a></li><li class="sep">|</li><li><a href="/archive.html" id="archive">Archives</a></li><li class="sep">|</li><li><a href="/about-me.html">About Me</a></li></ul></nav><header class="clearfix"><!--img#logo(src='/images/backgrounds/logo-32.png')      --><h1> <a href="/">localghost.io</a><span class="blink">_</span></h1></header><section class="content"></section><article class="post"><header><h2><a href>Writing a simple wintersmith plugin</a><section class="content"><p>I wanted to hook in to how <code>&lt;img&gt;</code> are outputted by giving them a wrapper element. 
 The reason I want to do this is so that i can give the wrapper a full page width background while centering and constraining the img&#39;s <code>max-width</code> to different sizes on different screen sizes. </p>
 <p>Enter <code>wintersmith-markdownhacks</code>:</p>
-<pre><code class="lang-coffee">fs = require &#39;fs&#39;
-path = require &#39;path&#39;
-url = require &#39;url&#39;
+<pre><code class="language-coffee">fs = <span class="built_in">require</span> <span class="string">'fs'</span>
+path = <span class="built_in">require</span> <span class="string">'path'</span>
+url = <span class="built_in">require</span> <span class="string">'url'</span>
 
-module.exports = (wintersmith, callback) -&gt;
+<span class="built_in">module</span>.exports = <span class="function"><span class="params">(wintersmith, callback)</span> -&gt;</span>
 
-class LocalGhostPage extends wintersmith.defaultPlugins.MarkdownPage
+<span class="class"><span class="keyword">class</span> <span class="title">LocalGhostPage</span> <span class="keyword">extends</span> <span class="title">wintersmith</span>.<span class="title">defaultPlugins</span>.<span class="title">MarkdownPage</span></span>
 
-    getHtml: (base) -&gt;
-        super base
-        @_html = @_html.replace(/(&lt;img[^&gt;]+&gt;)/g, &#39;&lt;div class=&quot;image-wrapper&quot;&gt;$1&lt;/div&gt;&#39;)
-        return @_html
+    getHtml: <span class="function"><span class="params">(base)</span> -&gt;</span>
+        <span class="keyword">super</span> base
+        @_html = @_html.replace(<span class="regexp">/(&lt;img[^&gt;]+&gt;)/g</span>, <span class="string">'&lt;div class="image-wrapper"&gt;$1&lt;/div&gt;'</span>)
+        <span class="keyword">return</span> @_html
 
 
-    wintersmith.registerContentPlugin &#39;pages&#39;, &#39;**/*.*(markdown|mkd|md)&#39;, LocalGhostPage
+    wintersmith.registerContentPlugin <span class="string">'pages'</span>, <span class="string">'**/*.*(markdown|mkd|md)'</span>, LocalGhostPage
 
-    callback()
-</code></pre>
+    callback()</code></pre>
 <p>Registered in wintersmith&#39;s <code>config.json</code>:</p>
 <pre><code>&quot;plugins&quot;: [
     &quot;wintersmith-sass&quot;,
     &quot;./node_modules/wintersmith-markdownhacks/plugin.coffee&quot;
-]
-</code></pre><p>It&#39;s dirty but I love it&#153;. Here&#39;s an obligatory cat gif showing the end result.</p>
+]</code></pre><p>It&#39;s dirty but I love it&#153;. Here&#39;s an obligatory cat gif showing the end result.</p>
 <p><div class="image-wrapper"><img src="https://lh3.googleusercontent.com/-LRMOoQYIynY/UNH4iMul_gI/AAAAAAAAGoY/eJHrtOsd2QI/s275/137.gif" alt="obligatory cat gif"></div></p>
-<h2><a href="https://github.com/Mpdreamz/localghost.io/issues/1" class="commentCount">Comments       </a></h2><p class="comments">Comments on this post are linked to <a href="https://github.com/Mpdreamz/localghost.io/issues/1" data-api="https://api.github.com/repos/Mpdreamz/localghost.io/issues/1/comments" class="commentLink">this post's issue page on GitHub</a></p></section></article><script>hljs.initHighlightingOnLoad(); </script></body></html>
+</section></h2><h2><a class="commentCount" href="https://github.com/Mpdreamz/localghost.io/issues/1">Comments       </a></h2><p class="comments">Comments on this post are linked to <a class="commentLink" href="https://github.com/Mpdreamz/localghost.io/issues/1" data-api="https://api.github.com/repos/Mpdreamz/localghost.io/issues/1/comments">this post's issue page on GitHub</a></p></header></article><script>hljs.initHighlightingOnLoad(); </script></body></html>

@@ -2,7 +2,7 @@
 title: IIS7 and static files madness
 author: Mpdreamz
 date: 2013-10-05 12:23
-template: article.jade
+template: article.pug
 commentid: 7
 ---
 

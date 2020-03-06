@@ -2,7 +2,7 @@
 title: Introducing assembly-differ
 author: Mpdreamz
 date: 2020-03-06 22:44
-template: article.jade
+template: article.pug
 commentid: 7
 ---
 
