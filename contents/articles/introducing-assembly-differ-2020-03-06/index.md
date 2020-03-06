@@ -8,6 +8,8 @@ commentid: 11
 
 Hi! ever wanted created a dll and nuget package and wanted to get a report of all of the assembly changes? Well now there is a dotnet tool for that!
 
+Introducing [assembly-differ](https://www.nuget.org/packages/assembly-differ)
+
 To install globally:
 ```
 dotnet tool install -g assembly-differ
