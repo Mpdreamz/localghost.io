@@ -3,7 +3,7 @@ title: Introducing assembly-differ
 author: Mpdreamz
 date: 2020-03-06 22:44
 template: article.pug
-commentid: 10
+commentid: 11
 ---
 
 Hi! ever wanted created a dll and nuget package and wanted to get a report of all of the assembly changes? Well now there is a dotnet tool for that!
