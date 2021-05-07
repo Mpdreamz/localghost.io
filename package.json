@@ -10,7 +10,7 @@
 	"description": "My personal website",
 	"dependencies": {
 		"connect": "2.6.x",
-		"underscore": "^1.9.2",
+		"underscore": "^1.12.1",
 		"wintersmith": "^1.2.4",
 		"wintersmith-sass": "^0.3.0"
 	}
