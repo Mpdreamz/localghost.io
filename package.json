@@ -11,7 +11,7 @@
 	"dependencies": {
 		"connect": "2.6.x",
 		"underscore": "^1.9.2",
-		"wintersmith": "^1.2.4",
+		"wintersmith": "^2.5.0",
 		"wintersmith-sass": "^0.3.0"
 	}
 }
