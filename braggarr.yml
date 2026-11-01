@@ -1,0 +1,14 @@
+title: localghost.io
+description: Love data, design and most of all, the web.
+url: https://www.localghost.io/
+author:
+  name: Martijn Laarman
+  avatar: images/martijnl.gif
+permalink: /articles/{slug}/
+nav:
+  - title: About
+    page: about
+  - title: Archive
+    href: /archive/
+feed: feed.xml
+posts_per_page: 10
