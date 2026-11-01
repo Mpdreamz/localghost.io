@@ -1,0 +1,15 @@
+title: localghost.io
+description: Love data, design and most of all, the web.
+url: https://www.localghost.io/
+author:
+  name: Martijn Laarman
+  avatar: images/martijnl.gif
+  bio: Full-stack engineer, leading Documentation Engineering at Elastic.
+permalink: /articles/{slug}/
+nav:
+  - title: About
+    page: about
+  - title: Archive
+    href: /archive/
+feed: feed.xml
+posts_per_page: 10

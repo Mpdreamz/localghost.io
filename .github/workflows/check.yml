@@ -1,0 +1,13 @@
+# A pull request builds the site in strict mode: a broken link, a missing image or a bad front matter fails it.
+on:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: Mpdreamz/braggarr@main
+        with:
+          strict: "true"
