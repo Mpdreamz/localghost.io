@@ -1,0 +1,24 @@
+# Builds the site with braggarr and deploys it to GitHub Pages.
+on:
+  push:
+    branches: [master]
+  schedule:
+    - cron: "17 * * * *"   # hourly, so a post dated later goes out after its date
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.publish.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: publish
+        uses: Mpdreamz/braggarr/actions/publish@main

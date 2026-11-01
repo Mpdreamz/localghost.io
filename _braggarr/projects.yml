@@ -1,0 +1,111 @@
+# Written by hand until Braggarr writes it.
+groups:
+  - title: For the Mac
+    description: "Apps and a library for Apple silicon: running coding agents, recording demos, and the desktop itself."
+    projects:
+      - name: heed
+        repo: heed-build/heed
+        icon: media/heed-icon.png
+        image: media/heed-card.jpg
+        url: https://heed.build
+        tldr: A native macOS app that feels like a TUI, with vim keys, for running coding agents and getting their PRs green and merged.
+        language: Swift
+        stars: 4
+        release: { tag: v0.33.0, date: "2026-10-29T22:43:38Z", url: https://github.com/heed-build/heed/releases/tag/v0.33.0 }
+        links:
+          - { title: Getting started, url: "https://heed.build/getting-started/" }
+      - name: reel
+        repo: Mpdreamz/reel
+        icon: media/reel-icon.png
+        image: media/reel-card.jpg
+        url: https://mpdreamz.github.io/reel/
+        tldr: "Record macOS app and web demos from a script: real cursor, real keys, the app's own sound, captions and zooms, out as MP4 or GIF."
+        language: Swift
+        stars: 0
+        release: { tag: v0.4.0, date: "2026-11-01T09:19:45Z", url: https://github.com/Mpdreamz/reel/releases/tag/v0.4.0 }
+      - name: hunch
+        repo: heed-build/hunch
+        tldr: "A Swift library for local typed decisions on Apple silicon: choice, score and yes/no questions about text in one encoder pass, no server or Python."
+        language: Swift
+        stars: 0
+        release: { tag: 0.2.1, date: "2026-10-28T15:40:55Z", url: https://github.com/heed-build/hunch/releases/tag/0.2.1 }
+      - name: undertone
+        repo: Mpdreamz/undertone
+        icon: media/undertone-icon.png
+        image: media/undertone-card.jpg
+        url: https://mpdreamz.github.io/undertone/
+        tldr: Hide the notch and screen borders under generated Mac wallpapers that follow your light or dark theme and change on a schedule.
+        language: Swift
+        stars: 0
+        release: { tag: v0.7.0, date: "2026-10-20T19:04:03Z", url: https://github.com/Mpdreamz/undertone/releases/tag/v0.7.0 }
+      - name: yabar
+        repo: Mpdreamz/yabar
+        icon: media/yabar-icon.png
+        image: media/yabar-card.jpg
+        url: https://mpdreamz.github.io/yabar/
+        tldr: Spaces, stacks and tabs for the yabai tiling window manager, in the macOS menu bar.
+        language: Swift
+        stars: 0
+        release: { tag: v0.3.0, date: "2026-10-20T20:47:18Z", url: https://github.com/Mpdreamz/yabar/releases/tag/v0.3.0 }
+  - title: .NET tools
+    description: For building .NET command lines, docs and sites, and keeping their code tidy.
+    projects:
+      - name: curb
+        repo: nullean/curb
+        icon: media/curb-icon.png
+        image: media/curb-card.jpg
+        url: https://curb.nullean.net
+        tldr: A C# formatter that reflows to a line width like Prettier while honouring all of your .editorconfig.
+        language: C#
+        stars: 37
+        release: { tag: 0.10.1, date: "2026-11-01T10:34:25Z", url: https://github.com/nullean/curb/releases/tag/0.10.1 }
+        links:
+          - { title: Benchmarks, url: "https://curb.nullean.net/benchmarks/" }
+      - name: argh
+        repo: nullean/argh
+        icon: media/argh-icon.png
+        image: media/argh-card.jpg
+        url: https://argh.nullean.net
+        tldr: "A source generator for .NET command lines: methods become commands, XML docs become help, records become options."
+        language: C#
+        stars: 1
+        release: { tag: 0.21.0, date: "2026-10-03T21:43:25Z", url: https://github.com/nullean/argh/releases/tag/0.21.0 }
+      - name: mermaider
+        repo: nullean/mermaider
+        icon: media/mermaider-icon.png
+        image: media/mermaider-card.jpg
+        url: https://mermaider.nullean.net
+        tldr: "Mermaid diagrams to SVG in pure .NET: parser, layout engine and renderer. No browser, no DOM, no JavaScript, AOT-ready."
+        language: C#
+        stars: 54
+        release: { tag: 0.15.1, date: "2026-10-06T07:58:14Z", url: https://github.com/nullean/mermaider/releases/tag/0.15.1 }
+        links:
+          - { title: NuGet, url: "https://www.nuget.org/packages/Mermaider" }
+      - name: pagefind-net
+        repo: nullean/pagefind-net
+        icon: media/pagefind-net-icon.png
+        url: https://pagefind.nullean.net
+        tldr: "Pagefind static search indexes written from pure .NET: no native binaries, no subprocess, no npm install."
+        language: C#
+        stars: 0
+        release: { tag: 0.4.1, date: "2026-07-28T11:30:24Z", url: https://github.com/nullean/pagefind-net/releases/tag/0.4.1 }
+  - title: .NET libraries
+    description: For modelling domains whose rules are proven, and for handling paths you don't fully trust.
+    projects:
+      - name: entities
+        repo: nullean/entities
+        icon: media/entities-icon.png
+        image: media/entities-card.jpg
+        url: https://entities.nullean.net
+        tldr: "Constraint-checked domain entities for .NET: name a rule once, check it on values, test it on generated data, watch it on event streams."
+        language: C#
+        stars: 0
+        release: { tag: 0.1.1, date: "2026-10-20T18:55:07Z", url: https://github.com/nullean/entities/releases/tag/0.1.1 }
+      - name: scoped-filesystem
+        repo: nullean/scoped-filesystem
+        tldr: "An IFileSystem for .NET that only reads and writes inside the folders you allow: no .. traversal, no symlinks, no hidden files."
+        language: C#
+        stars: 2
+        release: { tag: 0.5.0, date: "2026-10-27T10:58:02Z", url: https://github.com/nullean/scoped-filesystem/releases/tag/0.5.0 }
+        links:
+          - { title: NuGet, url: "https://www.nuget.org/packages/Nullean.ScopedFileSystem" }
